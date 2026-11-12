@@ -1,0 +1,19 @@
+*.iml
+.gradle/
+/local.properties
+/.idea/
+.DS_Store
+/build/
+/app/build/
+/captures/
+.externalNativeBuild/
+.cxx/
+.kotlin/
+# Python
+__pycache__/
+*.pyc
+.venv/
+# Veri gizliliği: ham/gerçek veri asla depoya eklenmez
+python/dataset/raw/
+*.apk
+cikti/

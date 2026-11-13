@@ -3,7 +3,7 @@
 **Cihaz:** ……………… (marka/model)  **Android sürümü:** ……  **Test tarihi:** ……  **Testi yapan:** ……
 **Uygulama sürümü:** 0.1.0-asama1
 
-Logcat filtresi: `tag:DK-Notif` (veya `adb logcat -s DK-Notif`)
+Sonuçlar uygulamanın ana ekranındaki **"Yakalanan bildirimler"** listesinde görünür (bilgisayar gerekmez). İsteğe bağlı: Logcat filtresi `tag:DK-Notif`.
 
 > Etik kural: Testlerde yalnızca ekip içi, önceden hazırlanmış **sentetik** mesajlar kullanılır. Gerçek kişilerin mesajları kullanılmaz ve kaydedilmez.
 

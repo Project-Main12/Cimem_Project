@@ -9,6 +9,7 @@ import androidx.compose.ui.graphics.asAndroidBitmap
 import androidx.compose.ui.test.captureToImage
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onRoot
+import com.digitalkalkan.app.monitoring.notification.CapturedNotification
 import com.digitalkalkan.app.ui.theme.DijitalKalkanTheme
 import org.junit.Rule
 import org.junit.Test
@@ -30,12 +31,13 @@ class MainScreenScreenshotTest {
     @get:Rule
     val composeRule = createComposeRule()
 
-    private fun capture(name: String, enabled: Boolean) {
+    private fun capture(name: String, enabled: Boolean, captured: List<CapturedNotification> = emptyList()) {
         composeRule.setContent {
             DijitalKalkanTheme(darkTheme = false) {
                 MainScreen(
                     listenerEnabled = enabled,
                     onOpenSettings = {},
+                    captured = captured,
                     modifier = Modifier.fillMaxSize().background(MaterialTheme.colorScheme.background)
                 )
             }
@@ -49,5 +51,12 @@ class MainScreenScreenshotTest {
     fun anaEkran_izinKapali() = capture("ana_ekran_izin_kapali", enabled = false)
 
     @Test
-    fun anaEkran_izinAcik() = capture("ana_ekran_izin_acik", enabled = true)
+    fun anaEkran_izinAcik() = capture(
+        "ana_ekran_izin_acik", enabled = true,
+        captured = listOf(
+            CapturedNotification("14:05:12", "com.digitalkalkan.app", "", "", "Kendi bildirimimiz – analiz dışı"),
+            CapturedNotification("14:03:40", "com.whatsapp", "Test Grubu", "Merhaba, bu bir deneme mesajıdır şğüıöç İ"),
+            CapturedNotification("14:01:05", "com.android.shell", "Test Baslik", "Merhaba bu bir deneme mesajidir")
+        )
+    )
 }

@@ -11,8 +11,8 @@ android {
         applicationId = "com.digitalkalkan.app"
         minSdk = 29          // Android 10
         targetSdk = 36
-        versionCode = 1
-        versionName = "0.1.0-asama1"
+        versionCode = 2
+        versionName = "0.1.1-asama1"
     }
 
     buildTypes {

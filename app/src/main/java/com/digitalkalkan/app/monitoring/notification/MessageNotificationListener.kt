@@ -36,6 +36,7 @@ class MessageNotificationListener : NotificationListenerService() {
         // 1) Kendi uygulamamızın bildirimlerini analiz dışı tut
         if (sourcePackage == packageName) {
             Log.d(TAG, "Kendi bildirimimiz, analiz dışı bırakıldı.")
+            CapturedNotificationLog.add(sourcePackage, "", "", "Kendi bildirimimiz – analiz dışı")
             return
         }
 
@@ -44,6 +45,7 @@ class MessageNotificationListener : NotificationListenerService() {
         // 2) Grup özet bildirimlerini atla (ör. "3 yeni mesaj"); asıl mesajlar ayrı gelir
         if (notification.flags and Notification.FLAG_GROUP_SUMMARY != 0) {
             Log.d(TAG, "Grup özeti atlandı: $sourcePackage")
+            CapturedNotificationLog.add(sourcePackage, "", "", "Grup özeti – atlandı")
             return
         }
 
@@ -65,6 +67,9 @@ class MessageNotificationListener : NotificationListenerService() {
         } else {
             Log.i(TAG, "YENİ BİLDİRİM | paket=$sourcePackage | metin uzunluğu=${visibleText.length}")
         }
+
+        // Test için uygulama ekranındaki listeye ekle (yalnızca bellekte)
+        CapturedNotificationLog.add(sourcePackage, title, visibleText)
 
         // Sonraki aşama: visibleText -> metin temizleme -> Türkçe analiz motoru
     }

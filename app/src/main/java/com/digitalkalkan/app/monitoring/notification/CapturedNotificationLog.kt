@@ -1,6 +1,7 @@
 package com.digitalkalkan.app.monitoring.notification
 
 import androidx.compose.runtime.mutableStateListOf
+import com.digitalkalkan.app.domain.model.AnalysisResult
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -11,7 +12,8 @@ data class CapturedNotification(
     val packageName: String,
     val title: String,
     val text: String,
-    val skippedReason: String? = null   // null değilse analiz dışı bırakıldı
+    val skippedReason: String? = null,   // null değilse analiz dışı bırakıldı
+    val result: AnalysisResult? = null
 )
 
 /**
@@ -24,8 +26,14 @@ object CapturedNotificationLog {
 
     val items = mutableStateListOf<CapturedNotification>()
 
-    fun add(packageName: String, title: String, text: String, skippedReason: String? = null) {
-        items.add(0, CapturedNotification(formatter.format(Date()), packageName, title, text, skippedReason))
+    fun add(
+        packageName: String,
+        title: String,
+        text: String,
+        skippedReason: String? = null,
+        result: AnalysisResult? = null
+    ) {
+        items.add(0, CapturedNotification(formatter.format(Date()), packageName, title, text, skippedReason, result))
         while (items.size > MAX) items.removeAt(items.lastIndex)
     }
 

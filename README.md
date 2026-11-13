@@ -7,7 +7,7 @@ TÜBİTAK 2204-A Lise Öğrencileri Araştırma Projesi
 kaynaklarındaki zararlı Türkçe içeriği **cihaz üzerinde** sınıflandırıp ebeveyne yalnızca
 risk özetini ileten bir prototip.
 
-<img src="docs/ekran-goruntuleri/ana_ekran_izin_kapali.png" width="280" alt="Ana ekran">
+<img src="docs/ekran-goruntuleri/sekme1_bildirimler.png" width="280" alt="Ana ekran">
 
 ## Mevcut durum: Aşama 1 – Bildirim dinleyici
 

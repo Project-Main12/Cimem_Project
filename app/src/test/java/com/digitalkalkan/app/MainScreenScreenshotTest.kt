@@ -1,15 +1,16 @@
 package com.digitalkalkan.app
 
 import android.graphics.Bitmap
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.asAndroidBitmap
 import androidx.compose.ui.test.captureToImage
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onRoot
+import com.digitalkalkan.app.data.repository.UserEntry
+import com.digitalkalkan.app.domain.analysis.KeywordAnalyzer
+import com.digitalkalkan.app.domain.model.RiskCategory
+import com.digitalkalkan.app.domain.model.RuleSource
 import com.digitalkalkan.app.monitoring.notification.CapturedNotification
+import com.digitalkalkan.app.ui.DijitalKalkanApp
 import com.digitalkalkan.app.ui.theme.DijitalKalkanTheme
 import org.junit.Rule
 import org.junit.Test
@@ -20,7 +21,7 @@ import org.robolectric.annotation.GraphicsMode
 import java.io.File
 
 /**
- * Telefon olmadan ana ekranın görüntüsünü üretir.
+ * Telefon olmadan ekran görüntüsü üretir.
  * Çalıştırma: ./gradlew testDebugUnitTest  ->  app/build/screenshots klasöründeki PNG dosyaları
  */
 @RunWith(RobolectricTestRunner::class)
@@ -31,14 +32,42 @@ class MainScreenScreenshotTest {
     @get:Rule
     val composeRule = createComposeRule()
 
-    private fun capture(name: String, enabled: Boolean, captured: List<CapturedNotification> = emptyList()) {
+    private val analyzer = KeywordAnalyzer(
+        listOf(
+            File("src/main/assets/lexicon/tr_risk_lexicon.txt").readText() to RuleSource.ANA_SOZLUK,
+            "[HAKARET]\nkoca kafa\n" to RuleSource.KULLANICI
+        )
+    )
+    private val entries = listOf(
+        UserEntry("koca kafa", RiskCategory.HAKARET, false),
+        UserEntry("leylek", RiskCategory.HAKARET, true),
+        UserEntry("parkta bekleriz", RiskCategory.TEHDIT, false)
+    )
+
+    private fun note(time: String, pkg: String, title: String, text: String) =
+        CapturedNotification(time, pkg, title, text, result = analyzer.analyze(text))
+
+    private fun capture(name: String, tab: Int, tryText: String = "") {
         composeRule.setContent {
             DijitalKalkanTheme(darkTheme = false) {
-                MainScreen(
-                    listenerEnabled = enabled,
+                DijitalKalkanApp(
+                    listenerEnabled = true,
                     onOpenSettings = {},
-                    captured = captured,
-                    modifier = Modifier.fillMaxSize().background(MaterialTheme.colorScheme.background)
+                    captured = listOf(
+                        note("14:06:02", "com.whatsapp", "Sınıf Grubu", "seni okul çıkışında bekleyeceğim"),
+                        note("14:05:40", "com.whatsapp", "Ayşe", "bakın koca kafa yine geldi 😂"),
+                        note("14:03:10", "com.google.android.apps.messaging", "555-1234", "yarın matematik ödevini getir"),
+                        CapturedNotification("14:01:00", "com.digitalkalkan.app", "", "", "Kendi bildirimimiz – analiz dışı")
+                    ),
+                    onClearCaptured = {},
+                    analyze = analyzer::analyze,
+                    userEntries = entries,
+                    onAddEntry = { _, _, _ -> null },
+                    onRemoveEntry = {},
+                    onShareEntries = {},
+                    initialTab = tab,
+                    tryTextInitial = tryText,
+                    tryTextInitialResult = if (tryText.isBlank()) null else analyzer.analyze(tryText)
                 )
             }
         }
@@ -47,16 +76,7 @@ class MainScreenScreenshotTest {
         out.outputStream().use { bitmap.compress(Bitmap.CompressFormat.PNG, 100, it) }
     }
 
-    @Test
-    fun anaEkran_izinKapali() = capture("ana_ekran_izin_kapali", enabled = false)
-
-    @Test
-    fun anaEkran_izinAcik() = capture(
-        "ana_ekran_izin_acik", enabled = true,
-        captured = listOf(
-            CapturedNotification("14:05:12", "com.digitalkalkan.app", "", "", "Kendi bildirimimiz – analiz dışı"),
-            CapturedNotification("14:03:40", "com.whatsapp", "Test Grubu", "Merhaba, bu bir deneme mesajıdır şğüıöç İ"),
-            CapturedNotification("14:01:05", "com.android.shell", "Test Baslik", "Merhaba bu bir deneme mesajidir")
-        )
-    )
+    @Test fun sekme1_bildirimler() = capture("sekme1_bildirimler", 0)
+    @Test fun sekme2_metinDene() = capture("sekme2_metin_dene", 1, "s.a.l.a.k mısın sen, okul çıkışında bekle")
+    @Test fun sekme3_kelimeListem() = capture("sekme3_kelime_listem", 2)
 }

@@ -7,10 +7,11 @@
 
 | Dosya | İçerik |
 |---|---|
-| `kaynak/temel_ornekler.txt` | Elle yazılmış 503 temel cümle (5 sınıf). **Düzenleme buradan yapılır.** |
-| `kaynak/ek_kategoriler.txt` | Ana set dışı 50 örnek: uygunsuz yaklaşım (grooming), kendine zarar ifadesi, nefret söylemi, dolandırıcılık |
+| `kaynak/temel_ornekler.txt` | Elle yazılmış 635 temel cümle (7 sınıf). **Düzenleme buradan yapılır.** |
+| `kaynak/ek_kategoriler.txt` | Ana set dışı 20 örnek: nefret söylemi, dolandırıcılık |
 | `build_dataset.py` | Temel cümlelerden varyantları üretir, train/val/test böler |
-| `dijitalkalkan_v1.csv` | Tüm veri: 1505 örnek |
+| `dijitalkalkan_v1.csv` | Tüm veri: 2115 örnek |
+| `offenseval_indir.py` | OffensEval-TR indirici (internet gerekir) → `dis_veri/` |
 | `splits/train.csv`, `val.csv`, `test.csv` | %70 / %15 / %15 (grup bazlı, sınıf dengeli) |
 | `ek_kategoriler_v1.csv` | Ek kategoriler (CSV) |
 | `ISTATISTIK.md` | Sınıf, alt tür, bağlam ve varyant dağılımları |
@@ -41,10 +42,8 @@ Sonuçlar: `python/evaluation/sonuclar/`
    - OffensEval-TR 2020 (gerçek tweetler, ikili etiket: NOT/OFF) kullanılmalıdır.
 3. **Varyantlar** temel cümlenin kopyasıdır; bu yüzden aynı gruptakiler aynı bölüme konmuştur.
 
-## OffensEval-TR'yi indirme (Öğrenci 2, kendi bilgisayarında)
-```bash
-pip install datasets
-python -c "from datasets import load_dataset; d=load_dataset('coltekin/offenseval2020_tr'); d['test'].to_csv('offenseval_tr_test.csv')"
-```
-Etiketler ikilidir (`NOT`=0 / `OFF`=1). Bizim sınıflarla karşılaştırırken
-`NORMAL` → NOT, diğer 4 sınıf → OFF olarak eşlenir. İndirilen dosya **depoya eklenmez** (lisans).
+## Sınıflar (7)
+NORMAL, KUFUR, HAKARET, SIBER_ZORBALIK, TEHDIT, UYGUNSUZ_YAKLASIM, KENDINE_ZARAR
+
+## OffensEval-TR (gerçek dış veri)
+Adım adım anlatım: `docs/offenseval_rehberi.md`

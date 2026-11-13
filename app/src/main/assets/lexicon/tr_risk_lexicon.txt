@@ -10,7 +10,8 @@
 #  BİÇİM KURALLARI
 #  ---------------------------------------------------------------
 #  [KATEGORI]      Bölüm başlığı. Geçerli başlıklar:
-#                  KUFUR, HAKARET, SIBER_ZORBALIK, TEHDIT, ISTISNA
+#                  KUFUR, HAKARET, SIBER_ZORBALIK, TEHDIT,
+#                  UYGUNSUZ_YAKLASIM, KENDINE_ZARAR, ISTISNA
 #  # ...           Yorum satırı (dikkate alınmaz)
 #  kelime          Kelimenin TAMAMI eşleşir      (mal  -> "mal" evet, "malzeme" hayır)
 #  kelime*         Kelime BU KÖKLE BAŞLARSA       (aptal* -> aptal, aptalsın, aptallar)
@@ -31,10 +32,13 @@
 #  SIBER_ZORBALIK : Dışlama, toplu alay, ifşa/şantaj, kendine zarar vermeye
 #                   yönlendirme, hedef gösterme.
 #  TEHDIT         : Fiziksel zarar, takip, şiddet veya bedel ödetme bildirimi.
+#  UYGUNSUZ_YAKLASIM : Yetişkin/yabancının gizlilik, yalnızlık sorgusu, görüntü
+#                   isteme, buluşma, platform değiştirme kalıpları (grooming).
+#  KENDINE_ZARAR  : Çocuğun kendisi hakkında ölüm/kendine zarar/umutsuzluk ifadesi.
 #  ISTISNA        : Yanlış alarm veren masum kelimeler (eşleşmeyi iptal eder).
 #
 #  Öncelik (bir mesaj birden çok kategoriye uyarsa):
-#  TEHDIT > SIBER_ZORBALIK > KUFUR > HAKARET
+#  KENDINE_ZARAR > UYGUNSUZ_YAKLASIM > TEHDIT > SIBER_ZORBALIK > KUFUR > HAKARET
 #  (Kural: Mesajda küfürlü sözcük varsa ve tehdit/zorbalık yoksa -> KUFUR.
 #   Küfür içermeyen aşağılama -> HAKARET. Bkz. docs/etiketleme_kilavuzu.md)
 # =====================================================================
@@ -377,6 +381,90 @@ hesabını sorarım
 bedelini ödeyeceksin
 seni buraya gömerim
 kafana sıkarım
+
+[UYGUNSUZ_YAKLASIM]
+# --- Gizlilik talebi ---
+# Not: "kimseye söyleme" sürpriz partide de kullanılır -> bilinçli yanlış alarm testi
+kimseye söyleme
+kimseye söylemeden
+aramızda kalsın
+bizim sırrımız
+benden bahsetme
+ailene söyleme
+annene söyleme
+babana söyleme
+mesajları sil*
+kimse görmesin
+kimse görmeyecek
+kimse duymasın
+sohbeti kapat
+# --- Yalnızlık / aile denetimi sorgusu ---
+yalnız mısın
+evde yalnız*
+yalnızmısın
+odanda tek*
+telefonunu kontrol*
+mesajlarını okuyor*
+eve kaçta geliyor*
+# --- Görüntü isteme ---
+kameranı aç*
+kamerayı aç*
+sadece ben göre*
+sadece ben görcem
+sadece bana özel
+pijamalı*
+fotoğrafı attıktan sonra sil
+yanında kimse olmasın
+# --- Buluşma / konum ---
+yalnız gel
+okulunun adı
+hangi saatte çıkıyorsun
+adresini yaz
+konumunu at*
+arabayla alayım
+annenler evde olmasın
+# --- Platform değiştirme ---
+başka uygulama*
+gizli hesap*
+özel uygulamadan
+moderatörler okuyor
+silinen uygulama*
+# --- Güven kazanma / beden ---
+yaşına göre çok olgun*
+yaş sadece bir sayı
+benden başka kimse anlamaz
+sadece bana güven
+bana borçlusun
+vücudun*
+
+[KENDINE_ZARAR]
+ölmek istiyorum
+ölsem keşke
+keşke ölsem
+yaşamak istemiyorum
+yaşamak istemiyom
+yaşamanın bir anlamı yok
+yaşama isteği*
+kendimi öldür*
+intihar*
+kendime zarar*
+kendimi yarala*
+kollarımı kes*
+kollarımı kestim
+bir daha uyanma*
+uyanmasam keşke
+son vermek istiyorum
+hayattan çıkmak*
+yok olmak istiyorum
+ortadan kaybolsam*
+keşke hiç doğmasaydım
+ben olmasam*
+kendimden nefret*
+dayanamıyorum
+veda ediyorum
+son mesajım
+artık yaşayamam
+ölürüm daha iyi
 
 [ISTISNA]
 # Bu kelimeler yukarıdaki kök (*) kurallarına takılsa bile risk sayılmaz.

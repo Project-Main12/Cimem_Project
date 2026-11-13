@@ -107,13 +107,11 @@ sniper ile kafadan vurdum | oyun_eylem | oyun | zor | oyun bağlamı
 öldüm, beni canlandırın | oyun_eylem | oyun | zor | oyun bağlamı
 düşman takımı yok ettik | oyun_eylem | oyun | zor | oyun bağlamı
 bu oyunda herkes birbirini öldürüyor zaten | oyun_eylem | oyun | zor | oyun bağlamı
-# --- ZOR: dostça şakalaşma (etiket kararı: NORMAL) ---
-salak mısın ya 😂 yine şemsiyeni unutmuşsun | saka | mesaj | zor | dostça şaka, hedef incitilmiyor
-deli misin sen ahahah çok komiksin | saka | mesaj | zor | dostça şaka
-seni gidi seni, yine kazandın 😄 | saka | oyun | zor | dostça şaka
-manyak gibi güldük bugün | saka | mesaj | zor | dostça şaka
-öldüm gülmekten 😂😂 | saka | mesaj | zor | mecaz
-bu şakaya çok güldüm, delisin | saka | mesaj | zor | dostça şaka
+# --- ZOR: mecaz / hedefsiz abartı (hakaret sözcüğü yok -> NORMAL) ---
+seni gidi seni, yine kazandın 😄 | mecaz | oyun | zor | dostça, hakaret sözcüğü yok
+manyak gibi güldük bugün | mecaz | mesaj | zor | kişiye yönelik değil
+öldüm gülmekten 😂😂 | mecaz | mesaj | zor | mecaz
+çok tatlısın ya, kıyamam sana | mecaz | mesaj | zor | olumlu
 # --- ZOR: konu hakkında konuşma / aktarma ---
 siber zorbalık nedir, nasıl korunuruz konulu sunum hazırlıyoruz | bilgi | mesaj | zor | konu anlatımı
 küfür etmek yanlış, lütfen grupta düzgün konuşalım | bilgi | mesaj | zor | konu anlatımı
@@ -135,6 +133,23 @@ sesin çok az geliyor, mikrofonu düzelt | olumsuz | youtube | orta | eleştiri
 ödevim kötü geçti, moralim bozuk | olumsuz | mesaj | orta | duygu
 hakem çok kötüydü bu maçta | olumsuz | mesaj | orta | eleştiri
 bu tarif hiç tutmadı | olumsuz | youtube | orta | eleştiri
+
+# --- ZOR: yeni sınıflara benzeyen masum cümleler (yanlış alarm testi) ---
+annemin doğum günü sürprizini kimseye söyleme, aramızda kalsın | gizlilik_masum | mesaj | zor | sürpriz, grooming değil
+babama hediyeyi söyleme olur mu, sürpriz olacak | gizlilik_masum | mesaj | zor | sürpriz
+ödevin fotoğrafını atar mısın, defterimi okulda unuttum | foto_masum | mesaj | zor | arkadaş, ödev
+tatil fotoğraflarını gruba atsana | foto_masum | mesaj | zor | arkadaş grubu
+kaç yaşındasın, kaçıncı sınıfa gidiyorsun? yeni geldin galiba | yas_masum | oyun | zor | akran sorusu
+yarın okul çıkışı parkta buluşalım mı, annem de gelecek | bulusma_masum | mesaj | zor | aile bilgisi var
+yorgunluktan öldüm bugün | mecaz_olum | mesaj | zor | mecaz
+bu sınav beni öldürecek, çok zor | mecaz_olum | mesaj | zor | mecaz
+sıcaktan ölüyorum, klima açalım | mecaz_olum | mesaj | zor | mecaz
+oyunda canım bitti, öldüm yine | mecaz_olum | oyun | zor | oyun
+bugün moralim bozuk ama yarın geçer | duygu_masum | mesaj | zor | olağan duygu
+sınavdan kötü not aldım, çok üzgünüm | duygu_masum | mesaj | zor | olağan duygu
+kolumu kapıya çarptım, morardı | yaralanma_masum | mesaj | zor | kaza
+kedim elimi tırmaladı, kanadı biraz | yaralanma_masum | mesaj | zor | kaza
+hediye kartı kodunu annemle birlikte girdik | kod_masum | oyun | zor | ebeveyn gözetiminde
 
 [KUFUR]
 # --- Hedefsiz küfür (tepki/ünlem) ---
@@ -330,6 +345,19 @@ senin gibi cahiller yüzünden | yorum | youtube | kolay |
 kanal kapat, rezil | yorum | youtube | kolay |
 beyinsiz içerik üreticisi | yorum | youtube | kolay |
 sesin bile iğrenç | yorum | youtube | orta | sözlükte yok
+# --- Şaka görünümlü hakaret (danışman kararı: şaka da olsa HAKARET) ---
+salak mısın ya 😂 yine şemsiyeni unutmuşsun | saka_hakaret | mesaj | zor | şaka görünümlü
+deli misin sen ahahah çok komiksin | saka_hakaret | mesaj | zor | şaka görünümlü, sözlükte yok
+bu şakaya çok güldüm, delisin | saka_hakaret | mesaj | zor | şaka görünümlü, sözlükte yok
+aptal ya 😂 yine yanlış otobüse binmiş | saka_hakaret | mesaj | zor | şaka görünümlü
+mal mısın kanka ahahah | saka_hakaret | mesaj | zor | şaka görünümlü
+gerizekalı seni 😂 çok güldüm | saka_hakaret | mesaj | zor | şaka görünümlü
+salak şey, yine de seviyorum seni 😄 | saka_hakaret | mesaj | zor | şaka görünümlü
+ezik ya, oyunu yine kaybettin 😂 | saka_hakaret | oyun | zor | şaka görünümlü
+beyinsiz 😂 şifreyi yine mi unuttun | saka_hakaret | mesaj | zor | şaka görünümlü
+noob kanka 😄 bir daha dene | saka_hakaret | oyun | zor | şaka görünümlü
+şişko seni, pastanın hepsini yemişsin 😂 | saka_hakaret | mesaj | zor | şaka görünümlü, beden
+çirkin ördek yavrusu 😄 fotoğrafta gözlerin kapalı | saka_hakaret | sosyal | zor | şaka görünümlü, görünüş
 # --- Yazım hileleri ---
 s.a.l.a.k | dogrudan | mesaj | orta | noktalı yazım
 @ptal | dogrudan | mesaj | orta | sembollü yazım
@@ -558,3 +586,133 @@ seni bıçaklayacağım | fiziksel | mesaj | kolay |
 kardeşine de zarar veririm | aile_esya | mesaj | orta | sözlükte yok
 seni vuracağım | fiziksel | mesaj | kolay |
 yarın seni ağlatacağım | gozdagi | mesaj | zor | sözlükte yok
+
+[UYGUNSUZ_YAKLASIM]
+# Yetişkin/yabancının çocuğa güven kazanma, gizlilik, yalnızlık sorgusu, görüntü isteme,
+# buluşma ve platform değiştirme kalıpları (grooming). Açık cinsel içerik YAZILMAMIŞTIR.
+# --- Gizlilik talebi ---
+bu konuştuklarımızı kimseye söyleme, aramızda kalsın | gizlilik_talebi | mesaj | kolay |
+annene babana benden bahsetme, anlamazlar | gizlilik_talebi | mesaj | kolay |
+mesajları sil olur mu, kimse görmesin | gizlilik_talebi | mesaj | kolay |
+bu bizim sırrımız, söylersen başın belaya girer | gizlilik_talebi | mesaj | kolay |
+sesli konuşalım ama kulaklık tak, kimse duymasın | gizlilik_talebi | oyun | orta |
+ailen telefonuna bakarsa benimle konuştuğunu söyleme | gizlilik_talebi | mesaj | kolay |
+konuşmamızın ekran görüntüsünü kimseye atma | gizlilik_talebi | mesaj | orta |
+annen gelince sohbeti kapat, sonra yazarız | gizlilik_talebi | mesaj | orta |
+öğretmenine de anlatma, seni yanlış anlarlar | gizlilik_talebi | mesaj | orta |
+sadece ikimizin bildiği bir şey olsun bu | gizlilik_talebi | mesaj | zor |
+arkadaşlarına benden bahsetme, kıskanırlar | gizlilik_talebi | mesaj | zor |
+# --- Yaş / aile / yalnızlık sorgusu ---
+kaç yaşındasın, ailen telefonunu kontrol ediyor mu? | yas_aile_sorgu | mesaj | orta |
+evde yalnız mısın şu an? | yalniz_sorgu | mesaj | orta |
+annen baban akşam kaçta eve geliyor? | yalniz_sorgu | mesaj | orta |
+odanda tek başına mısın | yalniz_sorgu | mesaj | orta |
+ailen mesajlarını okuyor mu, merak ettim | yas_aile_sorgu | mesaj | orta |
+telefonunu kimse kontrol etmiyor değil mi | yas_aile_sorgu | mesaj | orta |
+annen uyudu mu, şimdi rahat konuşabilir miyiz | yalniz_sorgu | mesaj | orta |
+# --- Görüntü / kamera isteme ---
+bir fotoğrafını atar mısın, sadece ben göreceğim | goruntu_isteme | mesaj | kolay |
+kameranı açar mısın, odanı görmek istiyorum | goruntu_isteme | mesaj | kolay |
+pijamalı bir fotoğrafını atsana | goruntu_isteme | mesaj | kolay |
+yüzünü göremiyorum, kamerayı biraz aşağı indir | goruntu_isteme | mesaj | orta |
+sadece bana özel bir fotoğraf çek, kimse görmeyecek | goruntu_isteme | mesaj | kolay |
+fotoğrafı attıktan sonra sil, iz kalmasın | goruntu_isteme | mesaj | kolay |
+görüntülü arayalım ama kimse olmasın yanında | goruntu_isteme | mesaj | kolay |
+aynada bir fotoğrafını çekip at | goruntu_isteme | mesaj | orta |
+# --- Ödül karşılığı / borçlandırma ---
+sana bedava elmas yüklerim ama önce fotoğraf at | odul_karsiligi | oyun | kolay |
+sana skin hediye ettim, şimdi sen de bana bir iyilik yap | odul_karsiligi | oyun | zor |
+istediğin oyunu alırım ama karşılığında bir şey isteyeceğim | odul_karsiligi | oyun | orta |
+sana para gönderirim, kimseye söylemezsen | odul_karsiligi | mesaj | kolay |
+bu kadar hediye aldım sana, bana borçlusun | odul_karsiligi | oyun | zor |
+gizli bir görev yaparsan sana premium alırım | odul_karsiligi | oyun | orta |
+# --- Buluşma / konum ---
+seninle yüz yüze buluşmak istiyorum, kimseye söylemeden gel | bulusma | mesaj | kolay |
+okulunun adı ne, hangi saatte çıkıyorsun? | konum_sorgu | mesaj | orta |
+sana hediye göndereyim, adresini yaz | konum_sorgu | mesaj | orta |
+okuldan sonra seni arabayla alayım, ailene söyleme | bulusma | mesaj | kolay |
+parkta buluşalım ama yalnız gel | bulusma | mesaj | kolay |
+hangi mahallede oturuyorsun, yakınındayım | konum_sorgu | mesaj | orta |
+konumunu atar mısın, sürpriz yapacağım | konum_sorgu | mesaj | orta |
+seni görmeye geleceğim, annenler evde olmasın | bulusma | mesaj | kolay |
+# --- Platform değiştirme / gizli hesap ---
+oyun dışında konuşalım, bana özel uygulamadan yaz | platform_degistirme | oyun | orta |
+gizli hesap aç, oradan konuşalım | platform_degistirme | mesaj | orta |
+burada moderatörler okuyor, başka uygulamaya geçelim | platform_degistirme | oyun | kolay |
+mesajların silinen uygulamayı indir, oradan konuşalım | platform_degistirme | mesaj | kolay |
+numaranı ver, oyun sohbeti güvenli değil | platform_degistirme | oyun | orta |
+ailenin bilmediği bir hesap açarsan daha rahat konuşuruz | platform_degistirme | mesaj | kolay |
+# --- Güven kazanma / izolasyon ---
+sen yaşına göre çok olgunsun, seni benden başka kimse anlamaz | guven_kazanma | mesaj | zor |
+ailen seni anlamıyor ama ben anlıyorum | guven_kazanma | mesaj | zor |
+arkadaşların seni hak etmiyor, sadece bana güven | guven_kazanma | mesaj | zor |
+sen çok özelsin, bunu sadece ben görüyorum | guven_kazanma | mesaj | zor |
+benim gerçek yaşımı sorma, yaş sadece bir sayı | guven_kazanma | mesaj | orta |
+ben de senin yaşındayım aslında, bana güvenebilirsin | guven_kazanma | oyun | zor | yaş yalanı
+annenle kavga ettin mi, bana anlat, ben seni korurum | guven_kazanma | mesaj | zor |
+seni benden başka kimse sevmiyor | guven_kazanma | mesaj | zor | zorbalıkla karışabilir
+# --- Ten / beden yorumları ---
+çok güzelsin, fotoğraflarına bakmaya doyamıyorum | beden_yorumu | sosyal | orta |
+vücudun çok gelişmiş yaşına göre | beden_yorumu | sosyal | kolay |
+o kıyafet sana çok yakışmış, başka fotoğrafın var mı | beden_yorumu | sosyal | orta |
+# --- Yazım varyantları ---
+kimseye soyleme aramizda kalsin | gizlilik_talebi | mesaj | orta | Türkçe karaktersiz
+evde yalnizmisin | yalniz_sorgu | mesaj | orta | bitişik, Türkçe karaktersiz
+foto atsana sadece ben gorcem | goruntu_isteme | mesaj | orta | konuşma dili
+kamerayı ac bi | goruntu_isteme | mesaj | orta | konuşma dili
+
+[KENDINE_ZARAR]
+# Çocuğun KENDİSİ hakkında yazdığı sıkıntı ifadeleri. Zorbalık değil; destek gerektirir.
+# Yöntem/araç ayrıntısı YAZILMAMIŞTIR.
+# --- Ölüm / intihar düşüncesi ---
+artık yaşamak istemiyorum | intihar_dusuncesi | mesaj | kolay | acil destek
+uyuyup bir daha uyanmamak istiyorum | intihar_dusuncesi | mesaj | orta | acil destek
+ölmek istiyorum | intihar_dusuncesi | mesaj | kolay | acil destek
+keşke ölsem | intihar_dusuncesi | mesaj | kolay | acil destek
+bu hayattan çıkmak istiyorum | intihar_dusuncesi | mesaj | orta | acil destek
+kendimi öldürmeyi düşünüyorum | intihar_dusuncesi | mesaj | kolay | acil destek
+yaşamanın bir anlamı yok | intihar_dusuncesi | mesaj | orta | acil destek
+bir daha uyanmasam keşke | intihar_dusuncesi | mesaj | orta | acil destek
+artık her şeye son vermek istiyorum | intihar_dusuncesi | mesaj | orta | acil destek
+intihar etmeyi düşünüyorum | intihar_dusuncesi | mesaj | kolay | acil destek
+# --- Kendine zarar ---
+kendime zarar vermek istiyorum | kendine_zarar | mesaj | kolay | acil destek
+kollarımı kestim yine | kendine_zarar | mesaj | kolay | acil destek
+yine kendimi yaraladım | kendine_zarar | mesaj | kolay | acil destek
+canımı yakınca biraz rahatlıyorum | kendine_zarar | mesaj | orta | acil destek
+kimse görmesin diye uzun kollu giyiyorum | kendine_zarar | mesaj | zor | örtük
+kendimi cezalandırmam lazım | kendine_zarar | mesaj | zor | örtük
+yemek yemeyi bıraktım, umurumda değil | kendine_zarar | mesaj | zor |
+# --- Umutsuzluk / değersizlik ---
+kimse beni sevmiyor, ortadan kaybolsam iyi olur | umutsuzluk | mesaj | orta |
+her şeyden çok yoruldum, artık dayanamıyorum | umutsuzluk | mesaj | zor |
+keşke hiç doğmasaydım | umutsuzluk | mesaj | orta |
+ben olmasam herkes daha mutlu olur | umutsuzluk | mesaj | orta |
+kimseye söyleyemiyorum ama çok kötüyüm | umutsuzluk | mesaj | zor |
+hiçbir şey düzelmeyecek, biliyorum | umutsuzluk | mesaj | zor |
+ben bir yüküm herkese | umutsuzluk | mesaj | orta |
+içimde hiç yaşama isteği kalmadı | umutsuzluk | mesaj | orta |
+yok olmak istiyorum | umutsuzluk | mesaj | kolay |
+herkes benden nefret ediyor, haklılar da | umutsuzluk | mesaj | zor | zorbalık mağduru olabilir
+ben işe yaramazın tekiyim | umutsuzluk | mesaj | zor | kendine yönelik
+kendimden nefret ediyorum | umutsuzluk | mesaj | orta |
+geleceğim yok benim | umutsuzluk | mesaj | zor |
+kimse fark etmez ben gitsem | umutsuzluk | mesaj | orta |
+artık hiçbir şey hissetmiyorum | umutsuzluk | mesaj | zor |
+# --- Veda / kapanış işaretleri ---
+herkese veda ediyorum | veda | sosyal | zor | acil destek
+eşyalarımı arkadaşlarıma dağıtıyorum, bana artık lazım değil | veda | mesaj | zor | acil destek
+bu son mesajım, hoşça kalın | veda | sosyal | zor | acil destek
+beni unutun artık | veda | mesaj | zor |
+annem beni affetsin | veda | mesaj | zor | örtük
+yarın okula gitmeyeceğim, hiçbir yere gitmeyeceğim artık | veda | mesaj | zor |
+# --- Zorbalığa bağlı ---
+bana yazdıklarından sonra yaşamak istemiyorum | zorbalik_sonrasi | mesaj | orta | acil destek
+herkes gülüyor bana, dayanamıyorum, gitmek istiyorum | zorbalik_sonrasi | mesaj | zor |
+o videoyu herkes gördü, artık yaşayamam | zorbalik_sonrasi | mesaj | orta | acil destek
+okula gitmektense ölürüm daha iyi | zorbalik_sonrasi | mesaj | orta |
+# --- Yazım varyantları ---
+artik yasamak istemiyorum | intihar_dusuncesi | mesaj | orta | Türkçe karaktersiz
+olmek istiyorumm | intihar_dusuncesi | mesaj | orta | Türkçe karaktersiz, harf uzatma
+kendime zarar vercem | kendine_zarar | mesaj | orta | konuşma dili
+yaşamak istemiyom artık | intihar_dusuncesi | mesaj | orta | konuşma dili

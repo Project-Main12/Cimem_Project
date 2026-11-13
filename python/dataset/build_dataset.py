@@ -11,7 +11,7 @@ Girdi : dataset/kaynak/temel_ornekler.txt, dataset/kaynak/ek_kategoriler.txt
         dataset/ISTATISTIK.md
 
 Bilimsel notlar:
-- Her temel cümleden 2 "yazım varyantı" üretilir (Türkçe karaktersiz, harf uzatma,
+- Her temel cümleden 2-4 "yazım varyantı" üretilir (az örnekli sınıfa daha çok) (Türkçe karaktersiz, harf uzatma,
   sembol, kısaltma, yazım hatası...). Gerçek sohbet dilini taklit eder.
 - Bir cümle ve varyantları AYNI bölüme (train/val/test) düşer (group_id).
   Böylece model test cümlesinin bir varyantını eğitimde görüp "ezberleyemez".
@@ -29,9 +29,11 @@ from ortak.turkce_metin import ascii_fold, tr_lower, tr_upper  # noqa: E402
 
 KOK = Path(__file__).resolve().parent
 TOHUM = 42
-VARYANT_SAYISI = 2
+VARYANT_MIN, VARYANT_MAX = 2, 4
 ORAN = {"train": 0.70, "val": 0.15, "test": 0.15}
-ANA_SINIFLAR = ["NORMAL", "KUFUR", "HAKARET", "SIBER_ZORBALIK", "TEHDIT"]
+ANA_SINIFLAR = ["NORMAL", "KUFUR", "HAKARET", "SIBER_ZORBALIK", "TEHDIT",
+                "UYGUNSUZ_YAKLASIM", "KENDINE_ZARAR"]
+HEDEF_SINIF_BOYUTU = 280   # az örnekli sınıflara daha çok varyant üretilir
 
 
 # ------------------------------------------------------------------ okuma
@@ -149,12 +151,12 @@ VARYANTLAR = {
 }
 
 
-def varyant_uret(kayit, r):
+def varyant_uret(kayit, r, adet):
     sonuc, gorulen = [], {kayit["text"]}
     adlar = list(VARYANTLAR)
     r.shuffle(adlar)
     for ad in adlar:
-        if len(sonuc) >= VARYANT_SAYISI:
+        if len(sonuc) >= adet:
             break
         yeni = VARYANTLAR[ad](kayit["text"], r)
         if yeni and yeni not in gorulen:
@@ -197,12 +199,15 @@ def main():
     if tekrar:
         print("UYARI – tekrar eden cümleler:", tekrar)
 
+    temel_say = Counter(k["label"] for k in temel)
+    adet = {c: max(VARYANT_MIN, min(VARYANT_MAX, round(HEDEF_SINIF_BOYUTU / n) - 1))
+            for c, n in temel_say.items()}
     satirlar, gruplar = [], defaultdict(list)
     for gi, k in enumerate(temel, 1):
         gid = f"G{gi:04d}"
         gruplar[k["label"]].append(gid)
         satirlar.append({**k, "group_id": gid, "augmented": 0, "aug_type": "", "source": "sentetik"})
-        for ad, metin in varyant_uret(k, r):
+        for ad, metin in varyant_uret(k, r, adet[k["label"]]):
             satirlar.append({**k, "text": metin, "group_id": gid, "augmented": 1,
                              "aug_type": ad, "source": "sentetik_varyant"})
 
@@ -223,7 +228,6 @@ def main():
 
     # ---- istatistik
     tablo = Counter((s["label"], s["split"]) for s in satirlar)
-    temel_say = Counter(k["label"] for k in temel)
     zor = Counter(k["label"] for k in temel if k["difficulty"] == "zor")
     md = ["# Veri Seti İstatistikleri – dijitalkalkan_v1", "",
           f"Toplam örnek: **{len(satirlar)}**  (temel cümle: {len(temel)}, varyant: {len(satirlar)-len(temel)})",

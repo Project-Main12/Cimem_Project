@@ -1,229 +1,320 @@
 id,group_id,text,label,subtype,context,difficulty,augmented,aug_type,split,note,source
-DK00007,G0003,"bugün çok güzel bir gündü, parka gittik",NORMAL,gunluk,mesaj,kolay,0,,test,,sentetik
-DK00008,G0003,"bugün çok güzel bir gündü, parka gitt1k",NORMAL,gunluk,mesaj,kolay,1,sembol_rakam,test,,sentetik_varyant
-DK00009,G0003,"bugün çok güzel bir gündü, parka gittiiik",NORMAL,gunluk,mesaj,kolay,1,harf_uzatma,test,,sentetik_varyant
 DK00031,G0011,"kitabı kütüphaneden aldım, sen de okumak ister misin",NORMAL,gunluk,mesaj,kolay,0,,test,,sentetik
 DK00032,G0011,"kitabi kutuphaneden aldim, sen de okumak ister misin",NORMAL,gunluk,mesaj,kolay,1,turkce_karaktersiz,test,,sentetik_varyant
 DK00033,G0011,"kitabı kütüphaneden aldım, sen de okumak ister misin 😒",NORMAL,gunluk,mesaj,kolay,1,buyuk_harf_emoji,test,,sentetik_varyant
-DK00127,G0043,"sunucuya katıldım, evin nerede",NORMAL,oyun,oyun,kolay,0,,test,,sentetik
-DK00128,G0043,"sunucuya katlıdım, evin nerede",NORMAL,oyun,oyun,kolay,1,yazim_hatasi,test,,sentetik_varyant
-DK00129,G0043,"sunucuy@ katıldım, evin nerede",NORMAL,oyun,oyun,kolay,1,sembol_rakam,test,,sentetik_varyant
-DK00136,G0046,ilk defa elmas lige çıktım,NORMAL,oyun,oyun,kolay,0,,test,,sentetik
-DK00137,G0046,ilk defa elmaaaas lige çıktım,NORMAL,oyun,oyun,kolay,1,harf_uzatma,test,,sentetik_varyant
-DK00138,G0046,ilk defa elms lige çıktım,NORMAL,oyun,oyun,kolay,1,yazim_hatasi,test,,sentetik_varyant
-DK00139,G0047,"yardım lazım mı, geliyorum",NORMAL,oyun,oyun,kolay,0,,test,,sentetik
-DK00140,G0047,"yardım lazım mı, g e l i y o r u m",NORMAL,oyun,oyun,kolay,1,harf_ayirma,test,,sentetik_varyant
-DK00141,G0047,"yardım lazıııım mı, geliyorum",NORMAL,oyun,oyun,kolay,1,harf_uzatma,test,,sentetik_varyant
-DK00142,G0048,"skin çok güzelmiş, nereden aldın",NORMAL,oyun,oyun,kolay,0,,test,,sentetik
-DK00143,G0048,"skin çok güzelmiş, nereden a-l-d-ı-n",NORMAL,oyun,oyun,kolay,1,harf_ayirma,test,,sentetik_varyant
-DK00144,G0048,"skin çk güzelmiş, nereden aldın",NORMAL,oyun,oyun,kolay,1,sohbet_kisaltma,test,,sentetik_varyant
-DK00148,G0050,"bu tarifi denedim, çok güzel oldu",NORMAL,yorum,youtube,kolay,0,,test,,sentetik
-DK00149,G0050,"bu tarifi denedim, cok guzel oldu",NORMAL,yorum,youtube,kolay,1,turkce_karaktersiz,test,,sentetik_varyant
-DK00150,G0050,"BU TARİFİ DENEDİM, ÇOK GÜZEL OLDU 😤",NORMAL,yorum,youtube,kolay,1,buyuk_harf_emoji,test,,sentetik_varyant
-DK00181,G0061,"sıkıntı yok, yarın yaparız",NORMAL,yanlis_alarm,mesaj,zor,0,,test,sık/sik benzerliği,sentetik
-DK00182,G0061,"sıkıntı yok, yarın y@parız",NORMAL,yanlis_alarm,mesaj,zor,1,sembol_rakam,test,sık/sik benzerliği,sentetik_varyant
-DK00183,G0061,"sikinti yok, yarin yapariz",NORMAL,yanlis_alarm,mesaj,zor,1,turkce_karaktersiz,test,sık/sik benzerliği,sentetik_varyant
-DK00202,G0068,"pickaxe lazım, bende yok",NORMAL,yanlis_alarm,oyun,zor,0,,test,pic/piç,sentetik
-DK00203,G0068,"pickaxe lazım, bende yk",NORMAL,yanlis_alarm,oyun,zor,1,sohbet_kisaltma,test,pic/piç,sentetik_varyant
-DK00204,G0068,"pickaxe lazım, bene yok",NORMAL,yanlis_alarm,oyun,zor,1,yazim_hatasi,test,pic/piç,sentetik_varyant
-DK00229,G0077,"salatalık, domates ve peynir al",NORMAL,yanlis_alarm,mesaj,zor,0,,test,sal kökü,sentetik
-DK00230,G0077,"salatalik, domates ve peynir al",NORMAL,yanlis_alarm,mesaj,zor,1,turkce_karaktersiz,test,sal kökü,sentetik_varyant
-DK00231,G0077,"salatalık, domateeeees ve peynir al",NORMAL,yanlis_alarm,mesaj,zor,1,harf_uzatma,test,sal kökü,sentetik_varyant
-DK00235,G0079,"sapık bir yoldan değil, ana yoldan gel",NORMAL,yanlis_alarm,mesaj,zor,0,,test,sapmak,sentetik
-DK00236,G0079,"sapık bir yodan değil, ana yoldan gel",NORMAL,yanlis_alarm,mesaj,zor,1,yazim_hatasi,test,sapmak,sentetik_varyant
-DK00237,G0079,"sapık bi yoldan diil, ana yoldan gel",NORMAL,yanlis_alarm,mesaj,zor,1,sohbet_kisaltma,test,sapmak,sentetik_varyant
-DK00250,G0084,"itiraf edeyim, ödevi unuttum",NORMAL,yanlis_alarm,mesaj,zor,0,,test,it kökü,sentetik
-DK00251,G0084,"itiraf edeyim, ödevi u-n-u-t-t-u-m",NORMAL,yanlis_alarm,mesaj,zor,1,harf_ayirma,test,it kökü,sentetik_varyant
-DK00252,G0084,"itiraf edeyim, ödevi unuttum 🙄",NORMAL,yanlis_alarm,mesaj,zor,1,buyuk_harf_emoji,test,it kökü,sentetik_varyant
-DK00307,G0103,"biri beni tehdit etti, ne yapmalıyım",NORMAL,aktarim,mesaj,zor,0,,test,yardım isteme,sentetik
-DK00308,G0103,"biri beni tehdit etti, ne yapmalıyım 🙄",NORMAL,aktarim,mesaj,zor,1,buyuk_harf_emoji,test,yardım isteme,sentetik_varyant
-DK00309,G0103,"biri beni tehdit etti, ne yapmalıyııııım",NORMAL,aktarim,mesaj,zor,1,harf_uzatma,test,yardım isteme,sentetik_varyant
-DK00316,G0106,haberlerde bir kaza olduğunu söylediler,NORMAL,bilgi,mesaj,zor,0,,test,haber,sentetik
-DK00317,G0106,haberlerde bir kaza olduğunu söyledler,NORMAL,bilgi,mesaj,zor,1,yazim_hatasi,test,haber,sentetik_varyant
-DK00318,G0106,haberlerde bir kaza olduğunu 5öylediler,NORMAL,bilgi,mesaj,zor,1,sembol_rakam,test,haber,sentetik_varyant
-DK00334,G0112,çok sinirlendim ama geçti,NORMAL,olumsuz,mesaj,orta,0,,test,duygu,sentetik
-DK00335,G0112,çok sinirl3ndim ama geçti,NORMAL,olumsuz,mesaj,orta,1,sembol_rakam,test,duygu,sentetik_varyant
-DK00336,G0112,cok sinirlendim ama gecti,NORMAL,olumsuz,mesaj,orta,1,turkce_karaktersiz,test,duygu,sentetik_varyant
-DK00337,G0113,"bence bu fikir işe yaramaz, başka bir şey deneyelim",NORMAL,olumsuz,mesaj,zor,0,,test,fikir eleştirisi,sentetik
-DK00338,G0113,"BENCE BU FİKİR İŞE YARAMAZ, BAŞKA BİR ŞEY DENEYELİM ??",NORMAL,olumsuz,mesaj,zor,1,buyuk_harf_emoji,test,fikir eleştirisi,sentetik_varyant
-DK00339,G0113,"bence bu fikir işe yaramaz, başka bir şey denyelim",NORMAL,olumsuz,mesaj,zor,1,yazim_hatasi,test,fikir eleştirisi,sentetik_varyant
-DK00343,G0115,"sesin çok az geliyor, mikrofonu düzelt",NORMAL,olumsuz,youtube,orta,0,,test,eleştiri,sentetik
-DK00344,G0115,"sesin cok az geliyor, mikrofonu duzelt",NORMAL,olumsuz,youtube,orta,1,turkce_karaktersiz,test,eleştiri,sentetik_varyant
-DK00345,G0115,"sesiiiiin çok az geliyor, mikrofonu düzelt",NORMAL,olumsuz,youtube,orta,1,harf_uzatma,test,eleştiri,sentetik_varyant
-DK00352,G0118,bu tarif hiç tutmadı,NORMAL,olumsuz,youtube,orta,0,,test,eleştiri,sentetik
-DK00353,G0118,bu trif hiç tutmadı,NORMAL,olumsuz,youtube,orta,1,yazim_hatasi,test,eleştiri,sentetik_varyant
-DK00354,G0118,bu tarif hiiiiiç tutmadı,NORMAL,olumsuz,youtube,orta,1,harf_uzatma,test,eleştiri,sentetik_varyant
-DK00361,G0121,"siktir et boşver, yeni maça girelim",KUFUR,hedefsiz,oyun,orta,0,,test,,sentetik
-DK00362,G0121,"siktir et boşver, yeni m a ç a girelim",KUFUR,hedefsiz,oyun,orta,1,harf_ayirma,test,,sentetik_varyant
-DK00363,G0121,"siktir et boşver, yeni maça girlim",KUFUR,hedefsiz,oyun,orta,1,yazim_hatasi,test,,sentetik_varyant
-DK00370,G0124,"siktir ya, telefonum kırıldı",KUFUR,hedefsiz,mesaj,orta,0,,test,,sentetik
-DK00371,G0124,"siktir ya, t e l e f o n u m kırıldı",KUFUR,hedefsiz,mesaj,orta,1,harf_ayirma,test,,sentetik_varyant
-DK00372,G0124,"siktir ya, telefoum kırıldı",KUFUR,hedefsiz,mesaj,orta,1,yazim_hatasi,test,,sentetik_varyant
-DK00376,G0126,ananı satayım ne güzel gol,KUFUR,hedefsiz,mesaj,orta,0,,test,övgü amaçlı küfür,sentetik
-DK00377,G0126,a-n-a-n-ı satayım ne güzel gol,KUFUR,hedefsiz,mesaj,orta,1,harf_ayirma,test,övgü amaçlı küfür,sentetik_varyant
-DK00378,G0126,ANANI SATAYIM NE GÜZEL GOL ??,KUFUR,hedefsiz,mesaj,orta,1,buyuk_harf_emoji,test,övgü amaçlı küfür,sentetik_varyant
-DK00409,G0137,göt gibi oynadık bugün,KUFUR,hedefsiz,oyun,orta,0,,test,,sentetik
-DK00410,G0137,göt gibi o.y.n.a.d.ı.k bugün,KUFUR,hedefsiz,oyun,orta,1,harf_ayirma,test,,sentetik_varyant
-DK00411,G0137,göt gibi oynadık bguün,KUFUR,hedefsiz,oyun,orta,1,yazim_hatasi,test,,sentetik_varyant
-DK00412,G0138,amq hocası yine sınav yaptı,KUFUR,hedefsiz,mesaj,kolay,0,,test,,sentetik
-DK00413,G0138,amq hcası yine sınav yaptı,KUFUR,hedefsiz,mesaj,kolay,1,yazim_hatasi,test,,sentetik_varyant
-DK00414,G0138,amq hocası yine sınav yaptııııı,KUFUR,hedefsiz,mesaj,kolay,1,harf_uzatma,test,,sentetik_varyant
-DK00418,G0140,siktir git oyundan,KUFUR,hedefli,oyun,kolay,0,,test,,sentetik
-DK00419,G0140,s.i.k.t.i.r git oyundan,KUFUR,hedefli,oyun,kolay,1,harf_ayirma,test,,sentetik_varyant
-DK00420,G0140,SİKTİR GİT OYUNDAN 💀,KUFUR,hedefli,oyun,kolay,1,buyuk_harf_emoji,test,,sentetik_varyant
-DK00442,G0148,bacını sikeyim,KUFUR,hedefli,oyun,kolay,0,,test,,sentetik
-DK00443,G0148,b@cını sikeyim,KUFUR,hedefli,oyun,kolay,1,sembol_rakam,test,,sentetik_varyant
-DK00444,G0148,bacını sikeyiiiim,KUFUR,hedefli,oyun,kolay,1,harf_uzatma,test,,sentetik_varyant
-DK00451,G0151,orospu evladı,KUFUR,hedefli,mesaj,kolay,0,,test,,sentetik
-DK00452,G0151,orospu evadı,KUFUR,hedefli,mesaj,kolay,1,yazim_hatasi,test,,sentetik_varyant
-DK00453,G0151,orospu e-v-l-a-d-ı,KUFUR,hedefli,mesaj,kolay,1,harf_ayirma,test,,sentetik_varyant
-DK00490,G0164,amcık hoşafı,KUFUR,hedefli,oyun,kolay,0,,test,,sentetik
-DK00491,G0164,amcık hoşaı,KUFUR,hedefli,oyun,kolay,1,yazim_hatasi,test,,sentetik_varyant
-DK00492,G0164,amcik hosafi,KUFUR,hedefli,oyun,kolay,1,turkce_karaktersiz,test,,sentetik_varyant
-DK00511,G0171,taşak geçme benimle,KUFUR,hedefli,mesaj,orta,0,,test,,sentetik
-DK00512,G0171,taşak geçme ben1mle,KUFUR,hedefli,mesaj,orta,1,sembol_rakam,test,,sentetik_varyant
-DK00513,G0171,tasak gecme benimle,KUFUR,hedefli,mesaj,orta,1,turkce_karaktersiz,test,,sentetik_varyant
-DK00523,G0175,fahişe gibi giyinmiş,KUFUR,hedefli,sosyal,kolay,0,,test,cinsiyetçi küfür,sentetik
-DK00524,G0175,f@hişe gibi giyinmiş,KUFUR,hedefli,sosyal,kolay,1,sembol_rakam,test,cinsiyetçi küfür,sentetik_varyant
-DK00525,G0175,fahise gibi giyinmis,KUFUR,hedefli,sosyal,kolay,1,turkce_karaktersiz,test,cinsiyetçi küfür,sentetik_varyant
-DK00587,G0197,siktir ya ne güzel olmuş,KUFUR,hedefsiz,youtube,zor,0,,test,övgüyle karışık küfür,sentetik
-DK00588,G0197,SİKTİR YA NE GÜZEL OLMUŞ 🤬,KUFUR,hedefsiz,youtube,zor,1,buyuk_harf_emoji,test,övgüyle karışık küfür,sentetik_varyant
-DK00589,G0197,siktir ya ne güz3l olmuş,KUFUR,hedefsiz,youtube,zor,1,sembol_rakam,test,övgüyle karışık küfür,sentetik_varyant
-DK00599,G0201,"siktir et dersi, oyuna gel",KUFUR,hedefsiz,mesaj,orta,0,,test,,sentetik
-DK00600,G0201,"siktir et dersi, oyuna geeeel",KUFUR,hedefsiz,mesaj,orta,1,harf_uzatma,test,,sentetik_varyant
-DK00601,G0201,siktir et d.e.r.s.i oyuna gel,KUFUR,hedefsiz,mesaj,orta,1,harf_ayirma,test,,sentetik_varyant
-DK00608,G0204,siktirin gidin grubumdan,KUFUR,hedefli,mesaj,kolay,0,,test,,sentetik
-DK00609,G0204,siktirin g i d i n grubumdan,KUFUR,hedefli,mesaj,kolay,1,harf_ayirma,test,,sentetik_varyant
-DK00610,G0204,SİKTİRİN GİDİN GRUBUMDAN 😡,KUFUR,hedefli,mesaj,kolay,1,buyuk_harf_emoji,test,,sentetik_varyant
-DK00623,G0209,orospu çocukları hepiniz,KUFUR,hedefli,oyun,kolay,0,,test,,sentetik
-DK00624,G0209,orospu çocuklarııııı hepiniz,KUFUR,hedefli,oyun,kolay,1,harf_uzatma,test,,sentetik_varyant
-DK00625,G0209,orospu çcoukları hepiniz,KUFUR,hedefli,oyun,kolay,1,yazim_hatasi,test,,sentetik_varyant
-DK00675,G0227,dangalak gibi davranma,HAKARET,dogrudan,mesaj,kolay,0,,test,,sentetik
-DK00676,G0227,dangalak gibi davranma 🤬,HAKARET,dogrudan,mesaj,kolay,1,buyuk_harf_emoji,test,,sentetik_varyant
-DK00677,G0227,dangalak g1bi davranma,HAKARET,dogrudan,mesaj,kolay,1,sembol_rakam,test,,sentetik_varyant
-DK00711,G0239,kafasız mısın,HAKARET,dogrudan,mesaj,kolay,0,,test,,sentetik
-DK00712,G0239,kafasız mı$ın,HAKARET,dogrudan,mesaj,kolay,1,sembol_rakam,test,,sentetik_varyant
-DK00713,G0239,kafasız mısın !!!,HAKARET,dogrudan,mesaj,kolay,1,buyuk_harf_emoji,test,,sentetik_varyant
-DK00735,G0247,köpeksin sen,HAKARET,dogrudan,mesaj,kolay,0,,test,,sentetik
-DK00736,G0247,köpeksin sen 💀,HAKARET,dogrudan,mesaj,kolay,1,buyuk_harf_emoji,test,,sentetik_varyant
-DK00737,G0247,kopeksin sen,HAKARET,dogrudan,mesaj,kolay,1,turkce_karaktersiz,test,,sentetik_varyant
-DK00744,G0250,ruh hastası mısın,HAKARET,dogrudan,mesaj,kolay,0,,test,,sentetik
-DK00745,G0250,ruh hastası mı5ın,HAKARET,dogrudan,mesaj,kolay,1,sembol_rakam,test,,sentetik_varyant
-DK00746,G0250,ruh hastasi misin,HAKARET,dogrudan,mesaj,kolay,1,turkce_karaktersiz,test,,sentetik_varyant
-DK00750,G0252,sapık herif,HAKARET,dogrudan,sosyal,kolay,0,,test,,sentetik
-DK00751,G0252,SAPIK HERİF 🙄,HAKARET,dogrudan,sosyal,kolay,1,buyuk_harf_emoji,test,,sentetik_varyant
-DK00752,G0252,spaık herif,HAKARET,dogrudan,sosyal,kolay,1,yazim_hatasi,test,,sentetik_varyant
-DK00756,G0254,leş gibi kokuyorsun,HAKARET,dogrudan,mesaj,kolay,0,,test,,sentetik
-DK00757,G0254,LEŞ GİBİ KOKUYORSUN 😤,HAKARET,dogrudan,mesaj,kolay,1,buyuk_harf_emoji,test,,sentetik_varyant
-DK00758,G0254,leş gibi kokuy0rsun,HAKARET,dogrudan,mesaj,kolay,1,sembol_rakam,test,,sentetik_varyant
-DK00759,G0255,mankafa,HAKARET,dogrudan,mesaj,kolay,0,,test,,sentetik
-DK00760,G0255,m a n k a f a,HAKARET,dogrudan,mesaj,kolay,1,harf_ayirma,test,,sentetik_varyant
-DK00761,G0255,mankafaaaaa,HAKARET,dogrudan,mesaj,kolay,1,harf_uzatma,test,,sentetik_varyant
-DK00780,G0262,bu fotoğrafta ne kadar çirkinsin,HAKARET,gorunus,sosyal,kolay,0,,test,,sentetik
-DK00781,G0262,bu fotoğrafta ne kadar çirkin$in,HAKARET,gorunus,sosyal,kolay,1,sembol_rakam,test,,sentetik_varyant
-DK00782,G0262,bu fotoğrafta ne kadar çirkinsiiiiin,HAKARET,gorunus,sosyal,kolay,1,harf_uzatma,test,,sentetik_varyant
-DK00828,G0278,"çöp oyuncu, takımı yaktın",HAKARET,oyun_dili,oyun,kolay,0,,test,,sentetik
-DK00829,G0278,"çöp oyuncu, t a k ı m ı yaktın",HAKARET,oyun_dili,oyun,kolay,1,harf_ayirma,test,,sentetik_varyant
-DK00830,G0278,"çöp oyuncu, takıı yaktın",HAKARET,oyun_dili,oyun,kolay,1,yazim_hatasi,test,,sentetik_varyant
-DK00876,G0294,senin gibi cahiller yüzünden,HAKARET,yorum,youtube,kolay,0,,test,,sentetik
-DK00877,G0294,SENİN GİBİ CAHİLLER YÜZÜNDEN 😡,HAKARET,yorum,youtube,kolay,1,buyuk_harf_emoji,test,,sentetik_varyant
-DK00878,G0294,senin gibi cahill3r yüzünden,HAKARET,yorum,youtube,kolay,1,sembol_rakam,test,,sentetik_varyant
-DK00900,G0302,serefsiz,HAKARET,dogrudan,mesaj,orta,0,,test,Türkçe karaktersiz,sentetik
-DK00901,G0302,serefsiiiiiz,HAKARET,dogrudan,mesaj,orta,1,harf_uzatma,test,Türkçe karaktersiz,sentetik_varyant
-DK00902,G0302,s-e-r-e-f-s-i-z,HAKARET,dogrudan,mesaj,orta,1,harf_ayirma,test,Türkçe karaktersiz,sentetik_varyant
-DK00921,G0309,annen seni nasıl yetiştirmiş merak ediyorum,HAKARET,dolayli,mesaj,zor,0,,test,sözlükte yok,sentetik
-DK00922,G0309,annen seni nasil yetistirmis merak ediyorum,HAKARET,dolayli,mesaj,zor,1,turkce_karaktersiz,test,sözlükte yok,sentetik_varyant
-DK00923,G0309,annen seni nasıl yetiştirmiş merak ediyom,HAKARET,dolayli,mesaj,zor,1,sohbet_kisaltma,test,sözlükte yok,sentetik_varyant
-DK00924,G0310,"bir gün sen de bir şey başarırsın belki, şaka şaka asla",HAKARET,dolayli,mesaj,zor,0,,test,alaycı,sentetik
-DK00925,G0310,"bi gün sn de bi şy başarırsın belki, şaka şaka asla",HAKARET,dolayli,mesaj,zor,1,sohbet_kisaltma,test,alaycı,sentetik_varyant
-DK00926,G0310,"bir gün sen de bir şey başarırsııın belki, şaka şaka asla",HAKARET,dolayli,mesaj,zor,1,harf_uzatma,test,alaycı,sentetik_varyant
-DK00927,G0311,"aferin, yine harika bir hata yaptın 👏",HAKARET,dolayli,mesaj,zor,0,,test,ironi,sentetik
-DK00928,G0311,"aferin, yine harika bir hat@ yaptın 👏",HAKARET,dolayli,mesaj,zor,1,sembol_rakam,test,ironi,sentetik_varyant
-DK00929,G0311,"aferin, yine harika bir hata yaptin 👏",HAKARET,dolayli,mesaj,zor,1,turkce_karaktersiz,test,ironi,sentetik_varyant
-DK00951,G0319,kimse onunla konuşmasın,SIBER_ZORBALIK,dislama,mesaj,kolay,0,,test,,sentetik
-DK00952,G0319,kimse o n u n l a konuşmasın,SIBER_ZORBALIK,dislama,mesaj,kolay,1,harf_ayirma,test,,sentetik_varyant
-DK00953,G0319,kimse onunla k0nuşmasın,SIBER_ZORBALIK,dislama,mesaj,kolay,1,sembol_rakam,test,,sentetik_varyant
-DK00954,G0320,"oyuna onu almayın, takımı batırıyor",SIBER_ZORBALIK,dislama,oyun,kolay,0,,test,,sentetik
-DK00955,G0320,"OYUNA ONU ALMAYIN, TAKIMI BATIRIYOR 😡",SIBER_ZORBALIK,dislama,oyun,kolay,1,buyuk_harf_emoji,test,,sentetik_varyant
-DK00956,G0320,"oyuna onu almayın, takımı batırıy0r",SIBER_ZORBALIK,dislama,oyun,kolay,1,sembol_rakam,test,,sentetik_varyant
-DK00963,G0323,herkes onu engellesin,SIBER_ZORBALIK,dislama,mesaj,kolay,0,,test,,sentetik
-DK00964,G0323,herk3s onu engellesin,SIBER_ZORBALIK,dislama,mesaj,kolay,1,sembol_rakam,test,,sentetik_varyant
-DK00965,G0323,HERKES ONU ENGELLESİN 👍,SIBER_ZORBALIK,dislama,mesaj,kolay,1,buyuk_harf_emoji,test,,sentetik_varyant
-DK01038,G0348,"herkes sana lakap taktı, şişko diyoruz",SIBER_ZORBALIK,alay,mesaj,kolay,0,,test,,sentetik
-DK01039,G0348,"herkes sana lakap taktı, şişko diyoruz 😡",SIBER_ZORBALIK,alay,mesaj,kolay,1,buyuk_harf_emoji,test,,sentetik_varyant
-DK01040,G0348,"herkeees sana lakap taktı, şişko diyoruz",SIBER_ZORBALIK,alay,mesaj,kolay,1,harf_uzatma,test,,sentetik_varyant
-DK01068,G0358,seni rezil edeceğim herkesin önünde,SIBER_ZORBALIK,ifsa_santaj,mesaj,kolay,0,,test,,sentetik
-DK01069,G0358,seni rezil edcam herkesin önünde,SIBER_ZORBALIK,ifsa_santaj,mesaj,kolay,1,sohbet_kisaltma,test,,sentetik_varyant
-DK01070,G0358,seni rezil edecegim herkesin onunde,SIBER_ZORBALIK,ifsa_santaj,mesaj,kolay,1,turkce_karaktersiz,test,,sentetik_varyant
-DK01071,G0359,"ifşalarım seni, dur bekle",SIBER_ZORBALIK,ifsa_santaj,mesaj,kolay,0,,test,,sentetik
-DK01072,G0359,"İFŞALARIM SENİ, DUR BEKLE 😂",SIBER_ZORBALIK,ifsa_santaj,mesaj,kolay,1,buyuk_harf_emoji,test,,sentetik_varyant
-DK01073,G0359,"ifşalarım seniiiii, dur bekle",SIBER_ZORBALIK,ifsa_santaj,mesaj,kolay,1,harf_uzatma,test,,sentetik_varyant
-DK01083,G0363,"şifreni biliyorum, hesabına girip paylaşım yapacağım",SIBER_ZORBALIK,ifsa_santaj,sosyal,zor,0,,test,hesap ele geçirme,sentetik
-DK01084,G0363,"şifreni bilyiorum, hesabına girip paylaşım yapacağım",SIBER_ZORBALIK,ifsa_santaj,sosyal,zor,1,yazim_hatasi,test,hesap ele geçirme,sentetik_varyant
-DK01085,G0363,"şifreni biliyorum, hesabına girip paylaşım yapacağııııım",SIBER_ZORBALIK,ifsa_santaj,sosyal,zor,1,harf_uzatma,test,hesap ele geçirme,sentetik_varyant
-DK01092,G0366,ölsen kimse üzülmez,SIBER_ZORBALIK,kendine_zarar_yonlendirme,mesaj,kolay,0,,test,,sentetik
-DK01093,G0366,ölsen kmise üzülmez,SIBER_ZORBALIK,kendine_zarar_yonlendirme,mesaj,kolay,1,yazim_hatasi,test,,sentetik_varyant
-DK01094,G0366,ö l s e n kimse üzülmez,SIBER_ZORBALIK,kendine_zarar_yonlendirme,mesaj,kolay,1,harf_ayirma,test,,sentetik_varyant
-DK01113,G0373,ölsen de kurtulsak,SIBER_ZORBALIK,kendine_zarar_yonlendirme,mesaj,kolay,0,,test,,sentetik
-DK01114,G0373,ölseeen de kurtulsak,SIBER_ZORBALIK,kendine_zarar_yonlendirme,mesaj,kolay,1,harf_uzatma,test,,sentetik_varyant
-DK01115,G0373,ölsne de kurtulsak,SIBER_ZORBALIK,kendine_zarar_yonlendirme,mesaj,kolay,1,yazim_hatasi,test,,sentetik_varyant
-DK01140,G0382,"neredesin, neden çevrimiçisin de yazmıyorsun",SIBER_ZORBALIK,tekrarli_taciz,mesaj,zor,0,,test,sözlükte yok,sentetik
-DK01141,G0382,"NEREDESİN, NEDEN ÇEVRİMİÇİSİN DE YAZMIYORSUN 👍",SIBER_ZORBALIK,tekrarli_taciz,mesaj,zor,1,buyuk_harf_emoji,test,sözlükte yok,sentetik_varyant
-DK01142,G0382,"neredesin, niye çevrimiçisin de yazmıyorsun",SIBER_ZORBALIK,tekrarli_taciz,mesaj,zor,1,sohbet_kisaltma,test,sözlükte yok,sentetik_varyant
-DK01164,G0390,"yeni gelen şu çocuğu sürekli öldürün, oyundan çıksın",SIBER_ZORBALIK,oyun_zorbalik,oyun,zor,0,,test,oyun bağlamı,sentetik
-DK01165,G0390,"yeni gelen şu çocuğu sürekli öldürün, oyunadn çıksın",SIBER_ZORBALIK,oyun_zorbalik,oyun,zor,1,yazim_hatasi,test,oyun bağlamı,sentetik_varyant
-DK01166,G0390,"yeni gelen şu çocuğu sürekli öldürün, oyundan çık5ın",SIBER_ZORBALIK,oyun_zorbalik,oyun,zor,1,sembol_rakam,test,oyun bağlamı,sentetik_varyant
-DK01191,G0399,bunu herkese gösterirsem ne olur sence,SIBER_ZORBALIK,ifsa_santaj,mesaj,kolay,0,,test,,sentetik
-DK01192,G0399,bunu herkese gösterirsem ne olur sence 🙄,SIBER_ZORBALIK,ifsa_santaj,mesaj,kolay,1,buyuk_harf_emoji,test,,sentetik_varyant
-DK01193,G0399,bunu herkese gosterirsem ne olur sence,SIBER_ZORBALIK,ifsa_santaj,mesaj,kolay,1,turkce_karaktersiz,test,,sentetik_varyant
-DK01203,G0403,herkese yayalım şu mesajı,SIBER_ZORBALIK,ifsa_santaj,mesaj,kolay,0,,test,,sentetik
-DK01204,G0403,herkese yayalim su mesaji,SIBER_ZORBALIK,ifsa_santaj,mesaj,kolay,1,turkce_karaktersiz,test,,sentetik_varyant
-DK01205,G0403,herkese yayalmı şu mesajı,SIBER_ZORBALIK,ifsa_santaj,mesaj,kolay,1,yazim_hatasi,test,,sentetik_varyant
-DK01218,G0408,git öl ezik,SIBER_ZORBALIK,kendine_zarar_yonlendirme,oyun,kolay,0,,test,,sentetik
-DK01219,G0408,git ol ezik,SIBER_ZORBALIK,kendine_zarar_yonlendirme,oyun,kolay,1,turkce_karaktersiz,test,,sentetik_varyant
-DK01220,G0408,git öl ez1k,SIBER_ZORBALIK,kendine_zarar_yonlendirme,oyun,kolay,1,sembol_rakam,test,,sentetik_varyant
-DK01227,G0411,seni her yerde engelletirim,SIBER_ZORBALIK,dislama,sosyal,zor,0,,test,sözlükte yok,sentetik
-DK01228,G0411,seni her yerde engelleirim,SIBER_ZORBALIK,dislama,sosyal,zor,1,yazim_hatasi,test,sözlükte yok,sentetik_varyant
-DK01229,G0411,s e n i her yerde engelletirim,SIBER_ZORBALIK,dislama,sosyal,zor,1,harf_ayirma,test,sözlükte yok,sentetik_varyant
-DK01278,G0428,seni yakarım,TEHDIT,fiziksel,mesaj,kolay,0,,test,,sentetik
-DK01279,G0428,seni yakarııııım,TEHDIT,fiziksel,mesaj,kolay,1,harf_uzatma,test,,sentetik_varyant
-DK01280,G0428,seni yakaım,TEHDIT,fiziksel,mesaj,kolay,1,yazim_hatasi,test,,sentetik_varyant
-DK01302,G0436,evini biliyorum,TEHDIT,takip,mesaj,kolay,0,,test,,sentetik
-DK01303,G0436,3vini biliyorum,TEHDIT,takip,mesaj,kolay,1,sembol_rakam,test,,sentetik_varyant
-DK01304,G0436,evni biliyorum,TEHDIT,takip,mesaj,kolay,1,yazim_hatasi,test,,sentetik_varyant
-DK01332,G0446,sana gününü göstereceğim,TEHDIT,gozdagi,mesaj,kolay,0,,test,,sentetik
-DK01333,G0446,sana gününü göstercam,TEHDIT,gozdagi,mesaj,kolay,1,sohbet_kisaltma,test,,sentetik_varyant
-DK01334,G0446,s-a-n-a gününü göstereceğim,TEHDIT,gozdagi,mesaj,kolay,1,harf_ayirma,test,,sentetik_varyant
-DK01341,G0449,yarın görürsün sen,TEHDIT,gozdagi,mesaj,kolay,0,,test,,sentetik
-DK01342,G0449,y-a-r-ı-n görürsün sen,TEHDIT,gozdagi,mesaj,kolay,1,harf_ayirma,test,,sentetik_varyant
-DK01343,G0449,yarın görürsün sen !!!,TEHDIT,gozdagi,mesaj,kolay,1,buyuk_harf_emoji,test,,sentetik_varyant
-DK01359,G0455,seni pişman ederim,TEHDIT,gozdagi,mesaj,kolay,0,,test,,sentetik
-DK01360,G0455,seni pişmaaan ederim,TEHDIT,gozdagi,mesaj,kolay,1,harf_uzatma,test,,sentetik_varyant
-DK01361,G0455,seni pişman eder1m,TEHDIT,gozdagi,mesaj,kolay,1,sembol_rakam,test,,sentetik_varyant
-DK01380,G0462,bisikletini parçalarım,TEHDIT,aile_esya,mesaj,zor,0,,test,sözlükte yok,sentetik
-DK01381,G0462,bisikletini parçal@rım,TEHDIT,aile_esya,mesaj,zor,1,sembol_rakam,test,sözlükte yok,sentetik_varyant
-DK01382,G0462,bisikletiniiii parçalarım,TEHDIT,aile_esya,mesaj,zor,1,harf_uzatma,test,sözlükte yok,sentetik_varyant
-DK01392,G0466,discord'dan konumunu buldum,TEHDIT,oyun_gercek,oyun,zor,0,,test,sözlükte yok,sentetik
-DK01393,G0466,discord'dan konumunu budlum,TEHDIT,oyun_gercek,oyun,zor,1,yazim_hatasi,test,sözlükte yok,sentetik_varyant
-DK01394,G0466,d-i-s-c-o-r-d-d-a-n konumunu buldum,TEHDIT,oyun_gercek,oyun,zor,1,harf_ayirma,test,sözlükte yok,sentetik_varyant
-DK01410,G0472,gebercen,TEHDIT,fiziksel,mesaj,zor,0,,test,konuşma dili,sentetik
-DK01411,G0472,g.e.b.e.r.c.e.n,TEHDIT,fiziksel,mesaj,zor,1,harf_ayirma,test,konuşma dili,sentetik_varyant
-DK01412,G0472,gebercen 😤,TEHDIT,fiziksel,mesaj,zor,1,buyuk_harf_emoji,test,konuşma dili,sentetik_varyant
-DK01419,G0475,"çıkışta bekle, konuşacağız",TEHDIT,gozdagi,mesaj,kolay,0,,test,,sentetik
-DK01420,G0475,"ÇIKIŞTA BEKLE, KONUŞACAĞIZ 💀",TEHDIT,gozdagi,mesaj,kolay,1,buyuk_harf_emoji,test,,sentetik_varyant
-DK01421,G0475,"cikista bekle, konusacagiz",TEHDIT,gozdagi,mesaj,kolay,1,turkce_karaktersiz,test,,sentetik_varyant
-DK01431,G0479,ağzını kırarım,TEHDIT,fiziksel,mesaj,orta,0,,test,sözlükte yok (ağzını burnunu değil),sentetik
-DK01432,G0479,ağzını k-ı-r-a-r-ı-m,TEHDIT,fiziksel,mesaj,orta,1,harf_ayirma,test,sözlükte yok (ağzını burnunu değil),sentetik_varyant
-DK01433,G0479,ağzınıııı kırarım,TEHDIT,fiziksel,mesaj,orta,1,harf_uzatma,test,sözlükte yok (ağzını burnunu değil),sentetik_varyant
-DK01437,G0481,seni benzetirim,TEHDIT,fiziksel,mesaj,zor,0,,test,"konuşma dili, sözlükte yok",sentetik
-DK01438,G0481,seniiii benzetirim,TEHDIT,fiziksel,mesaj,zor,1,harf_uzatma,test,"konuşma dili, sözlükte yok",sentetik_varyant
-DK01439,G0481,SENİ BENZETİRİM 😡,TEHDIT,fiziksel,mesaj,zor,1,buyuk_harf_emoji,test,"konuşma dili, sözlükte yok",sentetik_varyant
-DK01443,G0483,"sınıfta görüşürüz, hazırlıklı ol",TEHDIT,gozdagi,mesaj,zor,0,,test,"sözlükte yok, örtük",sentetik
-DK01444,G0483,"sınıfta görüşürüz, h.a.z.ı.r.l.ı.k.l.ı ol",TEHDIT,gozdagi,mesaj,zor,1,harf_ayirma,test,"sözlükte yok, örtük",sentetik_varyant
-DK01445,G0483,"sınıfta görüşürüz, hazırlıklıııı ol",TEHDIT,gozdagi,mesaj,zor,1,harf_uzatma,test,"sözlükte yok, örtük",sentetik_varyant
-DK01485,G0497,"sesini kaydettim, sonra hesaplaşırız",TEHDIT,gozdagi,oyun,zor,0,,test,sözlükte yok,sentetik
-DK01486,G0497,"sesini kaydettim, sonra hesaplasiriz",TEHDIT,gozdagi,oyun,zor,1,turkce_karaktersiz,test,sözlükte yok,sentetik_varyant
-DK01487,G0497,"sesini kaydettim, sonra hesaplaşırız 😒",TEHDIT,gozdagi,oyun,zor,1,buyuk_harf_emoji,test,sözlükte yok,sentetik_varyant
-DK01491,G0499,canına okuyacağım,TEHDIT,fiziksel,mesaj,kolay,0,,test,,sentetik
-DK01492,G0499,c@nına okuyacağım,TEHDIT,fiziksel,mesaj,kolay,1,sembol_rakam,test,,sentetik_varyant
-DK01493,G0499,canına okyuacağım,TEHDIT,fiziksel,mesaj,kolay,1,yazim_hatasi,test,,sentetik_varyant
+DK00034,G0012,bu akşam babaannemlere gidiyoruz,NORMAL,gunluk,mesaj,kolay,0,,test,,sentetik
+DK00035,G0012,bu aşam babaannemlere gidiyoruz,NORMAL,gunluk,mesaj,kolay,1,yazim_hatasi,test,,sentetik_varyant
+DK00036,G0012,bu akşam babaannemlere g i d i y o r u z,NORMAL,gunluk,mesaj,kolay,1,harf_ayirma,test,,sentetik_varyant
+DK00046,G0016,hasta olduğum için bugün okula gelemedim,NORMAL,gunluk,mesaj,kolay,0,,test,,sentetik
+DK00047,G0016,hasta olduğum için bugün oukla gelemedim,NORMAL,gunluk,mesaj,kolay,1,yazim_hatasi,test,,sentetik_varyant
+DK00048,G0016,HASTA OLDUĞUM İÇİN BUGÜN OKULA GELEMEDİM !!!,NORMAL,gunluk,mesaj,kolay,1,buyuk_harf_emoji,test,,sentetik_varyant
+DK00049,G0017,annem izin verirse gelirim,NORMAL,gunluk,mesaj,kolay,0,,test,,sentetik
+DK00050,G0017,4nnem izin verirse gelirim,NORMAL,gunluk,mesaj,kolay,1,sembol_rakam,test,,sentetik_varyant
+DK00051,G0017,annem izin verirse geliim,NORMAL,gunluk,mesaj,kolay,1,yazim_hatasi,test,,sentetik_varyant
+DK00088,G0030,müzik dersinde flüt çaldık,NORMAL,gunluk,mesaj,kolay,0,,test,,sentetik
+DK00089,G0030,müzik dersindeeee flüt çaldık,NORMAL,gunluk,mesaj,kolay,1,harf_uzatma,test,,sentetik_varyant
+DK00090,G0030,muzik dersinde flut caldik,NORMAL,gunluk,mesaj,kolay,1,turkce_karaktersiz,test,,sentetik_varyant
+DK00118,G0040,"takımı kuralım, 5 kişiyiz",NORMAL,oyun,oyun,kolay,0,,test,,sentetik
+DK00119,G0040,"takımı kuralım, 5 kişiyiz 🤬",NORMAL,oyun,oyun,kolay,1,buyuk_harf_emoji,test,,sentetik_varyant
+DK00120,G0040,takımı k.u.r.a.l.ı.m 5 kişiyiz,NORMAL,oyun,oyun,kolay,1,harf_ayirma,test,,sentetik_varyant
+DK00130,G0044,"pes etmeyelim, daha kazanabiliriz",NORMAL,oyun,oyun,kolay,0,,test,,sentetik
+DK00131,G0044,"pes etmeyelim, dahaaa kazanabiliriz",NORMAL,oyun,oyun,kolay,1,harf_uzatma,test,,sentetik_varyant
+DK00132,G0044,"pes etmeyelim, daha k a z a n a b i l i r i z",NORMAL,oyun,oyun,kolay,1,harf_ayirma,test,,sentetik_varyant
+DK00154,G0052,"anlatımın çok açık, sayende konuyu anladım",NORMAL,yorum,youtube,kolay,0,,test,,sentetik
+DK00155,G0052,"anlatımın çok açık, sayende k0nuyu anladım",NORMAL,yorum,youtube,kolay,1,sembol_rakam,test,,sentetik_varyant
+DK00156,G0052,"anlatımın çok açık, sayende konuyu anlaıdm",NORMAL,yorum,youtube,kolay,1,yazim_hatasi,test,,sentetik_varyant
+DK00160,G0054,müzik seçimi çok iyi,NORMAL,yorum,youtube,kolay,0,,test,,sentetik
+DK00161,G0054,müzik seçimi çok iyi 👍,NORMAL,yorum,youtube,kolay,1,buyuk_harf_emoji,test,,sentetik_varyant
+DK00162,G0054,müzik seçim1 çok iyi,NORMAL,yorum,youtube,kolay,1,sembol_rakam,test,,sentetik_varyant
+DK00211,G0071,domuz bağı nasıl atılır biliyor musun,NORMAL,yanlis_alarm,mesaj,zor,0,,test,hayvan adı,sentetik
+DK00212,G0071,domuz bagi nasil atilir biliyor musun,NORMAL,yanlis_alarm,mesaj,zor,1,turkce_karaktersiz,test,hayvan adı,sentetik_varyant
+DK00213,G0071,domuz bağı nasıl atılır bilior musun,NORMAL,yanlis_alarm,mesaj,zor,1,yazim_hatasi,test,hayvan adı,sentetik_varyant
+DK00214,G0072,aldığım tişört defolu çıktı,NORMAL,yanlis_alarm,mesaj,zor,0,,test,defol kökü,sentetik
+DK00215,G0072,aldığım tişört defolu ç.ı.k.t.ı,NORMAL,yanlis_alarm,mesaj,zor,1,harf_ayirma,test,defol kökü,sentetik_varyant
+DK00216,G0072,aldigim tisort defolu cikti,NORMAL,yanlis_alarm,mesaj,zor,1,turkce_karaktersiz,test,defol kökü,sentetik_varyant
+DK00238,G0080,"kalemi götürdüm, yarın getiririm",NORMAL,yanlis_alarm,mesaj,zor,0,,test,göt kökü,sentetik
+DK00239,G0080,"kalemi götürdüm, yarııın getiririm",NORMAL,yanlis_alarm,mesaj,zor,1,harf_uzatma,test,göt kökü,sentetik_varyant
+DK00240,G0080,"kalemi goturdum, yarin getiririm",NORMAL,yanlis_alarm,mesaj,zor,1,turkce_karaktersiz,test,göt kökü,sentetik_varyant
+DK00259,G0087,zombileri öldürmek için kılıç lazım,NORMAL,oyun_eylem,oyun,zor,0,,test,oyun bağlamı,sentetik
+DK00260,G0087,zombileri öldürmek için kılıç lazım 👍,NORMAL,oyun_eylem,oyun,zor,1,buyuk_harf_emoji,test,oyun bağlamı,sentetik_varyant
+DK00261,G0087,zombileri öldürmek i.ç.i.n kılıç lazım,NORMAL,oyun_eylem,oyun,zor,1,harf_ayirma,test,oyun bağlamı,sentetik_varyant
+DK00268,G0090,sniper ile kafadan vurdum,NORMAL,oyun_eylem,oyun,zor,0,,test,oyun bağlamı,sentetik
+DK00269,G0090,sniper ile kafadan vurduuuuum,NORMAL,oyun_eylem,oyun,zor,1,harf_uzatma,test,oyun bağlamı,sentetik_varyant
+DK00270,G0090,sniper ile k-a-f-a-d-a-n vurdum,NORMAL,oyun_eylem,oyun,zor,1,harf_ayirma,test,oyun bağlamı,sentetik_varyant
+DK00274,G0092,düşman takımı yok ettik,NORMAL,oyun_eylem,oyun,zor,0,,test,oyun bağlamı,sentetik
+DK00275,G0092,düşman takımııııı yok ettik,NORMAL,oyun_eylem,oyun,zor,1,harf_uzatma,test,oyun bağlamı,sentetik_varyant
+DK00276,G0092,düşman takımı yk ettik,NORMAL,oyun_eylem,oyun,zor,1,sohbet_kisaltma,test,oyun bağlamı,sentetik_varyant
+DK00286,G0096,öldüm gülmekten 😂😂,NORMAL,mecaz,mesaj,zor,0,,test,mecaz,sentetik
+DK00287,G0096,öldüm g ü l m e k t e n 😂😂,NORMAL,mecaz,mesaj,zor,1,harf_ayirma,test,mecaz,sentetik_varyant
+DK00288,G0096,öldüm glmekten 😂😂,NORMAL,mecaz,mesaj,zor,1,yazim_hatasi,test,mecaz,sentetik_varyant
+DK00319,G0107,"bu oyun çok kötü olmuş, beğenmedim",NORMAL,olumsuz,youtube,orta,0,,test,eleştiri,sentetik
+DK00320,G0107,"bu oyun çok kötü olmuş, beğenmedim ??",NORMAL,olumsuz,youtube,orta,1,buyuk_harf_emoji,test,eleştiri,sentetik_varyant
+DK00321,G0107,"bu oyun çok kötü olmuş, beğenmdim",NORMAL,olumsuz,youtube,orta,1,yazim_hatasi,test,eleştiri,sentetik_varyant
+DK00334,G0112,"takım olarak kötü oynadık, çalışmamız lazım",NORMAL,olumsuz,oyun,orta,0,,test,eleştiri,sentetik
+DK00335,G0112,"takim olarak kotu oynadik, calismamiz lazim",NORMAL,olumsuz,oyun,orta,1,turkce_karaktersiz,test,eleştiri,sentetik_varyant
+DK00336,G0112,takım olarak kötü o y n a d ı k çalışmamız lazım,NORMAL,olumsuz,oyun,orta,1,harf_ayirma,test,eleştiri,sentetik_varyant
+DK00361,G0121,"kaç yaşındasın, kaçıncı sınıfa gidiyorsun? yeni geldin galiba",NORMAL,yas_masum,oyun,zor,0,,test,akran sorusu,sentetik
+DK00362,G0121,"kaç yaşınasın, kaçıncı sınıfa gidiyorsun? yeni geldin galiba",NORMAL,yas_masum,oyun,zor,1,yazim_hatasi,test,akran sorusu,sentetik_varyant
+DK00363,G0121,"KAÇ YAŞINDASIN, KAÇINCI SINIFA GİDİYORSUN? YENİ GELDİN GALİBA !!!",NORMAL,yas_masum,oyun,zor,1,buyuk_harf_emoji,test,akran sorusu,sentetik_varyant
+DK00379,G0127,bugün moralim bozuk ama yarın geçer,NORMAL,duygu_masum,mesaj,zor,0,,test,olağan duygu,sentetik
+DK00380,G0127,bugün moralim bozuk ama yarın g-e-ç-e-r,NORMAL,duygu_masum,mesaj,zor,1,harf_ayirma,test,olağan duygu,sentetik_varyant
+DK00381,G0127,BUGÜN MORALİM BOZUK AMA YARIN GEÇER 😒,NORMAL,duygu_masum,mesaj,zor,1,buyuk_harf_emoji,test,olağan duygu,sentetik_varyant
+DK00394,G0132,amk yine kaybettik,KUFUR,hedefsiz,oyun,kolay,0,,test,,sentetik
+DK00395,G0132,AMK YİNE KAYBETTİK 🤬,KUFUR,hedefsiz,oyun,kolay,1,buyuk_harf_emoji,test,,sentetik_varyant
+DK00396,G0132,amk yine k-a-y-b-e-t-t-i-k,KUFUR,hedefsiz,oyun,kolay,1,harf_ayirma,test,,sentetik_varyant
+DK00463,G0155,amına koyduğumun çocuğu,KUFUR,hedefli,oyun,kolay,0,,test,,sentetik
+DK00464,G0155,amina koydugumun cocugu,KUFUR,hedefli,oyun,kolay,1,turkce_karaktersiz,test,,sentetik_varyant
+DK00465,G0155,AMINA KOYDUĞUMUN ÇOCUĞU 🤬,KUFUR,hedefli,oyun,kolay,1,buyuk_harf_emoji,test,,sentetik_varyant
+DK00478,G0160,senin ananı,KUFUR,hedefli,oyun,kolay,0,,test,,sentetik
+DK00479,G0160,senin @nanı,KUFUR,hedefli,oyun,kolay,1,sembol_rakam,test,,sentetik_varyant
+DK00480,G0160,senin a-n-a-n-ı,KUFUR,hedefli,oyun,kolay,1,harf_ayirma,test,,sentetik_varyant
+DK00484,G0162,göt herif takımı yaktın,KUFUR,hedefli,oyun,kolay,0,,test,,sentetik
+DK00485,G0162,got herif takimi yaktin,KUFUR,hedefli,oyun,kolay,1,turkce_karaktersiz,test,,sentetik_varyant
+DK00486,G0162,GÖT HERİF TAKIMI YAKTIN ??,KUFUR,hedefli,oyun,kolay,1,buyuk_harf_emoji,test,,sentetik_varyant
+DK00493,G0165,kahpe seni,KUFUR,hedefli,mesaj,kolay,0,,test,,sentetik
+DK00494,G0165,kahep seni,KUFUR,hedefli,mesaj,kolay,1,yazim_hatasi,test,,sentetik_varyant
+DK00495,G0165,kahpe s.e.n.i,KUFUR,hedefli,mesaj,kolay,1,harf_ayirma,test,,sentetik_varyant
+DK00499,G0167,ibne misin nesin,KUFUR,hedefli,oyun,kolay,0,,test,aşağılayıcı ifade,sentetik
+DK00500,G0167,ibne msiin nesin,KUFUR,hedefli,oyun,kolay,1,yazim_hatasi,test,aşağılayıcı ifade,sentetik_varyant
+DK00501,G0167,ibne misin nesin 💀,KUFUR,hedefli,oyun,kolay,1,buyuk_harf_emoji,test,aşağılayıcı ifade,sentetik_varyant
+DK00526,G0176,götveren herif,KUFUR,hedefli,oyun,kolay,0,,test,,sentetik
+DK00527,G0176,götveren heif,KUFUR,hedefli,oyun,kolay,1,yazim_hatasi,test,,sentetik_varyant
+DK00528,G0176,gotveren herif,KUFUR,hedefli,oyun,kolay,1,turkce_karaktersiz,test,,sentetik_varyant
+DK00532,G0178,ananın amı,KUFUR,hedefli,oyun,kolay,0,,test,,sentetik
+DK00533,G0178,a n a n ı n amı,KUFUR,hedefli,oyun,kolay,1,harf_ayirma,test,,sentetik_varyant
+DK00534,G0178,aannın amı,KUFUR,hedefli,oyun,kolay,1,yazim_hatasi,test,,sentetik_varyant
+DK00559,G0187,kevaşe,KUFUR,hedefli,sosyal,kolay,0,,test,cinsiyetçi küfür,sentetik
+DK00560,G0187,kevase,KUFUR,hedefli,sosyal,kolay,1,turkce_karaktersiz,test,cinsiyetçi küfür,sentetik_varyant
+DK00561,G0187,k-e-v-a-ş-e,KUFUR,hedefli,sosyal,kolay,1,harf_ayirma,test,cinsiyetçi küfür,sentetik_varyant
+DK00571,G0191,yorumları okuyan herkesin amk,KUFUR,hedefsiz,youtube,kolay,0,,test,,sentetik
+DK00572,G0191,yorumları okuyan h-e-r-k-e-s-i-n amk,KUFUR,hedefsiz,youtube,kolay,1,harf_ayirma,test,,sentetik_varyant
+DK00573,G0191,yorumları oukyan herkesin amk,KUFUR,hedefsiz,youtube,kolay,1,yazim_hatasi,test,,sentetik_varyant
+DK00577,G0193,siktir git kanalı kapat,KUFUR,hedefli,youtube,kolay,0,,test,,sentetik
+DK00578,G0193,siktir git kanalıııı kapat,KUFUR,hedefli,youtube,kolay,1,harf_uzatma,test,,sentetik_varyant
+DK00579,G0193,siktir git kanlaı kapat,KUFUR,hedefli,youtube,kolay,1,yazim_hatasi,test,,sentetik_varyant
+DK00623,G0209,amk çok iyi oynadın kanka,KUFUR,hedefsiz,oyun,zor,0,,test,övgüyle karışık küfür,sentetik
+DK00624,G0209,amk çok iyi oynadııııın kanka,KUFUR,hedefsiz,oyun,zor,1,harf_uzatma,test,övgüyle karışık küfür,sentetik_varyant
+DK00625,G0209,amk çk iyi oynadın kanka,KUFUR,hedefsiz,oyun,zor,1,sohbet_kisaltma,test,övgüyle karışık küfür,sentetik_varyant
+DK00632,G0212,amq ne güzel şarkı,KUFUR,hedefsiz,youtube,zor,0,,test,övgüyle karışık küfür,sentetik
+DK00633,G0212,amq ne güzel şrkı,KUFUR,hedefsiz,youtube,zor,1,yazim_hatasi,test,övgüyle karışık küfür,sentetik_varyant
+DK00634,G0212,amq ne guzel sarki,KUFUR,hedefsiz,youtube,zor,1,turkce_karaktersiz,test,övgüyle karışık küfür,sentetik_varyant
+DK00650,G0218,aq çocuğu yine mi sen,KUFUR,hedefli,oyun,kolay,0,,test,,sentetik
+DK00651,G0218,aq çocuğu y i n e mi sen,KUFUR,hedefli,oyun,kolay,1,harf_ayirma,test,,sentetik_varyant
+DK00652,G0218,aq cocugu yine mi sen,KUFUR,hedefli,oyun,kolay,1,turkce_karaktersiz,test,,sentetik_varyant
+DK00689,G0231,a.q,KUFUR,hedefsiz,oyun,orta,0,,test,noktalı yazım,sentetik
+DK00690,G0231,A.Q !!!,KUFUR,hedefsiz,oyun,orta,1,buyuk_harf_emoji,test,noktalı yazım,sentetik_varyant
+DK00708,G0238,şerefsiz herif,HAKARET,dogrudan,mesaj,kolay,0,,test,,sentetik
+DK00709,G0238,şerefsiz her1f,HAKARET,dogrudan,mesaj,kolay,1,sembol_rakam,test,,sentetik_varyant
+DK00710,G0238,şerefsiz heif,HAKARET,dogrudan,mesaj,kolay,1,yazim_hatasi,test,,sentetik_varyant
+DK00717,G0241,aşağılık birisin,HAKARET,dogrudan,mesaj,kolay,0,,test,,sentetik
+DK00718,G0241,AŞAĞILIK BİRİSİN 💀,HAKARET,dogrudan,mesaj,kolay,1,buyuk_harf_emoji,test,,sentetik_varyant
+DK00719,G0241,aşağılık b1risin,HAKARET,dogrudan,mesaj,kolay,1,sembol_rakam,test,,sentetik_varyant
+DK00720,G0242,sen ne iğrenç bir insansın,HAKARET,dogrudan,mesaj,orta,0,,test,,sentetik
+DK00721,G0242,sen ne i ğ r e n ç bir insansın,HAKARET,dogrudan,mesaj,orta,1,harf_ayirma,test,,sentetik_varyant
+DK00722,G0242,sen ne iğreeeeenç bir insansın,HAKARET,dogrudan,mesaj,orta,1,harf_uzatma,test,,sentetik_varyant
+DK00768,G0258,eşek herif,HAKARET,dogrudan,mesaj,kolay,0,,test,,sentetik
+DK00769,G0258,EŞEK HERİF 😤,HAKARET,dogrudan,mesaj,kolay,1,buyuk_harf_emoji,test,,sentetik_varyant
+DK00770,G0258,eşek her1f,HAKARET,dogrudan,mesaj,kolay,1,sembol_rakam,test,,sentetik_varyant
+DK00804,G0270,lavuk,HAKARET,dogrudan,mesaj,kolay,0,,test,,sentetik
+DK00805,G0270,lavuuuuk,HAKARET,dogrudan,mesaj,kolay,1,harf_uzatma,test,,sentetik_varyant
+DK00806,G0270,l@vuk,HAKARET,dogrudan,mesaj,kolay,1,sembol_rakam,test,,sentetik_varyant
+DK00813,G0273,"çirkin şey, aynaya bak",HAKARET,gorunus,sosyal,kolay,0,,test,,sentetik
+DK00814,G0273,"çirkin şey, aynaya baaak",HAKARET,gorunus,sosyal,kolay,1,harf_uzatma,test,,sentetik_varyant
+DK00815,G0273,"çirkin şy, aynaya bak",HAKARET,gorunus,sosyal,kolay,1,sohbet_kisaltma,test,,sentetik_varyant
+DK00822,G0276,ucube gibi görünüyorsun,HAKARET,gorunus,sosyal,kolay,0,,test,,sentetik
+DK00823,G0276,ucube gibi görünüyorsuuuuun,HAKARET,gorunus,sosyal,kolay,1,harf_uzatma,test,,sentetik_varyant
+DK00824,G0276,ucueb gibi görünüyorsun,HAKARET,gorunus,sosyal,kolay,1,yazim_hatasi,test,,sentetik_varyant
+DK00846,G0284,geri kafalı mısın,HAKARET,yetenek,mesaj,kolay,0,,test,,sentetik
+DK00847,G0284,geri kafalı mıın,HAKARET,yetenek,mesaj,kolay,1,yazim_hatasi,test,,sentetik_varyant
+DK00848,G0284,geri kafalı m ı s ı n,HAKARET,yetenek,mesaj,kolay,1,harf_ayirma,test,,sentetik_varyant
+DK00858,G0288,kafan çalışmıyor senin,HAKARET,yetenek,mesaj,orta,0,,test,sözlükte yok,sentetik
+DK00859,G0288,kafan çalışmıyor s3nin,HAKARET,yetenek,mesaj,orta,1,sembol_rakam,test,sözlükte yok,sentetik_varyant
+DK00860,G0288,kafan çalışmıyor s-e-n-i-n,HAKARET,yetenek,mesaj,orta,1,harf_ayirma,test,sözlükte yok,sentetik_varyant
+DK00915,G0307,senin gibi cahiller yüzünden,HAKARET,yorum,youtube,kolay,0,,test,,sentetik
+DK00916,G0307,senin gib1 cahiller yüzünden,HAKARET,yorum,youtube,kolay,1,sembol_rakam,test,,sentetik_varyant
+DK00917,G0307,SENİN GİBİ CAHİLLER YÜZÜNDEN ??,HAKARET,yorum,youtube,kolay,1,buyuk_harf_emoji,test,,sentetik_varyant
+DK00942,G0316,gerizekalı seni 😂 çok güldüm,HAKARET,saka_hakaret,mesaj,zor,0,,test,şaka görünümlü,sentetik
+DK00943,G0316,GERİZEKALI SENİ 😂 ÇOK GÜLDÜM 🤬,HAKARET,saka_hakaret,mesaj,zor,1,buyuk_harf_emoji,test,şaka görünümlü,sentetik_varyant
+DK00944,G0316,gerizekalı seni 😂 çok güldüüüüm,HAKARET,saka_hakaret,mesaj,zor,1,harf_uzatma,test,şaka görünümlü,sentetik_varyant
+DK00945,G0317,"salak şey, yine de seviyorum seni 😄",HAKARET,saka_hakaret,mesaj,zor,0,,test,şaka görünümlü,sentetik
+DK00946,G0317,"salak şey, y i n e de seviyorum seni 😄",HAKARET,saka_hakaret,mesaj,zor,1,harf_ayirma,test,şaka görünümlü,sentetik_varyant
+DK00947,G0317,"SALAK ŞEY, YİNE DE SEVİYORUM SENİ 😄 ??",HAKARET,saka_hakaret,mesaj,zor,1,buyuk_harf_emoji,test,şaka görünümlü,sentetik_varyant
+DK00960,G0322,çirkin ördek yavrusu 😄 fotoğrafta gözlerin kapalı,HAKARET,saka_hakaret,sosyal,zor,0,,test,"şaka görünümlü, görünüş",sentetik
+DK00961,G0322,çirkin ördek yavrusu 😄 f o t o ğ r a f t a gözlerin kapalı,HAKARET,saka_hakaret,sosyal,zor,1,harf_ayirma,test,"şaka görünümlü, görünüş",sentetik_varyant
+DK00962,G0322,çirkin ördek yavrusu 😄 fotoğrafta gözlerin k4palı,HAKARET,saka_hakaret,sosyal,zor,1,sembol_rakam,test,"şaka görünümlü, görünüş",sentetik_varyant
+DK00990,G0332,4ptal misin,HAKARET,dogrudan,mesaj,orta,0,,test,rakamlı yazım,sentetik
+DK00991,G0332,4ptal mis1n,HAKARET,dogrudan,mesaj,orta,1,sembol_rakam,test,rakamlı yazım,sentetik_varyant
+DK00992,G0332,4patl misin,HAKARET,dogrudan,mesaj,orta,1,yazim_hatasi,test,rakamlı yazım,sentetik_varyant
+DK00993,G0333,senin gibi birinden zaten bu beklenirdi,HAKARET,dolayli,mesaj,zor,0,,test,sözlükte yok,sentetik
+DK00994,G0333,SENİN GİBİ BİRİNDEN ZATEN BU BEKLENİRDİ 😡,HAKARET,dolayli,mesaj,zor,1,buyuk_harf_emoji,test,sözlükte yok,sentetik_varyant
+DK00995,G0333,senin gibi birindeeeeen zaten bu beklenirdi,HAKARET,dolayli,mesaj,zor,1,harf_uzatma,test,sözlükte yok,sentetik_varyant
+DK00996,G0334,annen seni nasıl yetiştirmiş merak ediyorum,HAKARET,dolayli,mesaj,zor,0,,test,sözlükte yok,sentetik
+DK00997,G0334,a n n e n seni nasıl yetiştirmiş merak ediyorum,HAKARET,dolayli,mesaj,zor,1,harf_ayirma,test,sözlükte yok,sentetik_varyant
+DK00998,G0334,annen seni nasıl yetiştirmiş m3rak ediyorum,HAKARET,dolayli,mesaj,zor,1,sembol_rakam,test,sözlükte yok,sentetik_varyant
+DK01026,G0344,kimse onunla konuşmasın,SIBER_ZORBALIK,dislama,mesaj,kolay,0,,test,,sentetik
+DK01027,G0344,kimse o n u n l a konuşmasın,SIBER_ZORBALIK,dislama,mesaj,kolay,1,harf_ayirma,test,,sentetik_varyant
+DK01028,G0344,kimse onunla konuşma5ın,SIBER_ZORBALIK,dislama,mesaj,kolay,1,sembol_rakam,test,,sentetik_varyant
+DK01047,G0351,kimse seni istemiyor bu sınıfta,SIBER_ZORBALIK,dislama,mesaj,kolay,0,,test,,sentetik
+DK01048,G0351,kimse seni itsemiyor bu sınıfta,SIBER_ZORBALIK,dislama,mesaj,kolay,1,yazim_hatasi,test,,sentetik_varyant
+DK01049,G0351,kimse seni istemiyor bu $ınıfta,SIBER_ZORBALIK,dislama,mesaj,kolay,1,sembol_rakam,test,,sentetik_varyant
+DK01053,G0353,takıma almayın şunu,SIBER_ZORBALIK,dislama,oyun,kolay,0,,test,,sentetik
+DK01054,G0353,takıma almaıyn şunu,SIBER_ZORBALIK,dislama,oyun,kolay,1,yazim_hatasi,test,,sentetik_varyant
+DK01055,G0353,takıma almayın şunu 😂,SIBER_ZORBALIK,dislama,oyun,kolay,1,buyuk_harf_emoji,test,,sentetik_varyant
+DK01074,G0360,"herkes sana gülüyor, farkında değil misin",SIBER_ZORBALIK,alay,mesaj,kolay,0,,test,,sentetik
+DK01075,G0360,"herkes sana gülüyor, farkında d.e.ğ.i.l misin",SIBER_ZORBALIK,alay,mesaj,kolay,1,harf_ayirma,test,,sentetik_varyant
+DK01076,G0360,"herke5 sana gülüyor, farkında değil misin",SIBER_ZORBALIK,alay,mesaj,kolay,1,sembol_rakam,test,,sentetik_varyant
+DK01086,G0364,"bakın şu eziğe, yine ağlıyor",SIBER_ZORBALIK,alay,sosyal,kolay,0,,test,,sentetik
+DK01087,G0364,"bakın şu eziğe, yine a ğ l ı y o r",SIBER_ZORBALIK,alay,sosyal,kolay,1,harf_ayirma,test,,sentetik_varyant
+DK01088,G0364,"bakin su ezige, yine agliyor",SIBER_ZORBALIK,alay,sosyal,kolay,1,turkce_karaktersiz,test,,sentetik_varyant
+DK01134,G0380,ekran görüntüsünü yaydım bile 😂,SIBER_ZORBALIK,ifsa_santaj,sosyal,kolay,0,,test,,sentetik
+DK01135,G0380,ekraaaan görüntüsünü yaydım bile 😂,SIBER_ZORBALIK,ifsa_santaj,sosyal,kolay,1,harf_uzatma,test,,sentetik_varyant
+DK01136,G0380,eran görüntüsünü yaydım bile 😂,SIBER_ZORBALIK,ifsa_santaj,sosyal,kolay,1,yazim_hatasi,test,,sentetik_varyant
+DK01140,G0382,para göndermezsen fotoğraflarını yayarım,SIBER_ZORBALIK,ifsa_santaj,mesaj,kolay,0,,test,,sentetik
+DK01141,G0382,para göndermezsen fotoğraflarını yayarım !!!,SIBER_ZORBALIK,ifsa_santaj,mesaj,kolay,1,buyuk_harf_emoji,test,,sentetik_varyant
+DK01142,G0382,para göndermezsen fotoğraflarını yayarııım,SIBER_ZORBALIK,ifsa_santaj,mesaj,kolay,1,harf_uzatma,test,,sentetik_varyant
+DK01149,G0385,annene babana gösteririm bu mesajları,SIBER_ZORBALIK,ifsa_santaj,mesaj,zor,0,,test,sözlükte yok,sentetik
+DK01150,G0385,annene babana gosteririm bu mesajlari,SIBER_ZORBALIK,ifsa_santaj,mesaj,zor,1,turkce_karaktersiz,test,sözlükte yok,sentetik_varyant
+DK01151,G0385,annee babana gösteririm bu mesajları,SIBER_ZORBALIK,ifsa_santaj,mesaj,zor,1,yazim_hatasi,test,sözlükte yok,sentetik_varyant
+DK01152,G0386,"sahte hesap açtım adına, rezil olacaksın",SIBER_ZORBALIK,ifsa_santaj,sosyal,kolay,0,,test,kimlik taklidi,sentetik
+DK01153,G0386,"sahte hesap açıtm adına, rezil olacaksın",SIBER_ZORBALIK,ifsa_santaj,sosyal,kolay,1,yazim_hatasi,test,kimlik taklidi,sentetik_varyant
+DK01154,G0386,"sahte hesap a ç t ı m adına, rezil olacaksın",SIBER_ZORBALIK,ifsa_santaj,sosyal,kolay,1,harf_ayirma,test,kimlik taklidi,sentetik_varyant
+DK01158,G0388,"şifreni biliyorum, hesabına girip paylaşım yapacağım",SIBER_ZORBALIK,ifsa_santaj,sosyal,zor,0,,test,hesap ele geçirme,sentetik
+DK01159,G0388,şifreni b i l i y o r u m hesabına girip paylaşım yapacağım,SIBER_ZORBALIK,ifsa_santaj,sosyal,zor,1,harf_ayirma,test,hesap ele geçirme,sentetik_varyant
+DK01160,G0388,"şifreni biliyorum, hesabına girip paylaşım yapacağıııım",SIBER_ZORBALIK,ifsa_santaj,sosyal,zor,1,harf_uzatma,test,hesap ele geçirme,sentetik_varyant
+DK01212,G0406,cevap ver cevap ver cevap ver,SIBER_ZORBALIK,tekrarli_taciz,mesaj,zor,0,,test,sözlükte yok,sentetik
+DK01213,G0406,cevap ver c-e-v-a-p ver cevap ver,SIBER_ZORBALIK,tekrarli_taciz,mesaj,zor,1,harf_ayirma,test,sözlükte yok,sentetik_varyant
+DK01214,G0406,CEVAP VER CEVAP VER CEVAP VER 👍,SIBER_ZORBALIK,tekrarli_taciz,mesaj,zor,1,buyuk_harf_emoji,test,sözlükte yok,sentetik_varyant
+DK01239,G0415,"yeni gelen şu çocuğu sürekli öldürün, oyundan çıksın",SIBER_ZORBALIK,oyun_zorbalik,oyun,zor,0,,test,oyun bağlamı,sentetik
+DK01240,G0415,"yeni gelen şu ç o c u ğ u sürekli öldürün, oyundan çıksın",SIBER_ZORBALIK,oyun_zorbalik,oyun,zor,1,harf_ayirma,test,oyun bağlamı,sentetik_varyant
+DK01241,G0415,"yeni gelen şu çocuğu sürekli öldürün, oyundaaan çıksın",SIBER_ZORBALIK,oyun_zorbalik,oyun,zor,1,harf_uzatma,test,oyun bağlamı,sentetik_varyant
+DK01245,G0417,"onu klandan atalım, ezik",SIBER_ZORBALIK,oyun_zorbalik,oyun,kolay,0,,test,,sentetik
+DK01246,G0417,"onu kland4n atalım, ezik",SIBER_ZORBALIK,oyun_zorbalik,oyun,kolay,1,sembol_rakam,test,,sentetik_varyant
+DK01247,G0417,"onu klandaaaan atalım, ezik",SIBER_ZORBALIK,oyun_zorbalik,oyun,kolay,1,harf_uzatma,test,,sentetik_varyant
+DK01263,G0423,"okulda herkes senin hakkında konuşuyor, rezil oldun",SIBER_ZORBALIK,alay,mesaj,kolay,0,,test,,sentetik
+DK01264,G0423,"okulda h.e.r.k.e.s senin hakkında konuşuyor, rezil oldun",SIBER_ZORBALIK,alay,mesaj,kolay,1,harf_ayirma,test,,sentetik_varyant
+DK01265,G0423,"OKULDA HERKES SENİN HAKKINDA KONUŞUYOR, REZİL OLDUN 👍",SIBER_ZORBALIK,alay,mesaj,kolay,1,buyuk_harf_emoji,test,,sentetik_varyant
+DK01299,G0435,her mesajına çirkin yazacağız,SIBER_ZORBALIK,tekrarli_taciz,sosyal,zor,0,,test,sözlükte yok,sentetik
+DK01300,G0435,her mesajına çirkin yazacağız ??,SIBER_ZORBALIK,tekrarli_taciz,sosyal,zor,1,buyuk_harf_emoji,test,sözlükte yok,sentetik_varyant
+DK01301,G0435,her mesajına çirkin y.a.z.a.c.a.ğ.ı.z,SIBER_ZORBALIK,tekrarli_taciz,sosyal,zor,1,harf_ayirma,test,sözlükte yok,sentetik_varyant
+DK01311,G0439,seni öldüreceğim,TEHDIT,fiziksel,mesaj,kolay,0,,test,,sentetik
+DK01312,G0439,seni öldürcam,TEHDIT,fiziksel,mesaj,kolay,1,sohbet_kisaltma,test,,sentetik_varyant
+DK01313,G0439,seni oldurecegim,TEHDIT,fiziksel,mesaj,kolay,1,turkce_karaktersiz,test,,sentetik_varyant
+DK01344,G0450,seni sakat bırakırım,TEHDIT,fiziksel,mesaj,kolay,0,,test,,sentetik
+DK01345,G0450,seni s.a.k.a.t bırakırım,TEHDIT,fiziksel,mesaj,kolay,1,harf_ayirma,test,,sentetik_varyant
+DK01346,G0450,seni s@kat bırakırım,TEHDIT,fiziksel,mesaj,kolay,1,sembol_rakam,test,,sentetik_varyant
+DK01356,G0454,canını alırım,TEHDIT,fiziksel,mesaj,kolay,0,,test,,sentetik
+DK01357,G0454,c@nını alırım,TEHDIT,fiziksel,mesaj,kolay,1,sembol_rakam,test,,sentetik_varyant
+DK01358,G0454,CANINI ALIRIM 😤,TEHDIT,fiziksel,mesaj,kolay,1,buyuk_harf_emoji,test,,sentetik_varyant
+DK01359,G0455,seni vururum,TEHDIT,fiziksel,mesaj,kolay,0,,test,,sentetik
+DK01360,G0455,seniiiii vururum,TEHDIT,fiziksel,mesaj,kolay,1,harf_uzatma,test,,sentetik_varyant
+DK01361,G0455,SENİ VURURUM 🙄,TEHDIT,fiziksel,mesaj,kolay,1,buyuk_harf_emoji,test,,sentetik_varyant
+DK01368,G0458,yarın elimden kurtulamazsın,TEHDIT,fiziksel,mesaj,zor,0,,test,sözlükte yok,sentetik
+DK01369,G0458,yarın elimden k-u-r-t-u-l-a-m-a-z-s-ı-n,TEHDIT,fiziksel,mesaj,zor,1,harf_ayirma,test,sözlükte yok,sentetik_varyant
+DK01370,G0458,yarnı elimden kurtulamazsın,TEHDIT,fiziksel,mesaj,zor,1,yazim_hatasi,test,sözlükte yok,sentetik_varyant
+DK01383,G0463,seni bulacağım nereye gidersen git,TEHDIT,takip,mesaj,kolay,0,,test,,sentetik
+DK01384,G0463,seni bulacağım nereye gidersen git !!!,TEHDIT,takip,mesaj,kolay,1,buyuk_harf_emoji,test,,sentetik_varyant
+DK01385,G0463,seni bulacağım nereye giderseeeen git,TEHDIT,takip,mesaj,kolay,1,harf_uzatma,test,,sentetik_varyant
+DK01398,G0468,aileni bulurum,TEHDIT,takip,mesaj,kolay,0,,test,,sentetik
+DK01399,G0468,aileni bulurmu,TEHDIT,takip,mesaj,kolay,1,yazim_hatasi,test,,sentetik_varyant
+DK01400,G0468,aileni bulurum !!!,TEHDIT,takip,mesaj,kolay,1,buyuk_harf_emoji,test,,sentetik_varyant
+DK01419,G0475,"abimi getiririm, görürsün",TEHDIT,gozdagi,mesaj,kolay,0,,test,,sentetik
+DK01420,G0475,"abimi getiririm, görür$ün",TEHDIT,gozdagi,mesaj,kolay,1,sembol_rakam,test,,sentetik_varyant
+DK01421,G0475,"ABİMİ GETİRİRİM, GÖRÜRSÜN 😤",TEHDIT,gozdagi,mesaj,kolay,1,buyuk_harf_emoji,test,,sentetik_varyant
+DK01446,G0484,ailene zarar veririm,TEHDIT,aile_esya,mesaj,kolay,0,,test,,sentetik
+DK01447,G0484,ailene zarar v.e.r.i.r.i.m,TEHDIT,aile_esya,mesaj,kolay,1,harf_ayirma,test,,sentetik_varyant
+DK01448,G0484,ailene zar@r veririm,TEHDIT,aile_esya,mesaj,kolay,1,sembol_rakam,test,,sentetik_varyant
+DK01473,G0493,seni öldürecegimmm,TEHDIT,fiziksel,mesaj,orta,0,,test,harf uzatma,sentetik
+DK01474,G0493,seni ödürecegimmm,TEHDIT,fiziksel,mesaj,orta,1,yazim_hatasi,test,harf uzatma,sentetik_varyant
+DK01475,G0493,SENİ ÖLDÜRECEGİMMM 😂,TEHDIT,fiziksel,mesaj,orta,1,buyuk_harf_emoji,test,harf uzatma,sentetik_varyant
+DK01479,G0495,pisman olacaksin,TEHDIT,gozdagi,mesaj,orta,0,,test,Türkçe karaktersiz,sentetik
+DK01480,G0495,pisman olacaksiiin,TEHDIT,gozdagi,mesaj,orta,1,harf_uzatma,test,Türkçe karaktersiz,sentetik_varyant
+DK01481,G0495,PİSMAN OLACAKSİN 💀,TEHDIT,gozdagi,mesaj,orta,1,buyuk_harf_emoji,test,Türkçe karaktersiz,sentetik_varyant
+DK01524,G0510,seni dışarıda bulursam yandın,TEHDIT,fiziksel,mesaj,orta,0,,test,sözlükte yok,sentetik
+DK01525,G0510,seni dıarıda bulursam yandın,TEHDIT,fiziksel,mesaj,orta,1,yazim_hatasi,test,sözlükte yok,sentetik_varyant
+DK01526,G0510,seni disarida bulursam yandin,TEHDIT,fiziksel,mesaj,orta,1,turkce_karaktersiz,test,sözlükte yok,sentetik_varyant
+DK01533,G0513,evinin fotoğrafını çektim,TEHDIT,takip,mesaj,zor,0,,test,sözlükte yok,sentetik
+DK01534,G0513,eviniiiiin fotoğrafını çektim,TEHDIT,takip,mesaj,zor,1,harf_uzatma,test,sözlükte yok,sentetik_varyant
+DK01535,G0513,evinin fotoğrafını çektim 👍,TEHDIT,takip,mesaj,zor,1,buyuk_harf_emoji,test,sözlükte yok,sentetik_varyant
+DK01563,G0523,sana zarar vereceğim,TEHDIT,fiziksel,mesaj,orta,0,,test,sözlükte yok,sentetik
+DK01564,G0523,sana zarar vercam,TEHDIT,fiziksel,mesaj,orta,1,sohbet_kisaltma,test,sözlükte yok,sentetik_varyant
+DK01565,G0523,sana zarar verecegim,TEHDIT,fiziksel,mesaj,orta,1,turkce_karaktersiz,test,sözlükte yok,sentetik_varyant
+DK01581,G0529,"bu konuştuklarımızı kimseye söyleme, aramızda kalsın",UYGUNSUZ_YAKLASIM,gizlilik_talebi,mesaj,kolay,0,,test,,sentetik
+DK01582,G0529,"bu konuştuklarımızı kimseye söyleme, aramızda k4lsın",UYGUNSUZ_YAKLASIM,gizlilik_talebi,mesaj,kolay,1,sembol_rakam,test,,sentetik_varyant
+DK01583,G0529,"bu konuştuklarımızı kimseye söyleme, a-r-a-m-ı-z-d-a kalsın",UYGUNSUZ_YAKLASIM,gizlilik_talebi,mesaj,kolay,1,harf_ayirma,test,,sentetik_varyant
+DK01584,G0529,"bu konuştuklarımızı kimseye söyleme, aramızda kalsın 😡",UYGUNSUZ_YAKLASIM,gizlilik_talebi,mesaj,kolay,1,buyuk_harf_emoji,test,,sentetik_varyant
+DK01585,G0529,"bu konuşuklarımızı kimseye söyleme, aramızda kalsın",UYGUNSUZ_YAKLASIM,gizlilik_talebi,mesaj,kolay,1,yazim_hatasi,test,,sentetik_varyant
+DK01596,G0532,"bu bizim sırrımız, söylersen başın belaya girer",UYGUNSUZ_YAKLASIM,gizlilik_talebi,mesaj,kolay,0,,test,,sentetik
+DK01597,G0532,"bu bizim sirrimiz, soylersen basin belaya girer",UYGUNSUZ_YAKLASIM,gizlilik_talebi,mesaj,kolay,1,turkce_karaktersiz,test,,sentetik_varyant
+DK01598,G0532,"bu bizim sırrımız, söylerseeeen başın belaya girer",UYGUNSUZ_YAKLASIM,gizlilik_talebi,mesaj,kolay,1,harf_uzatma,test,,sentetik_varyant
+DK01599,G0532,"bu bizim sırrımız, söylersen başın b3laya girer",UYGUNSUZ_YAKLASIM,gizlilik_talebi,mesaj,kolay,1,sembol_rakam,test,,sentetik_varyant
+DK01600,G0532,"bu bizim sırrımız, söylersen baışn belaya girer",UYGUNSUZ_YAKLASIM,gizlilik_talebi,mesaj,kolay,1,yazim_hatasi,test,,sentetik_varyant
+DK01611,G0535,konuşmamızın ekran görüntüsünü kimseye atma,UYGUNSUZ_YAKLASIM,gizlilik_talebi,mesaj,orta,0,,test,,sentetik
+DK01612,G0535,konuşm4mızın ekran görüntüsünü kimseye atma,UYGUNSUZ_YAKLASIM,gizlilik_talebi,mesaj,orta,1,sembol_rakam,test,,sentetik_varyant
+DK01613,G0535,konuşmamızın ekran görüntüsünü kimseye atmaaaaa,UYGUNSUZ_YAKLASIM,gizlilik_talebi,mesaj,orta,1,harf_uzatma,test,,sentetik_varyant
+DK01614,G0535,konusmamizin ekran goruntusunu kimseye atma,UYGUNSUZ_YAKLASIM,gizlilik_talebi,mesaj,orta,1,turkce_karaktersiz,test,,sentetik_varyant
+DK01615,G0535,konuşmamızın ekran görünüsünü kimseye atma,UYGUNSUZ_YAKLASIM,gizlilik_talebi,mesaj,orta,1,yazim_hatasi,test,,sentetik_varyant
+DK01661,G0545,telefonunu kimse kontrol etmiyor değil mi,UYGUNSUZ_YAKLASIM,yas_aile_sorgu,mesaj,orta,0,,test,,sentetik
+DK01662,G0545,telefonunu kimse kontrol etmiyor diil mi,UYGUNSUZ_YAKLASIM,yas_aile_sorgu,mesaj,orta,1,sohbet_kisaltma,test,,sentetik_varyant
+DK01663,G0545,telefonunu kimse kontrol etmiyro değil mi,UYGUNSUZ_YAKLASIM,yas_aile_sorgu,mesaj,orta,1,yazim_hatasi,test,,sentetik_varyant
+DK01664,G0545,telefonunu kimse kontrol etmiyor degil mi,UYGUNSUZ_YAKLASIM,yas_aile_sorgu,mesaj,orta,1,turkce_karaktersiz,test,,sentetik_varyant
+DK01665,G0545,telefonunu kimse kontrol e.t.m.i.y.o.r değil mi,UYGUNSUZ_YAKLASIM,yas_aile_sorgu,mesaj,orta,1,harf_ayirma,test,,sentetik_varyant
+DK01691,G0551,"sadece bana özel bir fotoğraf çek, kimse görmeyecek",UYGUNSUZ_YAKLASIM,goruntu_isteme,mesaj,kolay,0,,test,,sentetik
+DK01692,G0551,"sadece bana özel bir fotoğraf çeeeeek, kimse görmeyecek",UYGUNSUZ_YAKLASIM,goruntu_isteme,mesaj,kolay,1,harf_uzatma,test,,sentetik_varyant
+DK01693,G0551,"sadece bana özel bir fotoğraf çek, kimse görmeycek",UYGUNSUZ_YAKLASIM,goruntu_isteme,mesaj,kolay,1,yazim_hatasi,test,,sentetik_varyant
+DK01694,G0551,"sad3ce bana özel bir fotoğraf çek, kimse görmeyecek",UYGUNSUZ_YAKLASIM,goruntu_isteme,mesaj,kolay,1,sembol_rakam,test,,sentetik_varyant
+DK01695,G0551,"sadece bana özel bir fotoğraf çek, kimse g.ö.r.m.e.y.e.c.e.k",UYGUNSUZ_YAKLASIM,goruntu_isteme,mesaj,kolay,1,harf_ayirma,test,,sentetik_varyant
+DK01696,G0552,"fotoğrafı attıktan sonra sil, iz kalmasın",UYGUNSUZ_YAKLASIM,goruntu_isteme,mesaj,kolay,0,,test,,sentetik
+DK01697,G0552,"fotoğrfaı attıktan sonra sil, iz kalmasın",UYGUNSUZ_YAKLASIM,goruntu_isteme,mesaj,kolay,1,yazim_hatasi,test,,sentetik_varyant
+DK01698,G0552,"FOTOĞRAFI ATTIKTAN SONRA SİL, İZ KALMASIN 😤",UYGUNSUZ_YAKLASIM,goruntu_isteme,mesaj,kolay,1,buyuk_harf_emoji,test,,sentetik_varyant
+DK01699,G0552,"fotoğrafı attıktan sonra sil, iz kalmasııııın",UYGUNSUZ_YAKLASIM,goruntu_isteme,mesaj,kolay,1,harf_uzatma,test,,sentetik_varyant
+DK01700,G0552,"fotografi attiktan sonra sil, iz kalmasin",UYGUNSUZ_YAKLASIM,goruntu_isteme,mesaj,kolay,1,turkce_karaktersiz,test,,sentetik_varyant
+DK01716,G0556,"sana skin hediye ettim, şimdi sen de bana bir iyilik yap",UYGUNSUZ_YAKLASIM,odul_karsiligi,oyun,zor,0,,test,,sentetik
+DK01717,G0556,"sana skin hediye ettim, simdi sen de bana bir iyilik yap",UYGUNSUZ_YAKLASIM,odul_karsiligi,oyun,zor,1,turkce_karaktersiz,test,,sentetik_varyant
+DK01718,G0556,"SANA SKİN HEDİYE ETTİM, ŞİMDİ SEN DE BANA BİR İYİLİK YAP 😒",UYGUNSUZ_YAKLASIM,odul_karsiligi,oyun,zor,1,buyuk_harf_emoji,test,,sentetik_varyant
+DK01719,G0556,"s-a-n-a skin hediye ettim, şimdi sen de bana bir iyilik yap",UYGUNSUZ_YAKLASIM,odul_karsiligi,oyun,zor,1,harf_ayirma,test,,sentetik_varyant
+DK01720,G0556,"s4na skin hediye ettim, şimdi sen de bana bir iyilik yap",UYGUNSUZ_YAKLASIM,odul_karsiligi,oyun,zor,1,sembol_rakam,test,,sentetik_varyant
+DK01761,G0565,parkta buluşalım ama yalnız gel,UYGUNSUZ_YAKLASIM,bulusma,mesaj,kolay,0,,test,,sentetik
+DK01762,G0565,parkta buluş@lım ama yalnız gel,UYGUNSUZ_YAKLASIM,bulusma,mesaj,kolay,1,sembol_rakam,test,,sentetik_varyant
+DK01763,G0565,parkta bulusalim ama yalniz gel,UYGUNSUZ_YAKLASIM,bulusma,mesaj,kolay,1,turkce_karaktersiz,test,,sentetik_varyant
+DK01764,G0565,parkta buluşalım ama yalnız gel 🙄,UYGUNSUZ_YAKLASIM,bulusma,mesaj,kolay,1,buyuk_harf_emoji,test,,sentetik_varyant
+DK01765,G0565,p.a.r.k.t.a buluşalım ama yalnız gel,UYGUNSUZ_YAKLASIM,bulusma,mesaj,kolay,1,harf_ayirma,test,,sentetik_varyant
+DK01776,G0568,"seni görmeye geleceğim, annenler evde olmasın",UYGUNSUZ_YAKLASIM,bulusma,mesaj,kolay,0,,test,,sentetik
+DK01777,G0568,seni görmeye g e l e c e ğ i m annenler evde olmasın,UYGUNSUZ_YAKLASIM,bulusma,mesaj,kolay,1,harf_ayirma,test,,sentetik_varyant
+DK01778,G0568,"seni görmeye geleceğim, annenler evde omlasın",UYGUNSUZ_YAKLASIM,bulusma,mesaj,kolay,1,yazim_hatasi,test,,sentetik_varyant
+DK01779,G0568,"seni görmeye gelcam, annenler evde olmasın",UYGUNSUZ_YAKLASIM,bulusma,mesaj,kolay,1,sohbet_kisaltma,test,,sentetik_varyant
+DK01780,G0568,"seni görmeye geleceğim, annenler evde olmasın 😤",UYGUNSUZ_YAKLASIM,bulusma,mesaj,kolay,1,buyuk_harf_emoji,test,,sentetik_varyant
+DK01901,G0593,keşke ölsem,KENDINE_ZARAR,intihar_dusuncesi,mesaj,kolay,0,,test,acil destek,sentetik
+DK01902,G0593,kşke ölsem,KENDINE_ZARAR,intihar_dusuncesi,mesaj,kolay,1,yazim_hatasi,test,acil destek,sentetik_varyant
+DK01903,G0593,keşke öls3m,KENDINE_ZARAR,intihar_dusuncesi,mesaj,kolay,1,sembol_rakam,test,acil destek,sentetik_varyant
+DK01904,G0593,keşkeeeee ölsem,KENDINE_ZARAR,intihar_dusuncesi,mesaj,kolay,1,harf_uzatma,test,acil destek,sentetik_varyant
+DK01905,G0593,KEŞKE ÖLSEM 😂,KENDINE_ZARAR,intihar_dusuncesi,mesaj,kolay,1,buyuk_harf_emoji,test,acil destek,sentetik_varyant
+DK01916,G0596,yaşamanın bir anlamı yok,KENDINE_ZARAR,intihar_dusuncesi,mesaj,orta,0,,test,acil destek,sentetik
+DK01917,G0596,yaşam@nın bir anlamı yok,KENDINE_ZARAR,intihar_dusuncesi,mesaj,orta,1,sembol_rakam,test,acil destek,sentetik_varyant
+DK01918,G0596,yaşamanın bi anlamı yk,KENDINE_ZARAR,intihar_dusuncesi,mesaj,orta,1,sohbet_kisaltma,test,acil destek,sentetik_varyant
+DK01919,G0596,yaşamanın bir a.n.l.a.m.ı yok,KENDINE_ZARAR,intihar_dusuncesi,mesaj,orta,1,harf_ayirma,test,acil destek,sentetik_varyant
+DK01920,G0596,yaşamanın bir anlmı yok,KENDINE_ZARAR,intihar_dusuncesi,mesaj,orta,1,yazim_hatasi,test,acil destek,sentetik_varyant
+DK01926,G0598,artık her şeye son vermek istiyorum,KENDINE_ZARAR,intihar_dusuncesi,mesaj,orta,0,,test,acil destek,sentetik
+DK01927,G0598,artık her şeyeeee son vermek istiyorum,KENDINE_ZARAR,intihar_dusuncesi,mesaj,orta,1,harf_uzatma,test,acil destek,sentetik_varyant
+DK01928,G0598,artık her şeye son vermek istiyorum 👍,KENDINE_ZARAR,intihar_dusuncesi,mesaj,orta,1,buyuk_harf_emoji,test,acil destek,sentetik_varyant
+DK01929,G0598,artık her şeye son vrmek istiyorum,KENDINE_ZARAR,intihar_dusuncesi,mesaj,orta,1,yazim_hatasi,test,acil destek,sentetik_varyant
+DK01930,G0598,artik her seye son vermek istiyorum,KENDINE_ZARAR,intihar_dusuncesi,mesaj,orta,1,turkce_karaktersiz,test,acil destek,sentetik_varyant
+DK01991,G0611,kimseye söyleyemiyorum ama çok kötüyüm,KENDINE_ZARAR,umutsuzluk,mesaj,zor,0,,test,,sentetik
+DK01992,G0611,kimseye söyleyemiyorum ama çok kötüyüm 😒,KENDINE_ZARAR,umutsuzluk,mesaj,zor,1,buyuk_harf_emoji,test,,sentetik_varyant
+DK01993,G0611,kimseye soyleyemiyorum ama cok kotuyum,KENDINE_ZARAR,umutsuzluk,mesaj,zor,1,turkce_karaktersiz,test,,sentetik_varyant
+DK01994,G0611,kimseye söyleyemiyorum ama çok k.ö.t.ü.y.ü.m,KENDINE_ZARAR,umutsuzluk,mesaj,zor,1,harf_ayirma,test,,sentetik_varyant
+DK01995,G0611,kimseye söyleyemiorum ama çok kötüyüm,KENDINE_ZARAR,umutsuzluk,mesaj,zor,1,yazim_hatasi,test,,sentetik_varyant
+DK02051,G0623,"eşyalarımı arkadaşlarıma dağıtıyorum, bana artık lazım değil",KENDINE_ZARAR,veda,mesaj,zor,0,,test,acil destek,sentetik
+DK02052,G0623,"eşyalarımı arkadaşlarıma dağıtıyorum, bana artık l.a.z.ı.m değil",KENDINE_ZARAR,veda,mesaj,zor,1,harf_ayirma,test,acil destek,sentetik_varyant
+DK02053,G0623,"eşyalarımı arkadaşlarımaaaaa dağıtıyorum, bana artık lazım değil",KENDINE_ZARAR,veda,mesaj,zor,1,harf_uzatma,test,acil destek,sentetik_varyant
+DK02054,G0623,"eşyalarımı arkadaşlarıma dağıtıyorum, bana artık lazım değl",KENDINE_ZARAR,veda,mesaj,zor,1,yazim_hatasi,test,acil destek,sentetik_varyant
+DK02055,G0623,"esyalarimi arkadaslarima dagitiyorum, bana artik lazim degil",KENDINE_ZARAR,veda,mesaj,zor,1,turkce_karaktersiz,test,acil destek,sentetik_varyant
+DK02091,G0631,okula gitmektense ölürüm daha iyi,KENDINE_ZARAR,zorbalik_sonrasi,mesaj,orta,0,,test,,sentetik
+DK02092,G0631,okula gitmektense olurum daha iyi,KENDINE_ZARAR,zorbalik_sonrasi,mesaj,orta,1,turkce_karaktersiz,test,,sentetik_varyant
+DK02093,G0631,OKULA GİTMEKTENSE ÖLÜRÜM DAHA İYİ 🤬,KENDINE_ZARAR,zorbalik_sonrasi,mesaj,orta,1,buyuk_harf_emoji,test,,sentetik_varyant
+DK02094,G0631,okula gitmektense ölürmü daha iyi,KENDINE_ZARAR,zorbalik_sonrasi,mesaj,orta,1,yazim_hatasi,test,,sentetik_varyant
+DK02095,G0631,okula gitmektense ölürüm dahaaaa iyi,KENDINE_ZARAR,zorbalik_sonrasi,mesaj,orta,1,harf_uzatma,test,,sentetik_varyant
+DK02101,G0633,olmek istiyorumm,KENDINE_ZARAR,intihar_dusuncesi,mesaj,orta,0,,test,"Türkçe karaktersiz, harf uzatma",sentetik
+DK02102,G0633,olmek istiyorumm 🙄,KENDINE_ZARAR,intihar_dusuncesi,mesaj,orta,1,buyuk_harf_emoji,test,"Türkçe karaktersiz, harf uzatma",sentetik_varyant
+DK02103,G0633,o-l-m-e-k istiyorumm,KENDINE_ZARAR,intihar_dusuncesi,mesaj,orta,1,harf_ayirma,test,"Türkçe karaktersiz, harf uzatma",sentetik_varyant
+DK02104,G0633,olmek istiyoruuuuumm,KENDINE_ZARAR,intihar_dusuncesi,mesaj,orta,1,harf_uzatma,test,"Türkçe karaktersiz, harf uzatma",sentetik_varyant
+DK02105,G0633,olek istiyorumm,KENDINE_ZARAR,intihar_dusuncesi,mesaj,orta,1,yazim_hatasi,test,"Türkçe karaktersiz, harf uzatma",sentetik_varyant

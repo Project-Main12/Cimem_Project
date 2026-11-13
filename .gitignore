@@ -17,3 +17,4 @@ __pycache__/
 python/dataset/raw/
 *.apk
 cikti/
+python/dataset/dis_veri/

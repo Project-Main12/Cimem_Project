@@ -1,45 +1,10 @@
 # =====================================================================
 # DİJİTAL KALKAN – Ek risk kategorileri (ANA 5 SINIFIN DIŞINDA)
-# Bu örnekler ana veri setine karışmaz. Danışman kararıyla ileride
-# 6. sınıf olarak eklenebilir veya ayrı bir "kural tabanlı uyarı" yapılabilir.
+# Bu örnekler ana veri setine karışmaz (henüz karar verilmedi).
 # Tüm cümleler sentetiktir. Biçim: metin | alt_tur | baglam | zorluk | not
 # =====================================================================
 
-[UYGUNSUZ_YAKLASIM]
-# Yetişkinin çocuğa güven kazanma / gizlilik / buluşma / görüntü isteme kalıpları (grooming)
-kaç yaşındasın, ailen telefonunu kontrol ediyor mu? | yas_aile_sorgu | mesaj | orta |
-bu konuştuklarımızı kimseye söyleme, aramızda kalsın | gizlilik_talebi | mesaj | kolay |
-annene babana benden bahsetme, anlamazlar | gizlilik_talebi | mesaj | kolay |
-bir fotoğrafını atar mısın, sadece ben göreceğim | goruntu_isteme | mesaj | kolay |
-kameranı açar mısın, odanı görmek istiyorum | goruntu_isteme | mesaj | kolay |
-sana bedava elmas yüklerim ama önce fotoğraf at | odul_karsiligi | oyun | kolay |
-oyun dışında konuşalım, bana özel uygulamadan yaz | platform_degistirme | oyun | orta |
-mesajları sil olur mu, kimse görmesin | gizlilik_talebi | mesaj | kolay |
-seninle yüz yüze buluşmak istiyorum, kimseye söylemeden gel | bulusma | mesaj | kolay |
-evde yalnız mısın şu an? | yalniz_sorgu | mesaj | orta |
-sen yaşına göre çok olgunsun, seni benden başka kimse anlamaz | guven_kazanma | mesaj | zor |
-ailen seni anlamıyor ama ben anlıyorum | guven_kazanma | mesaj | zor |
-okulunun adı ne, hangi saatte çıkıyorsun? | konum_sorgu | mesaj | orta |
-sana hediye göndereyim, adresini yaz | konum_sorgu | mesaj | orta |
-bu bizim sırrımız, söylersen başın belaya girer | gizlilik_talebi | mesaj | kolay |
-sesli konuşalım ama kulaklık tak, kimse duymasın | gizlilik_talebi | oyun | orta |
-sana skin hediye ettim, şimdi sen de bana bir iyilik yap | odul_karsiligi | oyun | zor |
-gizli hesap aç, oradan konuşalım | platform_degistirme | mesaj | orta |
-
-[KENDINE_ZARAR_IFADESI]
-# Çocuğun KENDİ yazdığı sıkıntı ifadeleri (zorbalık değil, destek gerektiren durum)
-artık yaşamak istemiyorum | intihar_dusuncesi | mesaj | kolay | acil destek
-kimse beni sevmiyor, ortadan kaybolsam iyi olur | umutsuzluk | mesaj | orta |
-kendime zarar vermek istiyorum | kendine_zarar | mesaj | kolay | acil destek
-her şeyden çok yoruldum, artık dayanamıyorum | umutsuzluk | mesaj | zor |
-keşke hiç doğmasaydım | umutsuzluk | mesaj | orta |
-yarın okula gitmeyeceğim, hiçbir yere gitmeyeceğim artık | umutsuzluk | mesaj | zor |
-herkese veda ediyorum | veda | sosyal | zor | acil destek
-kollarımı kestim yine | kendine_zarar | mesaj | kolay | acil destek
-ben olmasam herkes daha mutlu olur | umutsuzluk | mesaj | orta |
-yemek yemeyi bıraktım, umurumda değil | kendine_zarar | mesaj | zor |
-uyuyup bir daha uyanmamak istiyorum | intihar_dusuncesi | mesaj | orta | acil destek
-kimseye söyleyemiyorum ama çok kötüyüm | umutsuzluk | mesaj | zor |
+# UYGUNSUZ_YAKLASIM ve KENDINE_ZARAR ana veri setine taşındı (danışman kararı).
 
 [NEFRET_SOYLEMI]
 # Bir gruba (köken, din, engellilik, cinsiyet vb.) yönelik aşağılama

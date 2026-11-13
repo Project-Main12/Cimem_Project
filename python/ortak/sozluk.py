@@ -6,7 +6,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from .turkce_metin import tokens
 
-ONCELIK = ["TEHDIT", "SIBER_ZORBALIK", "KUFUR", "HAKARET"]   # soldaki baskın
+ONCELIK = ["KENDINE_ZARAR", "UYGUNSUZ_YAKLASIM", "TEHDIT", "SIBER_ZORBALIK", "KUFUR", "HAKARET"]  # soldaki baskın
 SOZLUK_YOLU = Path(__file__).resolve().parents[2] / "app/src/main/assets/lexicon/tr_risk_lexicon.txt"
 
 

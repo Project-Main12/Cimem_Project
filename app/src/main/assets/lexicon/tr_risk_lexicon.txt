@@ -1,6 +1,6 @@
 # =====================================================================
 #  DİJİTAL KALKAN – Türkçe Riskli İfade Sözlüğü (Yöntem 1: Anahtar kelime)
-#  Sürüm: 0.1  |  Hazırlayan: proje danışmanı (taslak)
+#  Sürüm: 0.3  |  13.11.2026  |  Hazırlayan: proje danışmanı (taslak)
 # =====================================================================
 #
 #  ⚠ UYARI: Bu dosya küfür, hakaret ve tehdit ifadeleri içerir.

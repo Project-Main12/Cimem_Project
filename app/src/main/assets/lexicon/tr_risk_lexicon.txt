@@ -360,6 +360,7 @@ gebertcem
 gebercen
 seni bulcam
 seni bekleyece*
+çıkışında bekle*
 bekliyor olacağım
 canına oku*
 evine gele*

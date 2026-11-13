@@ -1,0 +1,560 @@
+# =====================================================================
+# DİJİTAL KALKAN – Sentetik temel örnekler (v1)
+# Tüm cümleler yapay olarak yazılmıştır; gerçek kişilere ait değildir.
+# Biçim:  metin | alt_tur | baglam | zorluk | not
+#   baglam : mesaj / oyun / youtube / sosyal
+#   zorluk : kolay / orta / zor
+# Etiket kuralları: docs/etiketleme_kilavuzu.md
+# ⚠ Küfür, hakaret ve tehdit içeren ifadeler barındırır (araştırma amaçlı).
+# =====================================================================
+
+[NORMAL]
+# --- Günlük mesajlaşma ---
+yarın okulda görüşürüz, matematik ödevini getirmeyi unutma | gunluk | mesaj | kolay |
+anne ben eve geldim, yemek var mı? | gunluk | mesaj | kolay |
+bugün çok güzel bir gündü, parka gittik | gunluk | mesaj | kolay |
+fen ödevini bitirdin mi, ben daha başlamadım | gunluk | mesaj | kolay |
+akşam maçı izleyecek misin? | gunluk | mesaj | kolay |
+doğum günün kutlu olsun, nice mutlu yıllara 🎉 | gunluk | mesaj | kolay |
+hocaya sınav tarihini sordun mu? | gunluk | mesaj | kolay |
+servis bugün geç gelecekmiş | gunluk | mesaj | kolay |
+teşekkür ederim, çok yardımcı oldun | gunluk | mesaj | kolay |
+hafta sonu sinemaya gidelim mi? | gunluk | mesaj | kolay |
+kitabı kütüphaneden aldım, sen de okumak ister misin | gunluk | mesaj | kolay |
+bu akşam babaannemlere gidiyoruz | gunluk | mesaj | kolay |
+proje için slaytları ben hazırlarım, sen afişi yap | gunluk | mesaj | kolay |
+kediyi veterinere götürdük, iyiymiş | gunluk | mesaj | kolay |
+grup ödevi için saat 4'te buluşalım mı | gunluk | mesaj | kolay |
+hasta olduğum için bugün okula gelemedim | gunluk | mesaj | kolay |
+annem izin verirse gelirim | gunluk | mesaj | kolay |
+ders notlarını atabilir misin lütfen | gunluk | mesaj | kolay |
+yeni ayakkabılarım çok rahat | gunluk | mesaj | kolay |
+tebrikler, yarışmayı kazanmışsın! | gunluk | mesaj | kolay |
+merak etme, her şey yoluna girecek | gunluk | mesaj | kolay |
+bu şarkıya bayıldım, sen de dinle | gunluk | mesaj | kolay |
+tatilde dedemlerin köyüne gideceğiz | gunluk | mesaj | kolay |
+yarın hava yağmurluymuş, şemsiye al | gunluk | mesaj | kolay |
+öğretmen ödevi pazartesiye erteledi | gunluk | mesaj | kolay |
+iyi geceler, yarın konuşuruz | gunluk | mesaj | kolay |
+seni çok özledim, ne zaman geleceksin | gunluk | mesaj | kolay |
+kardeşim bugün ilk kez bisiklet sürdü | gunluk | mesaj | kolay |
+geçmiş olsun, umarım çabuk iyileşirsin | gunluk | mesaj | kolay |
+müzik dersinde flüt çaldık | gunluk | mesaj | kolay |
+# --- Oyun sohbeti (normal) ---
+gg wp güzel maçtı | oyun | oyun | kolay |
+bir el daha atalım mı? | oyun | oyun | kolay |
+ben orta koridora gidiyorum, sen sağdan gel | oyun | oyun | kolay |
+iyi oynadın, tebrikler | oyun | oyun | kolay |
+biri bana kalkan versin lütfen | oyun | oyun | kolay |
+lag var galiba, karakterim dondu | oyun | oyun | kolay |
+yeni sezon ne zaman başlıyor | oyun | oyun | kolay |
+klan savaşına katılacak mısın | oyun | oyun | kolay |
+haritanın kuzeyinde sandık var | oyun | oyun | kolay |
+takımı kuralım, 5 kişiyiz | oyun | oyun | kolay |
+şu görevi nasıl geçtin anlatır mısın | oyun | oyun | kolay |
+elmas kazmayı buldum! | oyun | oyun | kolay |
+sunucuya katıldım, evin nerede | oyun | oyun | kolay |
+pes etmeyelim, daha kazanabiliriz | oyun | oyun | kolay |
+benim internetim yavaş, bekleyin | oyun | oyun | kolay |
+ilk defa elmas lige çıktım | oyun | oyun | kolay |
+yardım lazım mı, geliyorum | oyun | oyun | kolay |
+skin çok güzelmiş, nereden aldın | oyun | oyun | kolay |
+# --- YouTube / sosyal medya yorumları (normal) ---
+harika video olmuş, emeğine sağlık | yorum | youtube | kolay |
+bu tarifi denedim, çok güzel oldu | yorum | youtube | kolay |
+yeni videoyu sabırsızlıkla bekliyorum | yorum | youtube | kolay |
+anlatımın çok açık, sayende konuyu anladım | yorum | youtube | kolay |
+kanalına abone oldum, devamını bekliyoruz | yorum | youtube | kolay |
+müzik seçimi çok iyi | yorum | youtube | kolay |
+bu bölümü daha önce izlememiştim | yorum | youtube | kolay |
+fotoğraf çok güzel çıkmış | yorum | sosyal | kolay |
+iyi ki doğdun kanka | yorum | sosyal | kolay |
+emeği geçen herkese teşekkürler | yorum | youtube | kolay |
+# --- ZOR: masum kelimeler (yanlış alarm testi) ---
+sıkıştım burada, nasıl geçiliyor bu bölüm | yanlis_alarm | oyun | zor | sık/sik benzerliği
+çok sıkıldım, dışarı çıkalım mı | yanlis_alarm | mesaj | zor | sık/sik benzerliği
+sıkıntı yok, yarın yaparız | yanlis_alarm | mesaj | zor | sık/sik benzerliği
+malzemeleri ben getiririm, sen makası al | yanlis_alarm | mesaj | zor | mal kökü
+malum, sınav haftası geldi | yanlis_alarm | mesaj | zor | mal kökü
+bu kitabın adı neydi? | yanlis_alarm | mesaj | zor | adı/adi
+öğretmenin adı Amine Hanım | yanlis_alarm | mesaj | zor | amin benzerliği
+dua ettik, amin dedik | yanlis_alarm | mesaj | zor | amin benzerliği
+i got it, ben alıyorum | yanlis_alarm | oyun | zor | got/göt
+pickaxe lazım, bende yok | yanlis_alarm | oyun | zor | pic/piç
+köpeğim çok tatlı, fotoğrafını atayım | yanlis_alarm | mesaj | zor | hayvan adı
+eşek arısı soktu, kolum şişti | yanlis_alarm | mesaj | zor | hayvan adı
+domuz bağı nasıl atılır biliyor musun | yanlis_alarm | mesaj | zor | hayvan adı
+aldığım tişört defolu çıktı | yanlis_alarm | mesaj | zor | defol kökü
+ananas mı seversin çilek mi | yanlis_alarm | mesaj | zor | ana kökü
+anneannem kurabiye yaptı | yanlis_alarm | mesaj | zor | ana kökü
+ebe sensin, saklanıyoruz! | yanlis_alarm | oyun | zor | ebe kelimesi
+bu ezberi yarına kadar bitirmem lazım | yanlis_alarm | mesaj | zor | ez kökü
+salatalık, domates ve peynir al | yanlis_alarm | mesaj | zor | sal kökü
+bu yemek çok lezzetli olmuş | yanlis_alarm | mesaj | zor | lez kökü
+sapık bir yoldan değil, ana yoldan gel | yanlis_alarm | mesaj | zor | sapmak
+kalemi götürdüm, yarın getiririm | yanlis_alarm | mesaj | zor | göt kökü
+çantamı götür lütfen | yanlis_alarm | mesaj | zor | göt kökü
+kasabın etleri taze | yanlis_alarm | mesaj | zor | kas kökü
+babam yarın İtalya'ya gidiyor | yanlis_alarm | mesaj | zor | it kökü
+itiraf edeyim, ödevi unuttum | yanlis_alarm | mesaj | zor | it kökü
+# --- ZOR: oyun içi eylem anlatımı (tehdit değil) ---
+bu turda seni öldürdüm haha gg | oyun_eylem | oyun | zor | oyun bağlamı
+boss'u öldürdük sonunda | oyun_eylem | oyun | zor | oyun bağlamı
+zombileri öldürmek için kılıç lazım | oyun_eylem | oyun | zor | oyun bağlamı
+arkandan geldim ve vurdum, kusura bakma | oyun_eylem | oyun | zor | oyun bağlamı
+ejderhayı kestim, ganimet bende | oyun_eylem | oyun | zor | oyun bağlamı
+sniper ile kafadan vurdum | oyun_eylem | oyun | zor | oyun bağlamı
+öldüm, beni canlandırın | oyun_eylem | oyun | zor | oyun bağlamı
+düşman takımı yok ettik | oyun_eylem | oyun | zor | oyun bağlamı
+bu oyunda herkes birbirini öldürüyor zaten | oyun_eylem | oyun | zor | oyun bağlamı
+# --- ZOR: dostça şakalaşma (etiket kararı: NORMAL) ---
+salak mısın ya 😂 yine şemsiyeni unutmuşsun | saka | mesaj | zor | dostça şaka, hedef incitilmiyor
+deli misin sen ahahah çok komiksin | saka | mesaj | zor | dostça şaka
+seni gidi seni, yine kazandın 😄 | saka | oyun | zor | dostça şaka
+manyak gibi güldük bugün | saka | mesaj | zor | dostça şaka
+öldüm gülmekten 😂😂 | saka | mesaj | zor | mecaz
+bu şakaya çok güldüm, delisin | saka | mesaj | zor | dostça şaka
+# --- ZOR: konu hakkında konuşma / aktarma ---
+siber zorbalık nedir, nasıl korunuruz konulu sunum hazırlıyoruz | bilgi | mesaj | zor | konu anlatımı
+küfür etmek yanlış, lütfen grupta düzgün konuşalım | bilgi | mesaj | zor | konu anlatımı
+bana salak dedi, öğretmene söyledim | aktarim | mesaj | zor | mağdur aktarımı
+biri beni tehdit etti, ne yapmalıyım | aktarim | mesaj | zor | yardım isteme
+zorbalık yapanları şikayet edin arkadaşlar | bilgi | sosyal | zor | konu anlatımı
+filmde kötü adam herkesi öldürmeye çalışıyordu | bilgi | mesaj | zor | kurgu anlatımı
+haberlerde bir kaza olduğunu söylediler | bilgi | mesaj | zor | haber
+kimseye kötü söz söylemeyelim, herkes değerli | bilgi | sosyal | zor | konu anlatımı
+ona hakaret edilmesine çok üzüldüm | aktarim | mesaj | zor | mağdur aktarımı
+# --- ZOR: olumsuz ama zararsız ---
+bu oyun çok kötü olmuş, beğenmedim | olumsuz | youtube | orta | eleştiri
+video çok uzun, biraz kısaltabilirdin | olumsuz | youtube | orta | eleştiri
+bugün hiç şansım yoktu, hep kaybettim | olumsuz | oyun | orta | şikayet
+çok sinirlendim ama geçti | olumsuz | mesaj | orta | duygu
+bence bu fikir işe yaramaz, başka bir şey deneyelim | olumsuz | mesaj | zor | fikir eleştirisi
+takım olarak kötü oynadık, çalışmamız lazım | olumsuz | oyun | orta | eleştiri
+sesin çok az geliyor, mikrofonu düzelt | olumsuz | youtube | orta | eleştiri
+ödevim kötü geçti, moralim bozuk | olumsuz | mesaj | orta | duygu
+hakem çok kötüydü bu maçta | olumsuz | mesaj | orta | eleştiri
+bu tarif hiç tutmadı | olumsuz | youtube | orta | eleştiri
+
+[KUFUR]
+# --- Hedefsiz küfür (tepki/ünlem) ---
+amk yine kaybettik | hedefsiz | oyun | kolay |
+aq lag yine başladı | hedefsiz | oyun | kolay |
+siktir et boşver, yeni maça girelim | hedefsiz | oyun | orta |
+amına koyayım bu internetin | hedefsiz | oyun | kolay |
+bu bölüm ne zor amk | hedefsiz | oyun | kolay |
+siktir ya, telefonum kırıldı | hedefsiz | mesaj | orta |
+amk servis yine gelmedi | hedefsiz | mesaj | kolay |
+ananı satayım ne güzel gol | hedefsiz | mesaj | orta | övgü amaçlı küfür
+siktiğimin oyunu, yine dondu | hedefsiz | oyun | kolay |
+amk ödevi unuttum | hedefsiz | mesaj | kolay |
+bu ne biçim maç amk | hedefsiz | mesaj | kolay |
+aq bu ne şans | hedefsiz | oyun | kolay |
+lan amk yine kapandı | hedefsiz | oyun | kolay |
+oha amına koyim, bu ne | hedefsiz | youtube | kolay |
+sikerim böyle işi | hedefsiz | mesaj | kolay |
+bu oyunun yapımcısının amk | hedefsiz | youtube | kolay |
+siktir git buradan be internet | hedefsiz | oyun | orta |
+boktan bir gün amk | hedefsiz | mesaj | kolay |
+göt gibi oynadık bugün | hedefsiz | oyun | orta |
+amq hocası yine sınav yaptı | hedefsiz | mesaj | kolay |
+# --- Hedefli küfür ---
+orospu çocuğu niye beni vurdun | hedefli | oyun | kolay |
+siktir git oyundan | hedefli | oyun | kolay |
+ananı sikeyim senin | hedefli | oyun | kolay |
+amına koyduğumun çocuğu | hedefli | oyun | kolay |
+piç kurusu, ne bakıyorsun | hedefli | mesaj | kolay |
+yavşak herif yine mi sen | hedefli | oyun | kolay |
+pezevenk seni | hedefli | mesaj | kolay |
+siktir lan buradan | hedefli | mesaj | kolay |
+senin ananı | hedefli | oyun | kolay |
+bacını sikeyim | hedefli | oyun | kolay |
+göt herif takımı yaktın | hedefli | oyun | kolay |
+sülaleni sikeyim | hedefli | oyun | kolay |
+orospu evladı | hedefli | mesaj | kolay |
+kahpe seni | hedefli | mesaj | kolay |
+oç oyunu bırak | hedefli | oyun | kolay | kısaltma
+ibne misin nesin | hedefli | oyun | kolay | aşağılayıcı ifade
+gavat herif | hedefli | mesaj | kolay |
+siktirin gidin hepiniz | hedefli | oyun | kolay |
+kaltak ne yazıyorsun | hedefli | sosyal | kolay | cinsiyetçi küfür
+sürtük, fotoğrafını kim istedi | hedefli | sosyal | kolay | cinsiyetçi küfür
+dalyarak mısın | hedefli | oyun | kolay |
+puşt seni | hedefli | mesaj | kolay |
+yarrak gibi oynuyorsun | hedefli | oyun | kolay |
+sikik oyuncu | hedefli | oyun | kolay |
+götveren herif | hedefli | oyun | kolay |
+amcık hoşafı | hedefli | oyun | kolay |
+ananın amı | hedefli | oyun | kolay |
+orospunun çocuğu | hedefli | youtube | kolay |
+sikerim seni | hedefli | oyun | kolay |
+avradını sikeyim | hedefli | oyun | kolay |
+pezo herif | hedefli | mesaj | kolay |
+siktir ol git | hedefli | mesaj | kolay |
+taşak geçme benimle | hedefli | mesaj | orta |
+ebenin amı | hedefli | oyun | kolay |
+şerefsiz piç | hedefli | oyun | kolay |
+kevaşe | hedefli | sosyal | kolay | cinsiyetçi küfür
+fahişe gibi giyinmiş | hedefli | sosyal | kolay | cinsiyetçi küfür
+kancık | hedefli | sosyal | kolay | cinsiyetçi küfür
+# --- Yorumlarda küfür ---
+bu videoyu çeken amk | hedefli | youtube | kolay |
+yorumları okuyan herkesin amk | hedefsiz | youtube | kolay |
+youtuber denen bu piç | hedefli | youtube | kolay |
+siktir git kanalı kapat | hedefli | youtube | kolay |
+senin içeriğine sokayım | hedefli | youtube | kolay |
+bu kanalın sahibinin ananı | hedefli | youtube | kolay |
+# --- Yazım hileleri / kısaltmalar ---
+a.m.k | hedefsiz | oyun | orta | noktalı yazım
+s.i.k.t.i.r git | hedefli | oyun | orta | noktalı yazım
+s1kt1r | hedefli | oyun | orta | rakamlı yazım
+or0spu | hedefli | oyun | orta | rakamlı yazım
+amkkkk | hedefsiz | oyun | orta | harf uzatma
+siktiiiir | hedefsiz | oyun | orta | harf uzatma
+sktr git | hedefli | oyun | orta | kısaltma
+s2m | hedefsiz | oyun | orta | kısaltma
+skrm | hedefli | oyun | orta | kısaltma
+amınakoyim | hedefsiz | oyun | orta | bitişik yazım
+orospucocugu | hedefli | oyun | orta | Türkçe karaktersiz
+pic kurusu | hedefli | oyun | zor | Türkçe karaktersiz, pic belirsiz
+o r o s p u | hedefli | oyun | orta | boşluklu yazım
+# --- Karışık / zor ---
+amk çok iyi oynadın kanka | hedefsiz | oyun | zor | övgüyle karışık küfür
+siktir ya ne güzel olmuş | hedefsiz | youtube | zor | övgüyle karışık küfür
+lan bu adam efsane amk | hedefsiz | youtube | zor | övgüyle karışık küfür
+amq ne güzel şarkı | hedefsiz | youtube | zor | övgüyle karışık küfür
+
+# --- Ek küfür örnekleri ---
+amk takımı yine kaybetti | hedefsiz | mesaj | kolay |
+siktir et dersi, oyuna gel | hedefsiz | mesaj | orta |
+amına koyayım ne zor sınav | hedefsiz | mesaj | kolay |
+bu öğretmenin amk | hedefli | mesaj | kolay |
+siktirin gidin grubumdan | hedefli | mesaj | kolay |
+aq çocuğu yine mi sen | hedefli | oyun | kolay |
+ananı da al git | hedefli | mesaj | orta |
+sikeyim böyle arkadaşlığı | hedefsiz | mesaj | orta |
+yarrağım bile umursamaz | hedefsiz | mesaj | kolay |
+orospu çocukları hepiniz | hedefli | oyun | kolay |
+sikimde değil | hedefsiz | mesaj | kolay |
+amk malı | hedefli | oyun | kolay |
+piçin teki bu | hedefli | mesaj | kolay |
+siktir git kendi sunucuna | hedefli | oyun | kolay |
+bok yiyorsun yine | hedefli | oyun | orta |
+amınakodumun oyunu | hedefsiz | oyun | orta | bitişik yazım
+or*spu çocuğu | hedefli | oyun | orta | yıldızlı sansür
+s*ktir git | hedefli | oyun | orta | yıldızlı sansür
+a.q | hedefsiz | oyun | orta | noktalı yazım
+mq | hedefsiz | oyun | zor | çok kısa kısaltma, sözlükte yok
+
+[HAKARET]
+# --- Doğrudan aşağılama ---
+sen tam bir aptalsın | dogrudan | mesaj | kolay |
+ne kadar salaksın ya | dogrudan | mesaj | kolay |
+gerizekalı mısın sen | dogrudan | mesaj | kolay |
+mal mısın oğlum | dogrudan | oyun | kolay |
+seni beyinsiz | dogrudan | mesaj | kolay |
+şerefsiz herif | dogrudan | mesaj | kolay |
+tam bir ahmaksın | dogrudan | mesaj | kolay |
+dangalak gibi davranma | dogrudan | mesaj | kolay |
+aşağılık birisin | dogrudan | mesaj | kolay |
+sen ne iğrenç bir insansın | dogrudan | mesaj | orta |
+embesil misin nesin | dogrudan | mesaj | kolay |
+gerzek ne yapıyorsun | dogrudan | oyun | kolay |
+budala herif | dogrudan | mesaj | kolay |
+salak saçma konuşma | dogrudan | mesaj | zor | "salak saçma" deyim olarak da kullanılır
+manyak mısın sen | dogrudan | mesaj | orta |
+sen bir ezik ve zavallısın | dogrudan | mesaj | kolay |
+haysiyetsiz adam | dogrudan | mesaj | kolay |
+karaktersiz herif | dogrudan | mesaj | kolay |
+seni cahil | dogrudan | mesaj | kolay |
+kafasız mısın | dogrudan | mesaj | kolay |
+akılsız şey | dogrudan | mesaj | kolay |
+pislik herif | dogrudan | mesaj | kolay |
+denyo musun | dogrudan | mesaj | kolay |
+hıyar herif | dogrudan | mesaj | kolay |
+öküz gibi davranma | dogrudan | mesaj | kolay |
+eşek herif | dogrudan | mesaj | kolay |
+hayvansın sen | dogrudan | mesaj | kolay |
+köpeksin sen | dogrudan | mesaj | kolay |
+itoğluit | dogrudan | mesaj | orta |
+yalaka herif | dogrudan | mesaj | kolay |
+ruh hastası mısın | dogrudan | mesaj | kolay |
+psikopat gibisin | dogrudan | mesaj | kolay |
+sapık herif | dogrudan | sosyal | kolay |
+sen ne adisin | dogrudan | mesaj | kolay |
+leş gibi kokuyorsun | dogrudan | mesaj | kolay |
+mankafa | dogrudan | mesaj | kolay |
+zibidi | dogrudan | mesaj | kolay |
+lavuk | dogrudan | mesaj | kolay |
+dallama mısın | dogrudan | mesaj | kolay |
+angut | dogrudan | mesaj | kolay |
+# --- Görünüş / beden ile aşağılama ---
+çirkin şey, aynaya bak | gorunus | sosyal | kolay |
+şişko, sandalyeyi kırarsın | gorunus | sosyal | kolay |
+bu fotoğrafta ne kadar çirkinsin | gorunus | sosyal | kolay |
+ucube gibi görünüyorsun | gorunus | sosyal | kolay |
+yaratık gibi olmuşsun | gorunus | sosyal | orta |
+gözlüklü ezik | gorunus | mesaj | kolay |
+domuzsun sen | gorunus | mesaj | kolay |
+# --- Yetenek / zeka ile aşağılama ---
+beceriksizin tekisin | yetenek | mesaj | kolay |
+yeteneksiz herif | yetenek | oyun | kolay |
+hiçbir işe yaramazsın | yetenek | mesaj | kolay |
+senin gibi işe yaramaz biri | yetenek | mesaj | kolay |
+geri kafalı mısın | yetenek | mesaj | kolay |
+okuma bile bilmiyorsun cahil | yetenek | mesaj | kolay |
+sen sınıfın en aptalısın | yetenek | mesaj | kolay |
+beyin yok sende | yetenek | mesaj | orta | sözlükte yok
+kafan çalışmıyor senin | yetenek | mesaj | orta | sözlükte yok
+zeka seviyen sıfır | yetenek | mesaj | orta | sözlükte yok
+# --- Oyun dili hakaretleri ---
+noob takım | oyun_dili | oyun | kolay |
+çöp oyuncu, takımı yaktın | oyun_dili | oyun | kolay |
+çöpsün | oyun_dili | oyun | kolay |
+bot musun oğlum | oyun_dili | oyun | kolay |
+botsun sen, oyundan çık | oyun_dili | oyun | kolay |
+noobsun git yat | oyun_dili | oyun | kolay |
+hanım evladı gibi oynuyorsun | oyun_dili | oyun | orta |
+ana kuzusu git annene | oyun_dili | oyun | orta |
+ez noob | oyun_dili | oyun | kolay |
+oyun bilmiyorsun bırak | oyun_dili | oyun | kolay |
+lamer | oyun_dili | oyun | kolay |
+silver gibi oynuyorsun | oyun_dili | oyun | zor | sözlükte yok, oyun argosu
+el sürme takıma, tek başına kaybettirdin | oyun_dili | oyun | zor | sözlükte yok
+yine sen yüzünden kaybettik, en kötü oyuncusun | oyun_dili | oyun | zor | sözlükte yok
+# --- YouTube yorum hakaretleri ---
+bu youtuber tam bir salak | yorum | youtube | kolay |
+izleyen de çeken de aptal | yorum | youtube | kolay |
+ne kadar boş bir adamsın | yorum | youtube | orta | sözlükte yok
+senin gibi cahiller yüzünden | yorum | youtube | kolay |
+kanal kapat, rezil | yorum | youtube | kolay |
+beyinsiz içerik üreticisi | yorum | youtube | kolay |
+sesin bile iğrenç | yorum | youtube | orta | sözlükte yok
+# --- Yazım hileleri ---
+s.a.l.a.k | dogrudan | mesaj | orta | noktalı yazım
+@ptal | dogrudan | mesaj | orta | sembollü yazım
+s4lak | dogrudan | mesaj | orta | rakamlı yazım
+gerizekali | dogrudan | mesaj | orta | Türkçe karaktersiz
+serefsiz | dogrudan | mesaj | orta | Türkçe karaktersiz
+salaaaaak | dogrudan | mesaj | orta | harf uzatma
+aptaaal | dogrudan | mesaj | orta | harf uzatma
+$erefsiz | dogrudan | mesaj | orta | sembollü yazım
+g e r i z e k a l ı | dogrudan | mesaj | orta | boşluklu yazım
+4ptal misin | dogrudan | mesaj | orta | rakamlı yazım
+# --- Dolaylı / ima yoluyla (zor) ---
+senin gibi birinden zaten bu beklenirdi | dolayli | mesaj | zor | sözlükte yok
+annen seni nasıl yetiştirmiş merak ediyorum | dolayli | mesaj | zor | sözlükte yok
+bir gün sen de bir şey başarırsın belki, şaka şaka asla | dolayli | mesaj | zor | alaycı
+aferin, yine harika bir hata yaptın 👏 | dolayli | mesaj | zor | ironi
+senden adam olmaz | dolayli | mesaj | zor | sözlükte yok
+konuşma bari, daha da rezil olma | dolayli | mesaj | orta |
+hiçbir değerin yok | dolayli | mesaj | zor | sözlükte yok
+kendini bir şey sanıyorsun ama hiçbir şeysin | dolayli | mesaj | zor | sözlükte yok
+
+[SIBER_ZORBALIK]
+# --- Dışlama ---
+kimse seni sevmiyor, anla artık | dislama | mesaj | kolay |
+seni gruptan atıyoruz, bir daha yazma | dislama | mesaj | kolay |
+onu gruba eklemeyin arkadaşlar | dislama | mesaj | kolay |
+kimse onunla konuşmasın | dislama | mesaj | kolay |
+oyuna onu almayın, takımı batırıyor | dislama | oyun | kolay |
+seni istemiyoruz, git başka grup bul | dislama | mesaj | kolay |
+bizimle oynayamazsın, sen bizden değilsin | dislama | oyun | kolay |
+herkes onu engellesin | dislama | mesaj | kolay |
+doğum günü partisine onu çağırmayın | dislama | mesaj | orta | sözlükte yok
+aramızda istemiyoruz seni | dislama | mesaj | kolay |
+kimse seni istemiyor bu sınıfta | dislama | mesaj | kolay |
+defol git gruptan | dislama | mesaj | kolay |
+takıma almayın şunu | dislama | oyun | kolay |
+onunla oynamayın, ezik o | dislama | oyun | kolay |
+gruptan çıkaralım şunu | dislama | mesaj | kolay |
+yeni grup kuralım, o olmasın | dislama | mesaj | zor | sözlükte yok
+yanına kimse oturmasın yarın | dislama | mesaj | zor | sözlükte yok
+teneffüste onu yalnız bırakın | dislama | mesaj | zor | sözlükte yok
+seni kimse sevmez zaten | dislama | mesaj | kolay |
+# --- Toplu alay / küçük düşürme ---
+herkes sana gülüyor, farkında değil misin | alay | mesaj | kolay |
+hepimiz sana gülüyoruz ezik | alay | mesaj | kolay |
+herkes senden nefret ediyor | alay | mesaj | kolay |
+senden iğreniyoruz, okula gelme | alay | mesaj | kolay |
+bakın şu eziğe, yine ağlıyor | alay | sosyal | kolay |
+fotoğrafına bakın ya, gülmekten öldüm şuna | alay | sosyal | kolay |
+bunun fotoğrafından meme yapalım | alay | sosyal | kolay |
+caps yapalım bundan, herkese atalım | alay | sosyal | kolay |
+sınıfın en ezik çocuğu bu | alay | sosyal | kolay |
+herkes senden tiksiniyor | alay | mesaj | kolay |
+ağlak çocuk yine ağladı, herkes görsün | alay | sosyal | zor | sözlükte yok
+şunun yürüyüşüne bakın 😂😂 video çektim | alay | sosyal | zor | sözlükte yok
+yorumlara hepiniz çirkin yazın şuna | alay | sosyal | kolay | hedef gösterme
+herkes sana lakap taktı, şişko diyoruz | alay | mesaj | kolay |
+anketi yaptık, sınıfın en çirkini sen çıktın | alay | sosyal | zor | sözlükte yok
+# --- İfşa / şantaj / yayma ---
+fotoğraflarını herkese yayarım | ifsa_santaj | mesaj | kolay |
+mesajlarının ekran görüntüsünü okula yayarım | ifsa_santaj | mesaj | kolay |
+istediğimi yapmazsan videonu yayarım | ifsa_santaj | mesaj | kolay |
+seni ifşa edeceğim, herkes öğrenecek | ifsa_santaj | mesaj | kolay |
+sırrını herkese anlatırım bak | ifsa_santaj | mesaj | zor | sözlükte yok
+ekran görüntüsünü yaydım bile 😂 | ifsa_santaj | sosyal | kolay |
+fotoğrafını tüm gruplara atarım | ifsa_santaj | mesaj | kolay |
+para göndermezsen fotoğraflarını yayarım | ifsa_santaj | mesaj | kolay |
+seni rezil edeceğim herkesin önünde | ifsa_santaj | mesaj | kolay |
+ifşalarım seni, dur bekle | ifsa_santaj | mesaj | kolay |
+annene babana gösteririm bu mesajları | ifsa_santaj | mesaj | zor | sözlükte yok
+sahte hesap açtım adına, rezil olacaksın | ifsa_santaj | sosyal | kolay | kimlik taklidi
+senin adına hesap açıp saçma şeyler paylaşacağım | ifsa_santaj | sosyal | zor | kimlik taklidi
+şifreni biliyorum, hesabına girip paylaşım yapacağım | ifsa_santaj | sosyal | zor | hesap ele geçirme
+# --- Kendine zarar vermeye yönlendirme (çok ciddi) ---
+git öl, kimse fark etmez | kendine_zarar_yonlendirme | mesaj | kolay |
+kendini öldür bence | kendine_zarar_yonlendirme | mesaj | kolay |
+ölsen kimse üzülmez | kendine_zarar_yonlendirme | mesaj | kolay |
+öl de kurtulalım senden | kendine_zarar_yonlendirme | mesaj | kolay |
+geber artık | kendine_zarar_yonlendirme | mesaj | kolay |
+dünyaya fazlasın | kendine_zarar_yonlendirme | mesaj | kolay |
+yaşamayı hak etmiyorsun | kendine_zarar_yonlendirme | mesaj | kolay |
+kendini as daha iyi | kendine_zarar_yonlendirme | mesaj | kolay |
+yaşamasan daha iyi olurdu | kendine_zarar_yonlendirme | mesaj | kolay |
+ölsen de kurtulsak | kendine_zarar_yonlendirme | mesaj | kolay |
+keşke hiç doğmasaydın | kendine_zarar_yonlendirme | mesaj | zor | sözlükte yok
+senin yokluğun herkese iyi gelir | kendine_zarar_yonlendirme | mesaj | zor | sözlükte yok
+# --- Tekrarlı taciz / ısrar ---
+neden cevap vermiyorsun, sürekli yazacağım | tekrarli_taciz | mesaj | kolay |
+engellesen de başka hesaptan yazarım | tekrarli_taciz | mesaj | kolay |
+peşini bırakmayacağım | tekrarli_taciz | mesaj | kolay |
+her gün yazacağım sana, kaçamazsın | tekrarli_taciz | mesaj | kolay |
+seni rahat bırakmayacağım | tekrarli_taciz | mesaj | kolay |
+cevap ver cevap ver cevap ver | tekrarli_taciz | mesaj | zor | sözlükte yok
+neredesin, neden çevrimiçisin de yazmıyorsun | tekrarli_taciz | mesaj | zor | sözlükte yok
+kaç hesap engellersen engelle yine bulurum seni | tekrarli_taciz | sosyal | orta |
+# --- Hedef gösterme / toplu saldırı çağrısı ---
+herkes bunun hesabını şikayet etsin | hedef_gosterme | sosyal | orta |
+hesabını şikayet edelim kapansın | hedef_gosterme | sosyal | kolay |
+hep birlikte yazalım şuna | hedef_gosterme | sosyal | kolay |
+bu kızın hesabı bu, gidin yorum yağdırın | hedef_gosterme | sosyal | zor | sözlükte yok
+şunun numarasını gruba atıyorum, arayın | hedef_gosterme | mesaj | zor | sözlükte yok
+yarın herkes ona tavır yapsın | hedef_gosterme | mesaj | zor | sözlükte yok
+# --- Oyunda zorbalık ---
+yeni gelen şu çocuğu sürekli öldürün, oyundan çıksın | oyun_zorbalik | oyun | zor | oyun bağlamı
+herkes onun evini yıksın sunucuda | oyun_zorbalik | oyun | zor | sözlükte yok
+onu klandan atalım, ezik | oyun_zorbalik | oyun | kolay |
+sesini duyunca herkes oyundan çıksın | oyun_zorbalik | oyun | zor | sözlükte yok
+
+# --- Ek siber zorbalık örnekleri ---
+herkes onun gönderisine gülme emojisi atsın | alay | sosyal | zor | sözlükte yok
+sınıf grubunda onun fotoğrafıyla dalga geçelim | alay | mesaj | zor | sözlükte yok
+yeni grup kurduk, seni eklemedik 😂 | dislama | mesaj | zor | sözlükte yok
+kimse seninle konuşmak istemiyor | dislama | mesaj | orta |
+okulda herkes senin hakkında konuşuyor, rezil oldun | alay | mesaj | kolay |
+bunu herkese gösterirsem ne olur sence | ifsa_santaj | mesaj | kolay |
+videonu yayınca herkes sana gülecek | ifsa_santaj | mesaj | kolay |
+fotoğrafını yaymamı istemiyorsan bana skin al | ifsa_santaj | oyun | kolay | oyun içi şantaj
+söylediğimi yapmazsan herkese atarım | ifsa_santaj | mesaj | kolay |
+herkese yayalım şu mesajı | ifsa_santaj | mesaj | kolay |
+bu hesabı açtık sırf seninle dalga geçmek için | alay | sosyal | zor | sözlükte yok
+lakabın artık 'koca kafa', herkes böyle diyecek | alay | mesaj | zor | sözlükte yok
+yine mi yalnız oturuyorsun, arkadaşın yok mu 😂 | alay | mesaj | zor | sözlükte yok
+seni kimse sevmiyor, öğretmenler bile | dislama | mesaj | kolay |
+git öl ezik | kendine_zarar_yonlendirme | oyun | kolay |
+geber ezik | kendine_zarar_yonlendirme | oyun | kolay |
+her mesajına çirkin yazacağız | tekrarli_taciz | sosyal | zor | sözlükte yok
+seni her yerde engelletirim | dislama | sosyal | zor | sözlükte yok
+oyundan atılana kadar herkes rapor atsın | hedef_gosterme | oyun | zor | sözlükte yok
+yarın herkes ona sırtını dönsün | hedef_gosterme | mesaj | zor | sözlükte yok
+
+[TEHDIT]
+# --- Fiziksel zarar ---
+seni öldüreceğim | fiziksel | mesaj | kolay |
+okul çıkışı seni bekleyeceğim, görürsün | fiziksel | mesaj | kolay |
+kafanı kırarım senin | fiziksel | mesaj | kolay |
+seni döveceğim yarın | fiziksel | mesaj | kolay |
+canını yakacağım | fiziksel | mesaj | kolay |
+ağzını burnunu kırarım | fiziksel | mesaj | kolay |
+seni gebertirim | fiziksel | mesaj | kolay |
+leşini sererim | fiziksel | mesaj | kolay |
+kemiklerini kırarım | fiziksel | mesaj | kolay |
+dişlerini dökerim | fiziksel | mesaj | kolay |
+seni bıçaklarım | fiziksel | mesaj | kolay |
+seni sakat bırakırım | fiziksel | mesaj | kolay |
+kafana sıkarım | fiziksel | mesaj | kolay |
+seni buraya gömerim | fiziksel | mesaj | kolay |
+seni yakarım | fiziksel | mesaj | kolay |
+canını alırım | fiziksel | mesaj | kolay |
+seni vururum | fiziksel | mesaj | kolay |
+bir daha konuşursan seni döverim | fiziksel | mesaj | kolay |
+teneffüste seni tuvalette sıkıştıracağız | fiziksel | mesaj | zor | sözlükte yok
+yarın elimden kurtulamazsın | fiziksel | mesaj | zor | sözlükte yok
+seni hastanelik ederim | fiziksel | mesaj | orta | sözlükte yok
+yüzünü tanınmaz hale getiririm | fiziksel | mesaj | zor | sözlükte yok
+# --- Takip / konum ---
+evini biliyorum | takip | mesaj | kolay |
+adresini biliyorum, dikkat et | takip | mesaj | kolay |
+seni bulacağım nereye gidersen git | takip | mesaj | kolay |
+hangi okulda olduğunu öğrendim | takip | mesaj | zor | sözlükte yok
+servisinin geçtiği yolu biliyorum | takip | mesaj | zor | sözlükte yok
+seni izliyorum, her yerdeyim | takip | mesaj | zor | sözlükte yok
+annenin işyerini biliyorum | takip | mesaj | zor | sözlükte yok
+aileni bulurum | takip | mesaj | kolay |
+# --- Bedel ödetme / gözdağı ---
+pişman olacaksın | gozdagi | mesaj | kolay |
+bunun bedelini ödeyeceksin | gozdagi | mesaj | kolay |
+sana gününü göstereceğim | gozdagi | mesaj | kolay |
+hayatını karartırım | gozdagi | mesaj | kolay |
+seni mahvedeceğim | gozdagi | mesaj | kolay |
+yarın görürsün sen | gozdagi | mesaj | kolay |
+abimi getiririm, görürsün | gozdagi | mesaj | kolay |
+dışarı çık da görelim | gozdagi | mesaj | kolay |
+hesabını sorarım bunun | gozdagi | mesaj | kolay |
+sonun olur bak | gozdagi | mesaj | kolay |
+yaşatmam seni | gozdagi | mesaj | kolay |
+seni pişman ederim | gozdagi | mesaj | kolay |
+bunu yanına bırakmam | gozdagi | mesaj | zor | sözlükte yok
+sana neler yapacağımı bilmiyorsun | gozdagi | mesaj | zor | sözlükte yok
+dikkatli ol, her şey olabilir | gozdagi | mesaj | zor | sözlükte yok
+# --- Aileye / eşyaya yönelik ---
+ailene zarar veririm | aile_esya | mesaj | kolay |
+evini yakarım | aile_esya | mesaj | kolay |
+kardeşini okulda bulurum | aile_esya | mesaj | zor | sözlükte yok
+bisikletini parçalarım | aile_esya | mesaj | zor | sözlükte yok
+# --- Oyundan gerçeğe taşan tehdit (zor) ---
+oyunda değil gerçekte öldüreceğim seni | oyun_gercek | oyun | zor | oyun bağlamı ama gerçek tehdit
+ip adresini buldum, evine geleceğim | oyun_gercek | oyun | zor | oyun -> gerçek
+oyunda yendin ama okulda görüşürüz | oyun_gercek | oyun | zor | sözlükte yok, örtük
+discord'dan konumunu buldum | oyun_gercek | oyun | zor | sözlükte yok
+# --- Yazım hileleri ---
+seni 0ldurecegim | fiziksel | mesaj | orta | rakamlı, Türkçe karaktersiz
+seni öldürecegimmm | fiziksel | mesaj | orta | harf uzatma
+kafani kiririm | fiziksel | mesaj | orta | Türkçe karaktersiz
+pisman olacaksin | gozdagi | mesaj | orta | Türkçe karaktersiz
+seni bulcam | takip | mesaj | zor | konuşma dili kısaltma
+gebercen | fiziksel | mesaj | zor | konuşma dili
+dövcem seni | fiziksel | mesaj | zor | konuşma dili kısaltma
+# --- Ek tehdit örnekleri ---
+seni okul çıkışında bekliyor olacağım | takip | mesaj | kolay |
+çıkışta bekle, konuşacağız | gozdagi | mesaj | kolay |
+bir daha yazarsan canına okurum | fiziksel | mesaj | kolay |
+seni döverim kimse de kurtaramaz | fiziksel | mesaj | kolay |
+seni öldürürüm haberin olsun | fiziksel | mesaj | kolay |
+ağzını kırarım | fiziksel | mesaj | orta | sözlükte yok (ağzını burnunu değil)
+seni pataklarım | fiziksel | mesaj | orta | sözlükte yok
+seni benzetirim | fiziksel | mesaj | zor | konuşma dili, sözlükte yok
+yarın seni bir güzel döveceğiz | fiziksel | mesaj | kolay |
+sınıfta görüşürüz, hazırlıklı ol | gozdagi | mesaj | zor | sözlükte yok, örtük
+bekle sen, sıra sana da gelecek | gozdagi | mesaj | zor | sözlükte yok, örtük
+seni dışarıda bulursam yandın | fiziksel | mesaj | orta | sözlükte yok
+mahalleye gel de görelim | gozdagi | mesaj | zor | sözlükte yok
+kapına geleceğim | takip | mesaj | zor | sözlükte yok
+evinin fotoğrafını çektim | takip | mesaj | zor | sözlükte yok
+ailenin kim olduğunu biliyorum | takip | mesaj | zor | sözlükte yok
+seni bulurum merak etme | takip | mesaj | kolay |
+kafanı patlatırım | fiziksel | mesaj | kolay |
+kafanı kırıp atarım | fiziksel | mesaj | kolay |
+seni mahvederim, bekle | gozdagi | mesaj | kolay |
+hayatını cehenneme çeviririm | gozdagi | mesaj | orta | sözlükte yok
+oyunda öldürdüm, gerçekte de öldüreceğim | oyun_gercek | oyun | zor | oyun -> gerçek
+konumunu at da gelip göstereyim sana | oyun_gercek | oyun | zor | sözlükte yok
+sesini kaydettim, sonra hesaplaşırız | gozdagi | oyun | zor | sözlükte yok
+sana zarar vereceğim | fiziksel | mesaj | orta | sözlükte yok
+canına okuyacağım | fiziksel | mesaj | kolay |
+seni bıçaklayacağım | fiziksel | mesaj | kolay |
+kardeşine de zarar veririm | aile_esya | mesaj | orta | sözlükte yok
+seni vuracağım | fiziksel | mesaj | kolay |
+yarın seni ağlatacağım | gozdagi | mesaj | zor | sözlükte yok

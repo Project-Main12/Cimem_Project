@@ -1,0 +1,51 @@
+id,group_id,text,label,subtype,context,difficulty,augmented,aug_type,split,note,source
+EK0001,E0001,"kaç yaşındasın, ailen telefonunu kontrol ediyor mu?",UYGUNSUZ_YAKLASIM,yas_aile_sorgu,mesaj,orta,0,,,,sentetik
+EK0002,E0002,"bu konuştuklarımızı kimseye söyleme, aramızda kalsın",UYGUNSUZ_YAKLASIM,gizlilik_talebi,mesaj,kolay,0,,,,sentetik
+EK0003,E0003,"annene babana benden bahsetme, anlamazlar",UYGUNSUZ_YAKLASIM,gizlilik_talebi,mesaj,kolay,0,,,,sentetik
+EK0004,E0004,"bir fotoğrafını atar mısın, sadece ben göreceğim",UYGUNSUZ_YAKLASIM,goruntu_isteme,mesaj,kolay,0,,,,sentetik
+EK0005,E0005,"kameranı açar mısın, odanı görmek istiyorum",UYGUNSUZ_YAKLASIM,goruntu_isteme,mesaj,kolay,0,,,,sentetik
+EK0006,E0006,sana bedava elmas yüklerim ama önce fotoğraf at,UYGUNSUZ_YAKLASIM,odul_karsiligi,oyun,kolay,0,,,,sentetik
+EK0007,E0007,"oyun dışında konuşalım, bana özel uygulamadan yaz",UYGUNSUZ_YAKLASIM,platform_degistirme,oyun,orta,0,,,,sentetik
+EK0008,E0008,"mesajları sil olur mu, kimse görmesin",UYGUNSUZ_YAKLASIM,gizlilik_talebi,mesaj,kolay,0,,,,sentetik
+EK0009,E0009,"seninle yüz yüze buluşmak istiyorum, kimseye söylemeden gel",UYGUNSUZ_YAKLASIM,bulusma,mesaj,kolay,0,,,,sentetik
+EK0010,E0010,evde yalnız mısın şu an?,UYGUNSUZ_YAKLASIM,yalniz_sorgu,mesaj,orta,0,,,,sentetik
+EK0011,E0011,"sen yaşına göre çok olgunsun, seni benden başka kimse anlamaz",UYGUNSUZ_YAKLASIM,guven_kazanma,mesaj,zor,0,,,,sentetik
+EK0012,E0012,ailen seni anlamıyor ama ben anlıyorum,UYGUNSUZ_YAKLASIM,guven_kazanma,mesaj,zor,0,,,,sentetik
+EK0013,E0013,"okulunun adı ne, hangi saatte çıkıyorsun?",UYGUNSUZ_YAKLASIM,konum_sorgu,mesaj,orta,0,,,,sentetik
+EK0014,E0014,"sana hediye göndereyim, adresini yaz",UYGUNSUZ_YAKLASIM,konum_sorgu,mesaj,orta,0,,,,sentetik
+EK0015,E0015,"bu bizim sırrımız, söylersen başın belaya girer",UYGUNSUZ_YAKLASIM,gizlilik_talebi,mesaj,kolay,0,,,,sentetik
+EK0016,E0016,"sesli konuşalım ama kulaklık tak, kimse duymasın",UYGUNSUZ_YAKLASIM,gizlilik_talebi,oyun,orta,0,,,,sentetik
+EK0017,E0017,"sana skin hediye ettim, şimdi sen de bana bir iyilik yap",UYGUNSUZ_YAKLASIM,odul_karsiligi,oyun,zor,0,,,,sentetik
+EK0018,E0018,"gizli hesap aç, oradan konuşalım",UYGUNSUZ_YAKLASIM,platform_degistirme,mesaj,orta,0,,,,sentetik
+EK0019,E0019,artık yaşamak istemiyorum,KENDINE_ZARAR_IFADESI,intihar_dusuncesi,mesaj,kolay,0,,,acil destek,sentetik
+EK0020,E0020,"kimse beni sevmiyor, ortadan kaybolsam iyi olur",KENDINE_ZARAR_IFADESI,umutsuzluk,mesaj,orta,0,,,,sentetik
+EK0021,E0021,kendime zarar vermek istiyorum,KENDINE_ZARAR_IFADESI,kendine_zarar,mesaj,kolay,0,,,acil destek,sentetik
+EK0022,E0022,"her şeyden çok yoruldum, artık dayanamıyorum",KENDINE_ZARAR_IFADESI,umutsuzluk,mesaj,zor,0,,,,sentetik
+EK0023,E0023,keşke hiç doğmasaydım,KENDINE_ZARAR_IFADESI,umutsuzluk,mesaj,orta,0,,,,sentetik
+EK0024,E0024,"yarın okula gitmeyeceğim, hiçbir yere gitmeyeceğim artık",KENDINE_ZARAR_IFADESI,umutsuzluk,mesaj,zor,0,,,,sentetik
+EK0025,E0025,herkese veda ediyorum,KENDINE_ZARAR_IFADESI,veda,sosyal,zor,0,,,acil destek,sentetik
+EK0026,E0026,kollarımı kestim yine,KENDINE_ZARAR_IFADESI,kendine_zarar,mesaj,kolay,0,,,acil destek,sentetik
+EK0027,E0027,ben olmasam herkes daha mutlu olur,KENDINE_ZARAR_IFADESI,umutsuzluk,mesaj,orta,0,,,,sentetik
+EK0028,E0028,"yemek yemeyi bıraktım, umurumda değil",KENDINE_ZARAR_IFADESI,kendine_zarar,mesaj,zor,0,,,,sentetik
+EK0029,E0029,uyuyup bir daha uyanmamak istiyorum,KENDINE_ZARAR_IFADESI,intihar_dusuncesi,mesaj,orta,0,,,acil destek,sentetik
+EK0030,E0030,kimseye söyleyemiyorum ama çok kötüyüm,KENDINE_ZARAR_IFADESI,umutsuzluk,mesaj,zor,0,,,,sentetik
+EK0031,E0031,senin gibi göçmenler bu okula gelmesin,NEFRET_SOYLEMI,koken,mesaj,kolay,0,,,,sentetik
+EK0032,E0032,"kızlar oyun oynamayı bilmez, git mutfağa",NEFRET_SOYLEMI,cinsiyet,oyun,kolay,0,,,,sentetik
+EK0033,E0033,"engelliler takıma alınmasın, oyunu yavaşlatıyorlar",NEFRET_SOYLEMI,engellilik,oyun,kolay,0,,,,sentetik
+EK0034,E0034,senin dinin yüzünden seninle konuşmuyoruz,NEFRET_SOYLEMI,din,mesaj,kolay,0,,,,sentetik
+EK0035,E0035,siyahiler bu sunucuya giremez,NEFRET_SOYLEMI,koken,oyun,kolay,0,,,,sentetik
+EK0036,E0036,"şivesiyle konuşana bak, köylü",NEFRET_SOYLEMI,bolge,mesaj,orta,0,,,,sentetik
+EK0037,E0037,yabancılar defolsun ülkemizden,NEFRET_SOYLEMI,koken,sosyal,kolay,0,,,,sentetik
+EK0038,E0038,fakir olduğun için seninle oturmuyoruz,NEFRET_SOYLEMI,sosyoekonomik,mesaj,orta,0,,,,sentetik
+EK0039,E0039,"erkek gibi kız, kimse seni sevmez",NEFRET_SOYLEMI,cinsiyet,mesaj,orta,0,,,,sentetik
+EK0040,E0040,"o kekeme, konuşturmayın şunu",NEFRET_SOYLEMI,engellilik,mesaj,orta,0,,,,sentetik
+EK0041,E0041,bedava skin için şifreni bana gönder,DOLANDIRICILIK,sifre_yemleme,oyun,kolay,0,,,,sentetik
+EK0042,E0042,bu linke tıkla 10.000 elmas kazan,DOLANDIRICILIK,link_yemleme,oyun,kolay,0,,,,sentetik
+EK0043,E0043,"hesabını yükselteyim, kullanıcı adı ve şifreni ver",DOLANDIRICILIK,sifre_yemleme,oyun,kolay,0,,,,sentetik
+EK0044,E0044,telefonuna gelen kodu bana söyler misin,DOLANDIRICILIK,kod_yemleme,mesaj,kolay,0,,,,sentetik
+EK0045,E0045,"annenin kart bilgilerini yaz, sana oyun parası alacağım",DOLANDIRICILIK,odeme_yemleme,oyun,kolay,0,,,,sentetik
+EK0046,E0046,çekiliş kazandın! ödülü almak için bilgilerini doldur,DOLANDIRICILIK,link_yemleme,sosyal,kolay,0,,,,sentetik
+EK0047,E0047,"moderatörüm, hesabın kapanacak; doğrulama için şifreni yaz",DOLANDIRICILIK,sifre_yemleme,oyun,orta,0,,,yetkili taklidi,sentetik
+EK0048,E0048,"bu uygulamayı indir, bedava oyun parası veriyor",DOLANDIRICILIK,uygulama_yemleme,oyun,orta,0,,,,sentetik
+EK0049,E0049,hediye kartının arkasındaki kodu fotoğraflayıp at,DOLANDIRICILIK,kod_yemleme,mesaj,kolay,0,,,,sentetik
+EK0050,E0050,"ben de oyun şirketinde çalışıyorum, hesabını doğrulamam lazım",DOLANDIRICILIK,sifre_yemleme,oyun,zor,0,,,yetkili taklidi,sentetik

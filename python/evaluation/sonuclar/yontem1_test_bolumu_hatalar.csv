@@ -1,0 +1,55 @@
+id,text,label,tahmin,difficulty,aug_type,note,eslesen_kurallar
+DK00235,"sapık bir yoldan değil, ana yoldan gel",NORMAL,HAKARET,zor,,sapmak,HAKARET:sapık*
+DK00236,"sapık bir yodan değil, ana yoldan gel",NORMAL,HAKARET,zor,yazim_hatasi,sapmak,HAKARET:sapık*
+DK00237,"sapık bi yoldan diil, ana yoldan gel",NORMAL,HAKARET,zor,sohbet_kisaltma,sapmak,HAKARET:sapık*
+DK00337,"bence bu fikir işe yaramaz, başka bir şey deneyelim",NORMAL,HAKARET,zor,,fikir eleştirisi,HAKARET:işe yaramaz*
+DK00338,"BENCE BU FİKİR İŞE YARAMAZ, BAŞKA BİR ŞEY DENEYELİM ??",NORMAL,HAKARET,zor,buyuk_harf_emoji,fikir eleştirisi,HAKARET:işe yaramaz*
+DK00339,"bence bu fikir işe yaramaz, başka bir şey denyelim",NORMAL,HAKARET,zor,yazim_hatasi,fikir eleştirisi,HAKARET:işe yaramaz*
+DK00752,spaık herif,HAKARET,NORMAL,kolay,yazim_hatasi,,
+DK00921,annen seni nasıl yetiştirmiş merak ediyorum,HAKARET,NORMAL,zor,,sözlükte yok,
+DK00922,annen seni nasil yetistirmis merak ediyorum,HAKARET,NORMAL,zor,turkce_karaktersiz,sözlükte yok,
+DK00923,annen seni nasıl yetiştirmiş merak ediyom,HAKARET,NORMAL,zor,sohbet_kisaltma,sözlükte yok,
+DK00924,"bir gün sen de bir şey başarırsın belki, şaka şaka asla",HAKARET,NORMAL,zor,,alaycı,
+DK00925,"bi gün sn de bi şy başarırsın belki, şaka şaka asla",HAKARET,NORMAL,zor,sohbet_kisaltma,alaycı,
+DK00926,"bir gün sen de bir şey başarırsııın belki, şaka şaka asla",HAKARET,NORMAL,zor,harf_uzatma,alaycı,
+DK00927,"aferin, yine harika bir hata yaptın 👏",HAKARET,NORMAL,zor,,ironi,
+DK00928,"aferin, yine harika bir hat@ yaptın 👏",HAKARET,NORMAL,zor,sembol_rakam,ironi,
+DK00929,"aferin, yine harika bir hata yaptin 👏",HAKARET,NORMAL,zor,turkce_karaktersiz,ironi,
+DK01038,"herkes sana lakap taktı, şişko diyoruz",SIBER_ZORBALIK,HAKARET,kolay,,,HAKARET:şişko*
+DK01039,"herkes sana lakap taktı, şişko diyoruz 😡",SIBER_ZORBALIK,HAKARET,kolay,buyuk_harf_emoji,,HAKARET:şişko*
+DK01040,"herkeees sana lakap taktı, şişko diyoruz",SIBER_ZORBALIK,HAKARET,kolay,harf_uzatma,,HAKARET:şişko*
+DK01069,seni rezil edcam herkesin önünde,SIBER_ZORBALIK,HAKARET,kolay,sohbet_kisaltma,,HAKARET:rezil
+DK01093,ölsen kmise üzülmez,SIBER_ZORBALIK,NORMAL,kolay,yazim_hatasi,,
+DK01115,ölsne de kurtulsak,SIBER_ZORBALIK,NORMAL,kolay,yazim_hatasi,,
+DK01140,"neredesin, neden çevrimiçisin de yazmıyorsun",SIBER_ZORBALIK,NORMAL,zor,,sözlükte yok,
+DK01141,"NEREDESİN, NEDEN ÇEVRİMİÇİSİN DE YAZMIYORSUN 👍",SIBER_ZORBALIK,NORMAL,zor,buyuk_harf_emoji,sözlükte yok,
+DK01142,"neredesin, niye çevrimiçisin de yazmıyorsun",SIBER_ZORBALIK,NORMAL,zor,sohbet_kisaltma,sözlükte yok,
+DK01164,"yeni gelen şu çocuğu sürekli öldürün, oyundan çıksın",SIBER_ZORBALIK,NORMAL,zor,,oyun bağlamı,
+DK01165,"yeni gelen şu çocuğu sürekli öldürün, oyunadn çıksın",SIBER_ZORBALIK,NORMAL,zor,yazim_hatasi,oyun bağlamı,
+DK01166,"yeni gelen şu çocuğu sürekli öldürün, oyundan çık5ın",SIBER_ZORBALIK,NORMAL,zor,sembol_rakam,oyun bağlamı,
+DK01205,herkese yayalmı şu mesajı,SIBER_ZORBALIK,NORMAL,kolay,yazim_hatasi,,
+DK01227,seni her yerde engelletirim,SIBER_ZORBALIK,NORMAL,zor,,sözlükte yok,
+DK01228,seni her yerde engelleirim,SIBER_ZORBALIK,NORMAL,zor,yazim_hatasi,sözlükte yok,
+DK01229,s e n i her yerde engelletirim,SIBER_ZORBALIK,NORMAL,zor,harf_ayirma,sözlükte yok,
+DK01280,seni yakaım,TEHDIT,NORMAL,kolay,yazim_hatasi,,
+DK01304,evni biliyorum,TEHDIT,NORMAL,kolay,yazim_hatasi,,
+DK01333,sana gününü göstercam,TEHDIT,NORMAL,kolay,sohbet_kisaltma,,
+DK01380,bisikletini parçalarım,TEHDIT,NORMAL,zor,,sözlükte yok,
+DK01381,bisikletini parçal@rım,TEHDIT,NORMAL,zor,sembol_rakam,sözlükte yok,
+DK01382,bisikletiniiii parçalarım,TEHDIT,NORMAL,zor,harf_uzatma,sözlükte yok,
+DK01392,discord'dan konumunu buldum,TEHDIT,NORMAL,zor,,sözlükte yok,
+DK01393,discord'dan konumunu budlum,TEHDIT,NORMAL,zor,yazim_hatasi,sözlükte yok,
+DK01394,d-i-s-c-o-r-d-d-a-n konumunu buldum,TEHDIT,NORMAL,zor,harf_ayirma,sözlükte yok,
+DK01431,ağzını kırarım,TEHDIT,NORMAL,orta,,sözlükte yok (ağzını burnunu değil),
+DK01432,ağzını k-ı-r-a-r-ı-m,TEHDIT,NORMAL,orta,harf_ayirma,sözlükte yok (ağzını burnunu değil),
+DK01433,ağzınıııı kırarım,TEHDIT,NORMAL,orta,harf_uzatma,sözlükte yok (ağzını burnunu değil),
+DK01437,seni benzetirim,TEHDIT,NORMAL,zor,,"konuşma dili, sözlükte yok",
+DK01438,seniiii benzetirim,TEHDIT,NORMAL,zor,harf_uzatma,"konuşma dili, sözlükte yok",
+DK01439,SENİ BENZETİRİM 😡,TEHDIT,NORMAL,zor,buyuk_harf_emoji,"konuşma dili, sözlükte yok",
+DK01443,"sınıfta görüşürüz, hazırlıklı ol",TEHDIT,NORMAL,zor,,"sözlükte yok, örtük",
+DK01444,"sınıfta görüşürüz, h.a.z.ı.r.l.ı.k.l.ı ol",TEHDIT,NORMAL,zor,harf_ayirma,"sözlükte yok, örtük",
+DK01445,"sınıfta görüşürüz, hazırlıklıııı ol",TEHDIT,NORMAL,zor,harf_uzatma,"sözlükte yok, örtük",
+DK01485,"sesini kaydettim, sonra hesaplaşırız",TEHDIT,NORMAL,zor,,sözlükte yok,
+DK01486,"sesini kaydettim, sonra hesaplasiriz",TEHDIT,NORMAL,zor,turkce_karaktersiz,sözlükte yok,
+DK01487,"sesini kaydettim, sonra hesaplaşırız 😒",TEHDIT,NORMAL,zor,buyuk_harf_emoji,sözlükte yok,
+DK01493,canına okyuacağım,TEHDIT,NORMAL,kolay,yazim_hatasi,,

@@ -1,0 +1,405 @@
+# =====================================================================
+#  DİJİTAL KALKAN – Türkçe Riskli İfade Sözlüğü (Yöntem 1: Anahtar kelime)
+#  Sürüm: 0.1  |  Hazırlayan: proje danışmanı (taslak)
+# =====================================================================
+#
+#  ⚠ UYARI: Bu dosya küfür, hakaret ve tehdit ifadeleri içerir.
+#  Yalnızca araştırma amaçlı zararlı içerik tespiti için hazırlanmıştır.
+#  Öğrencilere düzenleme görevi verilmez; danışman öğretmen günceller.
+#
+#  BİÇİM KURALLARI
+#  ---------------------------------------------------------------
+#  [KATEGORI]      Bölüm başlığı. Geçerli başlıklar:
+#                  KUFUR, HAKARET, SIBER_ZORBALIK, TEHDIT, ISTISNA
+#  # ...           Yorum satırı (dikkate alınmaz)
+#  kelime          Kelimenin TAMAMI eşleşir      (mal  -> "mal" evet, "malzeme" hayır)
+#  kelime*         Kelime BU KÖKLE BAŞLARSA       (aptal* -> aptal, aptalsın, aptallar)
+#  iki kelime      İfade, kelimeler art arda geçerse eşleşir
+#  !kelime         Türkçe harf DUYARLI (ı/i, ş/s ayrı sayılır). Ör: !sik  "sık" ile karışmaz
+#
+#  OTOMATİK YAPILANLAR (yazarken düşünmenize gerek yok)
+#  ---------------------------------------------------------------
+#  - Büyük/küçük harf farkı yok (Türkçe kurala göre: I->ı, İ->i)
+#  - Türkçe harfsiz yazım yakalanır: "gerizekali" = "gerizekalı"
+#  - Harf uzatma yakalanır: "salaaaak" = "salak"
+#  - Sembol/rakam hileleri: "@ptal", "s4lak", "$erefsiz", "s.a.l.a.k" yakalanır
+#
+#  KATEGORİ TANIMLARI (etiketleme kılavuzuyla aynı olmalı)
+#  ---------------------------------------------------------------
+#  KUFUR          : Hedefi olsun olmasın, müstehcen/argo küfür sözcükleri.
+#  HAKARET        : Kişiyi aşağılayan, değersizleştiren sıfat ve lakaplar.
+#  SIBER_ZORBALIK : Dışlama, toplu alay, ifşa/şantaj, kendine zarar vermeye
+#                   yönlendirme, hedef gösterme.
+#  TEHDIT         : Fiziksel zarar, takip, şiddet veya bedel ödetme bildirimi.
+#  ISTISNA        : Yanlış alarm veren masum kelimeler (eşleşmeyi iptal eder).
+#
+#  Öncelik (bir mesaj birden çok kategoriye uyarsa):
+#  TEHDIT > SIBER_ZORBALIK > KUFUR > HAKARET
+#  (Kural: Mesajda küfürlü sözcük varsa ve tehdit/zorbalık yoksa -> KUFUR.
+#   Küfür içermeyen aşağılama -> HAKARET. Bkz. docs/etiketleme_kilavuzu.md)
+# =====================================================================
+
+
+[KUFUR]
+# --- Kısaltmalar (sohbette en sık görülenler) ---
+amk
+aq
+amq
+mk
+oç
+o.ç
+# --- Sözcükler ---
+amına
+amina*
+amını*
+aminakoy*
+amcık*
+siktir*
+# "!" = Türkçe harf duyarlı: "sık/sıkış" gibi masum kelimelerle karışmasın
+!sik
+!siki
+!sikim*
+!sikik*
+!sikiş*
+sikerim
+sikeyim
+siktim
+sikicem
+sikecem
+sokayım
+sokarım
+yarrak*
+yarak
+yarağ*
+dalyarak*
+taşak*
+# "göt" Türkçe harfsiz yazılınca İngilizce "got" ile karışır -> harf duyarlı
+!göt
+!götün
+!götünü
+götveren*
+götlek*
+orospu*
+orosbu*
+# "pic" İngilizce oyun dilinde (pick, pickaxe) geçer -> harf duyarlı
+!piç*
+pezevenk*
+kahpe*
+kaltak*
+sürtük*
+gavat*
+puşt*
+ibne*
+yavşak*
+ananı
+ananın
+ananızı
+bacını
+avradını
+sülaleni
+# --- Ek kısaltmalar ve yazım biçimleri ---
+amq
+amınakoyim
+amınakoyayım
+aminakoyim
+amınakodum*
+amınıza*
+sktr
+sktir*
+s2m
+skm
+skrm
+siktir git
+siktirgit
+siktirin
+sikiyim
+sikerler
+sikmişim
+orspu*
+orosp*
+orospuçocuğu*
+piçkurusu*
+pezo
+kevaşe*
+fahişe*
+kancık*
+godoş*
+şırfıntı*
+# (harf tekrarı teke indiğinde "yarram" -> "yaram" olur ve "yaramaz" ile karışır)
+yarrağım
+dölü*
+anasını satayım
+ananı satayım
+ananızın
+sokuk*
+
+[HAKARET]
+aptal*
+salak*
+gerizekalı*
+geri zekalı*
+mal
+malsın
+malın teki
+ahmak*
+dangalak*
+beyinsiz*
+şerefsiz*
+haysiyetsiz*
+karaktersiz*
+embesil*
+angut*
+dallama*
+lavuk*
+hıyar
+öküz
+eşek
+eşşek*
+# Hayvan adları tek başına masumdur ("köpeğim var"); yalnızca hakaret kalıpları
+hayvansın
+hayvan herif
+köpeksin
+köpek gibi
+domuzsun
+itoğlu*
+aşağılık*
+# "adı" (isim) Türkçe harfsiz "adi" yazılır -> harf duyarlı
+!adi
+adisin
+rezil
+ezik*
+çirkin*
+şişko*
+hödük*
+andaval*
+kıro*
+zavallı*
+yeteneksiz*
+beceriksiz*
+işe yaramaz*
+# --- Oyun dili ---
+noob
+nub
+çöpsün
+çöp oyuncu*
+bot musun
+botsun
+oyun bilmiyorsun
+# --- Ek hakaret sözcükleri ---
+gerzek*
+geri zeka
+salaksın
+mankafa*
+budala*
+denyo*
+dingil*
+hırbo*
+keko
+zibidi*
+hıyarto*
+manyak*
+psikopat*
+ruh hastası*
+sapık*
+kafasız*
+akılsız*
+cahil*
+ezik herif
+ucube*
+leş
+leşsin
+kokuşmuş*
+pis herif
+pislik*
+yaratık
+it oğlu it
+eşşoğlu*
+şerefsizin evladı
+haysiyetsizin*
+yalaka*
+kezban*
+sümsük*
+geri kafalı*
+bok gibi*
+boktan*
+# --- Oyun dili (ek) ---
+noobsun
+nubsun
+ez
+hanım evladı
+ana kuzusu
+lamer*
+
+[SIBER_ZORBALIK]
+# --- Dışlama ---
+kimse seni sevmiyor
+kimse seni istemiyor
+seni kimse sevmez
+seni istemiyoruz
+aramızda istemiyoruz
+gruptan at*
+gruptan çıkar*
+oyuna almayın
+takıma almayın
+bizimle oynayamazsın
+defol*
+yok ol
+# --- Toplu alay / aşağılama ---
+herkes sana gülüyor
+hepimiz sana gülüyoruz
+herkes senden nefret ediyor
+senden iğreniyoruz
+senden tiksiniyorum
+herkes senden tiksiniyor
+# --- İfşa / şantaj / yayma ---
+ifşa ede*
+ifşalarım*
+seni ifşa*
+fotoğraflarını yay*
+fotoğrafını yay*
+videonu yay*
+herkese göster*
+herkese atar*
+herkese yayalım
+ekran görüntüsünü yay*
+okula yayar*
+rezil ede*
+rezil olacaksın
+herkese yayar*
+gruplara atar*
+tüm gruplara*
+adına hesap aç*
+hesabına gir*
+# --- Kendine zarar vermeye yönlendirme (çok ciddi) ---
+kendini öldür
+git öl
+öl de kurtulalım
+ölsen kimse üzülmez
+geber
+gebersen
+kendini as
+yaşamayı hak etmiyorsun
+# --- Hedef gösterme ---
+hesabını şikayet edelim
+herkes bunu engellesin
+hep birlikte yazalım
+kimse seninle konuş*
+onu almayın
+şikayet etsin
+# --- Tekrarlı taciz / ısrar ---
+sürekli yazacağım
+peşini bırakmayacağım
+seni rahat bırakmayacağım
+her gün yazacağım
+engellesen de yazarım
+başka hesaptan yazarım
+# --- Ek dışlama / alay ---
+seni kimse sevmiyor
+kimse seninle konuşmasın
+kimse onunla konuşmasın
+onu gruba eklemeyin
+herkes onu engellesin
+onunla oynamayın
+bakın şu eziğe
+gülmekten öldüm şuna
+meme yapalım
+caps yapalım
+# --- Kendine zarar (ek) ---
+ölsen de kurtulsak
+yaşamasan daha iyi
+dünyaya fazlasın
+
+[TEHDIT]
+# Not: Oyun sohbetinde "seni öldüreceğim" oyun içi anlamda da kullanılır.
+# Bu yanlış alarm, araştırmada "bağlam" sorununun örneği olarak raporlanmalı.
+seni öldür*
+öldürece*
+öldürürüm
+gebertece*
+gebertirim
+canına okuy*
+canını yakar*
+canını yakacağım
+kafanı kır*
+kafanı patlat*
+ağzını burnunu*
+seni döve*
+döverim
+döveceğim
+seni bulacağım
+seni bulurum
+evini biliyorum
+adresini biliyorum
+okul çıkışı bekle*
+çıkışta bekle*
+seni bekliyor olacağım
+seni bıçakla*
+bıçaklarım
+vururum
+vuracağım
+pişman ede*
+pişman olursun
+pişman olacaksın
+sonun olur
+yaşatmam
+seni mahvede*
+hayatını karart*
+ailene zarar*
+aileni bulur*
+# --- Konuşma dili gelecek zaman biçimleri ---
+dövcem
+dövecem
+döveceğiz
+öldürcem
+öldürecem
+gebertcem
+gebercen
+seni bulcam
+seni bekleyece*
+bekliyor olacağım
+canına oku*
+evine gele*
+# --- Ek tehditler ---
+seni gebertirim
+leşini sererim
+canını alırım
+kemiklerini kırarım
+dişlerini dökerim
+seni yakarım
+evini yakarım
+seni sakat bırakırım
+yarın görürsün
+dışarı çık da görelim
+abimi getiririm
+sana gününü göstereceğim
+gününü göstereceğim
+hesabını sorarım
+bedelini ödeyeceksin
+seni buraya gömerim
+kafana sıkarım
+
+[ISTISNA]
+# Bu kelimeler yukarıdaki kök (*) kurallarına takılsa bile risk sayılmaz.
+amin
+amine
+aminoasit*
+sıkıntı*
+sıkı*
+sıkış*
+sikke
+malzeme*
+malum*
+mali
+malı
+eşekarısı
+defolu
+defolar
+öldürücü
+yaramaz*
+anane
+ananas*
+ebeveyn*
+lezzet*
+ezber*
+ezmek
+keskin*

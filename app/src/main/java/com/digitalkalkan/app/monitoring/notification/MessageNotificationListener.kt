@@ -4,13 +4,15 @@ import android.app.Notification
 import android.service.notification.NotificationListenerService
 import android.service.notification.StatusBarNotification
 import android.util.Log
+import com.digitalkalkan.app.domain.alerts.AlertSender
 import com.digitalkalkan.app.domain.analysis.AnalyzerProvider
 
 /**
  * Dijital Kalkan - Bildirim dinleyici servisi
  * Aşama 1: Bildirimi algıla, gönderen uygulamayı ve görünür metni al.
  * Aşama 2: Metni cihaz üzerindeki Türkçe analiz motoruna gönder (Yöntem 1: anahtar kelime).
- * Hiçbir veri cihaz dışına çıkmaz.
+ * Aşama 3: Bağlıysa veliye yalnızca kategori/seviye/uygulama bilgisini gönder.
+ * Mesaj metni hiçbir zaman cihaz dışına çıkmaz.
  */
 class MessageNotificationListener : NotificationListenerService() {
 
@@ -73,5 +75,8 @@ class MessageNotificationListener : NotificationListenerService() {
 
         // Test için uygulama ekranındaki listeye ekle (yalnızca bellekte)
         CapturedNotificationLog.add(sourcePackage, title, visibleText, result = result)
+
+        // 5) Cihaz bir veliye bağlıysa: yalnızca kategori/seviye/uygulama gönderilir
+        if (result != null) AlertSender.maybeSend(this, sourcePackage, result)
     }
 }

@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.google.services)
 }
 
 android {
@@ -11,8 +13,8 @@ android {
         applicationId = "com.digitalkalkan.app"
         minSdk = 29          // Android 10
         targetSdk = 36
-        versionCode = 3
-        versionName = "0.2.0-asama2"
+        versionCode = 4
+        versionName = "0.3.0-veli-cocuk"
     }
 
     buildTypes {
@@ -50,6 +52,15 @@ dependencies {
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
     debugImplementation(libs.androidx.compose.ui.tooling)
+
+    // Veli–çocuk bağlantısı (Supabase) ve anlık bildirim (Firebase)
+    implementation(platform(libs.supabase.bom))
+    implementation(libs.supabase.auth)
+    implementation(libs.supabase.postgrest)
+    implementation(libs.ktor.client.okhttp)
+    implementation(libs.kotlinx.serialization.json)
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.messaging)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
 
     // Ekran görüntüsü testi (telefon olmadan ana ekranı PNG olarak üretir)

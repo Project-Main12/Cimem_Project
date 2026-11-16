@@ -5,7 +5,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.PrimaryTabRow
+import androidx.compose.material3.PrimaryScrollableTabRow
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Tab
 import androidx.compose.material3.Text
@@ -20,13 +20,15 @@ import com.digitalkalkan.app.data.repository.UserEntry
 import com.digitalkalkan.app.domain.model.AnalysisResult
 import com.digitalkalkan.app.domain.model.RiskCategory
 import com.digitalkalkan.app.monitoring.notification.CapturedNotification
+import com.digitalkalkan.app.ui.child.ChildLinkActions
+import com.digitalkalkan.app.ui.child.ChildLinkScreen
 import com.digitalkalkan.app.ui.screens.StatusScreen
 import com.digitalkalkan.app.ui.screens.TryTextScreen
 import com.digitalkalkan.app.ui.screens.UserLexiconScreen
 
-private val TABS = listOf("Bildirimler", "Metin dene", "Kelime listem")
+private val TABS = listOf("Bildirimler", "Metin dene", "Kelimelerim", "Veli")
 
-/** Uygulamanın ana iskeleti: başlık + 3 sekme. */
+/** Çocuk telefonunun ana iskeleti: başlık + 4 sekme. */
 @Composable
 fun DijitalKalkanApp(
     listenerEnabled: Boolean,
@@ -38,6 +40,7 @@ fun DijitalKalkanApp(
     onAddEntry: (String, RiskCategory, Boolean) -> String?,
     onRemoveEntry: (UserEntry) -> Unit,
     onShareEntries: () -> Unit,
+    childLinkActions: ChildLinkActions,
     initialTab: Int = 0,
     tryTextInitial: String = "",
     tryTextInitialResult: AnalysisResult? = null
@@ -52,9 +55,9 @@ fun DijitalKalkanApp(
                     style = MaterialTheme.typography.headlineSmall,
                     modifier = Modifier.padding(start = 16.dp, top = 12.dp, bottom = 8.dp)
                 )
-                PrimaryTabRow(selectedTabIndex = tab) {
+                PrimaryScrollableTabRow(selectedTabIndex = tab, edgePadding = 8.dp) {
                     TABS.forEachIndexed { i, title ->
-                        Tab(selected = tab == i, onClick = { tab = i }, text = { Text(title) })
+                        Tab(selected = tab == i, onClick = { tab = i }, text = { Text(title, maxLines = 1, softWrap = false) })
                     }
                 }
             }
@@ -64,7 +67,8 @@ fun DijitalKalkanApp(
         when (tab) {
             0 -> StatusScreen(listenerEnabled, onOpenSettings, captured, onClearCaptured, m)
             1 -> TryTextScreen(analyze, m, tryTextInitial, tryTextInitialResult)
-            else -> UserLexiconScreen(userEntries, onAddEntry, onRemoveEntry, onShareEntries, m)
+            2 -> UserLexiconScreen(userEntries, onAddEntry, onRemoveEntry, onShareEntries, m)
+            else -> ChildLinkScreen(childLinkActions, m)
         }
     }
 }

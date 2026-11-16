@@ -3,6 +3,8 @@
 
     <!-- Android 13+ için kendi test bildirimimizi gösterebilmek -->
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <!-- Veli–çocuk bağlantısı ve uyarı gönderimi için -->
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="false"
@@ -30,6 +32,15 @@
             android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
             <intent-filter>
                 <action android:name="android.service.notification.NotificationListenerService" />
+            </intent-filter>
+        </service>
+
+        <!-- Veli telefonu: Firebase anlık bildirimleri -->
+        <service
+            android:name=".notifications.ParentMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
 

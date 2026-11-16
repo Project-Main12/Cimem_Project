@@ -5,7 +5,10 @@ import androidx.compose.ui.graphics.asAndroidBitmap
 import androidx.compose.ui.test.captureToImage
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onRoot
+import com.digitalkalkan.app.data.remote.AlertRow
+import com.digitalkalkan.app.data.remote.FamilyLink
 import com.digitalkalkan.app.data.repository.UserEntry
+import com.digitalkalkan.app.ui.child.ChildLinkActions
 import com.digitalkalkan.app.domain.analysis.KeywordAnalyzer
 import com.digitalkalkan.app.domain.model.RiskCategory
 import com.digitalkalkan.app.domain.model.RuleSource
@@ -44,6 +47,17 @@ class MainScreenScreenshotTest {
         UserEntry("parkta bekleriz", RiskCategory.TEHDIT, false)
     )
 
+    private val linked = FamilyLink("l1", "p1", "c1", "Ali", "2026-11-16T09:30:00+00:00")
+    private val fakeLink = object : ChildLinkActions {
+        override suspend fun loadLink() = linked
+        override suspend fun loadSentAlerts() = listOf(
+            AlertRow(2, "c1", "TEHDIT", "YUKSEK", "com.whatsapp", "2026-11-16T11:06:02+00:00"),
+            AlertRow(1, "c1", "HAKARET", "DUSUK", "com.roblox.client", "2026-11-16T10:41:15+00:00")
+        )
+        override suspend fun redeem(code: String, label: String) {}
+        override suspend fun unlink(link: FamilyLink) {}
+    }
+
     private fun note(time: String, pkg: String, title: String, text: String) =
         CapturedNotification(time, pkg, title, text, result = analyzer.analyze(text))
 
@@ -65,6 +79,7 @@ class MainScreenScreenshotTest {
                     onAddEntry = { _, _, _ -> null },
                     onRemoveEntry = {},
                     onShareEntries = {},
+                    childLinkActions = fakeLink,
                     initialTab = tab,
                     tryTextInitial = tryText,
                     tryTextInitialResult = if (tryText.isBlank()) null else analyzer.analyze(tryText)
@@ -79,4 +94,5 @@ class MainScreenScreenshotTest {
     @Test fun sekme1_bildirimler() = capture("sekme1_bildirimler", 0)
     @Test fun sekme2_metinDene() = capture("sekme2_metin_dene", 1, "s.a.l.a.k mısın sen, okul çıkışında bekle")
     @Test fun sekme3_kelimeListem() = capture("sekme3_kelime_listem", 2)
+    @Test fun sekme4_veliBaglantisi() = capture("sekme4_veli_baglantisi", 3)
 }

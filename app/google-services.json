@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "712185891962",
+    "project_id": "dijital-kalkan",
+    "storage_bucket": "dijital-kalkan.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:712185891962:android:2b4e5b5c2a461fbdb8ffc3",
+        "android_client_info": {
+          "package_name": "com.digitalkalkan.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7wUdpTDI5efA7RaOmW7NLGSYbAudCgk8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

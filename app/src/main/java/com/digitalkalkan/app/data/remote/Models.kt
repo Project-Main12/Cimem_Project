@@ -42,3 +42,10 @@ internal data class PushTokenRow(
     @SerialName("user_id") val userId: String,
     @SerialName("fcm_token") val token: String
 )
+
+@Serializable
+internal data class IdRow(val id: Long)
+
+/** Bildirim fonksiyonunun cevabı. */
+@Serializable
+data class FunctionReply(val sent: Int = 0, val reason: String? = null, val error: String? = null)

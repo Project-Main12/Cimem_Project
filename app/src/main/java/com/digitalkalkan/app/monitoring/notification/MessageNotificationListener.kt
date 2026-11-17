@@ -40,7 +40,7 @@ class MessageNotificationListener : NotificationListenerService() {
         // 1) Kendi uygulamamızın bildirimlerini analiz dışı tut
         if (sourcePackage == packageName) {
             Log.d(TAG, "Kendi bildirimimiz, analiz dışı bırakıldı.")
-            CapturedNotificationLog.add(sourcePackage, "", "", "Kendi bildirimimiz – analiz dışı")
+            CapturedNotificationLog.add(sourcePackage, "Kendi bildirimimiz – analiz dışı")
             return
         }
 
@@ -49,7 +49,7 @@ class MessageNotificationListener : NotificationListenerService() {
         // 2) Grup özet bildirimlerini atla (ör. "3 yeni mesaj"); asıl mesajlar ayrı gelir
         if (notification.flags and Notification.FLAG_GROUP_SUMMARY != 0) {
             Log.d(TAG, "Grup özeti atlandı: $sourcePackage")
-            CapturedNotificationLog.add(sourcePackage, "", "", "Grup özeti – atlandı")
+            CapturedNotificationLog.add(sourcePackage, "Grup özeti – atlandı")
             return
         }
 
@@ -73,10 +73,15 @@ class MessageNotificationListener : NotificationListenerService() {
             )
         }
 
-        // Test için uygulama ekranındaki listeye ekle (yalnızca bellekte)
-        CapturedNotificationLog.add(sourcePackage, title, visibleText, result = result)
-
         // 5) Cihaz bir veliye bağlıysa: yalnızca kategori/seviye/uygulama gönderilir
-        if (result != null) AlertSender.maybeSend(this, sourcePackage, result)
+        val sent = result != null && AlertSender.maybeSend(this, sourcePackage, result)
+
+        // Ekrandaki tespit listesine ekle: metin YOK, yalnızca uygulama/saat/sonuç (yalnızca bellekte)
+        CapturedNotificationLog.add(
+            sourcePackage,
+            skippedReason = if (visibleText.isBlank()) "Metin yok veya gizli" else null,
+            result = result,
+            sentToParent = sent
+        )
     }
 }

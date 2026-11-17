@@ -26,7 +26,7 @@ import com.digitalkalkan.app.ui.screens.StatusScreen
 import com.digitalkalkan.app.ui.screens.TryTextScreen
 import com.digitalkalkan.app.ui.screens.UserLexiconScreen
 
-private val TABS = listOf("Bildirimler", "Metin dene", "Kelimelerim", "Veli")
+private val TABS = listOf("Tespitler", "Metin dene", "Kelimelerim", "Veli")
 
 /** Çocuk telefonunun ana iskeleti: başlık + 4 sekme. */
 @Composable
@@ -37,6 +37,7 @@ fun DijitalKalkanApp(
     onClearCaptured: () -> Unit,
     analyze: (String) -> AnalysisResult,
     userEntries: List<UserEntry>,
+    parentEntries: List<UserEntry>,
     onAddEntry: (String, RiskCategory, Boolean) -> String?,
     onRemoveEntry: (UserEntry) -> Unit,
     onShareEntries: () -> Unit,
@@ -67,7 +68,7 @@ fun DijitalKalkanApp(
         when (tab) {
             0 -> StatusScreen(listenerEnabled, onOpenSettings, captured, onClearCaptured, m)
             1 -> TryTextScreen(analyze, m, tryTextInitial, tryTextInitialResult)
-            2 -> UserLexiconScreen(userEntries, onAddEntry, onRemoveEntry, onShareEntries, m)
+            2 -> UserLexiconScreen(userEntries, parentEntries, onAddEntry, onRemoveEntry, onShareEntries, m)
             else -> ChildLinkScreen(childLinkActions, m)
         }
     }

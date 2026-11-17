@@ -1,15 +1,25 @@
-// Dijital Kalkan – "uyari-bildirimi" Edge Function
-// Çocuk cihazından gelen uyarıyı Firebase Cloud Messaging ile veli telefonuna bildirir.
-// Bildirimde YALNIZCA: kategori, seviye, uygulama paket adı, çocuğun bağlantı adı. Mesaj metni yoktur.
+// Dijital Kalkan – "uyari-bildirimi" Edge Function (sürüm 3)
 //
+// Görevleri (hepsi Firebase Cloud Messaging ile, VERİ SAKLAMADAN taşır):
+//   action "uyari"       : Çocuk telefonu → veli telefonu
+//                          "Tehdit kategorisinde uygunsuz mesaj tespit edildi" bildirimi.
+//                          İçerik: kategori, seviye, uygulama paket adı, çocuğun bağlantı adı. MESAJ METNİ YOK.
+//   action "kelime_ekle" : Veli telefonu → çocuk telefonu (veli lakap/özel ifade ekler)
+//   action "kelime_sil"  : Veli telefonu → çocuk telefonu (veli eklediği ifadeyi kaldırır)
+//   self_test            : Firebase anahtarı doğru mu? (hiçbir gizli değer döndürmez)
+//
+// Kelimeler veritabanına YAZILMAZ; yalnızca çocuğun telefonuna iletilir ve orada saklanır.
 // Gerekli gizli değer (Supabase → Edge Functions → Secrets): FIREBASE_SERVICE_ACCOUNT
-// Çağıran: veritabanındaki "alerts_notify_parent" tetikleyicisi (her yeni uyarıda).
-// Güvenlik: Her uyarı en fazla BİR kez ve yalnızca son 10 dakika içinde oluşturulmuşsa bildirilir.
+// Çağrı: Uygulama, oturum anahtarı (JWT) ile çağırır; verify_jwt açık.
 import "jsr:@supabase/functions-js/edge-runtime.d.ts";
 
 const SUPABASE_URL = Deno.env.get("SUPABASE_URL")!;
 const SERVICE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
 const SA_RAW = Deno.env.get("FIREBASE_SERVICE_ACCOUNT");
+
+const CATEGORIES = ["HAKARET", "KUFUR", "SIBER_ZORBALIK", "TEHDIT", "UYGUNSUZ_YAKLASIM", "KENDINE_ZARAR"];
+const ALERT_WINDOW_MS = 3 * 60 * 1000;      // yalnızca son 3 dakikadaki uyarılar bildirilir
+const notifiedAlerts = new Set<number>();    // aynı uyarının tekrar bildirimini önler (en iyi çaba)
 
 type ServiceAccount = { project_id: string; client_email: string; private_key: string };
 
@@ -39,9 +49,22 @@ function b64url(data: ArrayBuffer | string): string {
   return btoa(bin).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
 }
 
+/** İmzası Supabase ağ geçidinde doğrulanmış oturum anahtarından kullanıcı kimliğini okur. */
+function callerId(req: Request): string | null {
+  const auth = req.headers.get("Authorization") ?? "";
+  const token = auth.replace(/^Bearer\s+/i, "");
+  const part = token.split(".")[1];
+  if (!part) return null;
+  try {
+    const payload = JSON.parse(atob(part.replace(/-/g, "+").replace(/_/g, "/")));
+    return typeof payload.sub === "string" ? payload.sub : null;
+  } catch {
+    return null;
+  }
+}
+
 let cached: { token: string; exp: number } | null = null;
 
-/** Hizmet hesabı anahtarıyla Google'dan kısa ömürlü erişim izni alır. */
 async function googleAccessToken(sa: ServiceAccount): Promise<string> {
   const now = Math.floor(Date.now() / 1000);
   if (cached && cached.exp > now + 60) return cached.token;
@@ -73,90 +96,125 @@ async function googleAccessToken(sa: ServiceAccount): Promise<string> {
   return cached.token;
 }
 
+function serviceAccount(): ServiceAccount | string {
+  if (!SA_RAW) return "FIREBASE_SERVICE_ACCOUNT tanımlı değil";
+  try {
+    const sa = JSON.parse(SA_RAW);
+    if (!sa.private_key || !sa.client_email || !sa.project_id) {
+      return "FIREBASE_SERVICE_ACCOUNT bir Firebase hizmet hesabı anahtarı değil " +
+        "(Firebase → Project settings → Service accounts → Generate new private key)";
+    }
+    return sa;
+  } catch {
+    return "FIREBASE_SERVICE_ACCOUNT geçerli JSON değil";
+  }
+}
+
+/** Bir kullanıcının tüm cihazlarına veri mesajı gönderir; geçersiz adresleri temizler. */
+async function sendToUser(userId: string, data: Record<string, string>): Promise<{ sent: number; reason?: string }> {
+  const sa = serviceAccount();
+  if (typeof sa === "string") return { sent: 0, reason: sa };
+  const tokens: { fcm_token: string }[] = await rest(`push_tokens?user_id=eq.${userId}&select=fcm_token`);
+  if (!tokens?.length) return { sent: 0, reason: "alıcı cihazın bildirim adresi yok" };
+  const access = await googleAccessToken(sa);
+  let sent = 0;
+  for (const t of tokens) {
+    const res = await fetch(`https://fcm.googleapis.com/v1/projects/${sa.project_id}/messages:send`, {
+      method: "POST",
+      headers: { Authorization: `Bearer ${access}`, "Content-Type": "application/json" },
+      body: JSON.stringify({ message: { token: t.fcm_token, data, android: { priority: "HIGH" } } }),
+    });
+    if (res.ok) {
+      sent++;
+    } else {
+      const err = await res.text();
+      console.error("FCM hatası", res.status, err.slice(0, 300));
+      if (res.status === 404 || err.includes("UNREGISTERED")) {
+        await rest(`push_tokens?fcm_token=eq.${encodeURIComponent(t.fcm_token)}`, { method: "DELETE" });
+      }
+    }
+  }
+  return sent > 0 ? { sent } : { sent, reason: "Firebase gönderimi başarısız" };
+}
+
+async function handleAlert(uid: string, alertId: number) {
+  if (notifiedAlerts.has(alertId)) return json({ sent: 0, reason: "zaten bildirildi" });
+  const rows = await rest(`alerts?id=eq.${alertId}&select=id,child_id,parent_id,category,level,source_app,created_at`);
+  const a = rows?.[0];
+  if (!a || a.child_id !== uid) return json({ error: "Bu uyarı size ait değil" }, 403);
+  if (Date.now() - Date.parse(a.created_at) > ALERT_WINDOW_MS) return json({ sent: 0, reason: "uyarı çok eski" });
+  notifiedAlerts.add(alertId);
+  const links = await rest(`family_links?child_id=eq.${a.child_id}&select=child_label`);
+  const childLabel: string = links?.[0]?.child_label ?? "Çocuk";
+  const result = await sendToUser(a.parent_id, {
+    type: "uyari",
+    category: a.category,
+    level: a.level,
+    source_app: a.source_app,
+    child_label: childLabel,
+    detected_at: a.created_at,
+  });
+  return json(result);
+}
+
+async function handleWord(uid: string, body: Record<string, unknown>, remove: boolean) {
+  const childId = String(body.child_id ?? "");
+  const phrase = String(body.phrase ?? "").trim().replace(/\s+/g, " ");
+  const category = String(body.category ?? "");
+  const suffixes = body.suffixes === true ? "1" : "0";
+  if (!/^[0-9a-f-]{36}$/i.test(childId)) return json({ error: "child_id geçersiz" }, 400);
+  if (phrase.length < 2 || phrase.length > 60 || /[\[\]#*!|\n\r]/.test(phrase)) {
+    return json({ error: "İfade 2-60 karakter olmalı ve [ ] # * ! | içermemeli" }, 400);
+  }
+  if (!CATEGORIES.includes(category)) return json({ error: "Kategori geçersiz" }, 400);
+  const links = await rest(`family_links?child_id=eq.${childId}&parent_id=eq.${uid}&select=id`);
+  if (!links?.length) return json({ error: "Bu cihaz size bağlı değil" }, 403);
+  const result = await sendToUser(childId, {
+    type: remove ? "kelime_sil" : "kelime_ekle",
+    phrase,
+    category,
+    suffixes,
+  });
+  return json(result);
+}
+
 Deno.serve(async (req) => {
   if (req.method !== "POST") return json({ error: "Yalnızca POST" }, 405);
-  let payload: { alert_id?: unknown; self_test?: unknown };
+  let body: Record<string, unknown>;
   try {
-    payload = await req.json();
+    body = await req.json();
   } catch {
     return json({ error: "Geçersiz gövde" }, 400);
   }
-  if (!SA_RAW) return json({ sent: 0, reason: "FIREBASE_SERVICE_ACCOUNT tanımlı değil" });
 
-  let sa: ServiceAccount;
-  try {
-    sa = JSON.parse(SA_RAW);
-  } catch {
-    return json({ sent: 0, reason: "FIREBASE_SERVICE_ACCOUNT geçerli JSON değil" });
-  }
-
-  // Kurulum testi: anahtar çalışıyor mu? (gizli bilgi döndürmez)
-  if (payload.self_test === true) {
-    // Yalnızca alan ADLARI ve dosya türü gösterilir; hiçbir değer (anahtar) gösterilmez.
-    const fields = Object.keys(sa as Record<string, unknown>);
-    const type = (sa as Record<string, unknown>).type ?? null;
-    if (!sa.private_key || !sa.client_email) {
-      return json({
-        google_auth: "hata",
-        reason: "Bu bir Firebase hizmet hesabı anahtarı değil (private_key/client_email yok). " +
-          "Firebase → Project settings → Service accounts → Generate new private key dosyası yapıştırılmalı.",
-        bulunan_alanlar: fields,
-        dosya_turu: type,
-      });
-    }
+  if (body.self_test === true) {
+    const sa = serviceAccount();
+    if (typeof sa === "string") return json({ google_auth: "hata", reason: sa });
     try {
       await googleAccessToken(sa);
       return json({ google_auth: "ok", firebase_project: sa.project_id });
     } catch (e) {
-      return json({ google_auth: "hata", detail: String(e).slice(0, 300) });
+      return json({ google_auth: "hata", reason: String(e).slice(0, 300) });
     }
   }
 
-  const alertId = Number(payload.alert_id);
-  if (!Number.isInteger(alertId)) return json({ error: "alert_id gerekli" }, 400);
+  const uid = callerId(req);
+  if (!uid) return json({ error: "Oturum gerekli" }, 401);
 
   try {
-    // Uyarıyı yalnızca bir kez "bildirildi" olarak işaretle (son 10 dk içindeki uyarılar)
-    const since = new Date(Date.now() - 10 * 60 * 1000).toISOString();
-    const claimed = await rest(
-      `alerts?id=eq.${alertId}&notified_at=is.null&created_at=gte.${encodeURIComponent(since)}` +
-        `&select=id,child_id,parent_id,category,level,source_app`,
-      { method: "PATCH", body: JSON.stringify({ notified_at: new Date().toISOString() }) },
-    );
-    if (!claimed?.length) return json({ sent: 0, reason: "uyarı yok veya zaten bildirildi" });
-    const a = claimed[0];
-
-    const tokens: { fcm_token: string }[] = await rest(`push_tokens?user_id=eq.${a.parent_id}&select=fcm_token`);
-    if (!tokens?.length) return json({ sent: 0, reason: "velinin bildirim adresi yok" });
-
-    const links = await rest(`family_links?child_id=eq.${a.child_id}&select=child_label`);
-    const childLabel: string = links?.[0]?.child_label ?? "Çocuk";
-
-    const access = await googleAccessToken(sa);
-    let sent = 0;
-    for (const t of tokens) {
-      const res = await fetch(`https://fcm.googleapis.com/v1/projects/${sa.project_id}/messages:send`, {
-        method: "POST",
-        headers: { Authorization: `Bearer ${access}`, "Content-Type": "application/json" },
-        body: JSON.stringify({
-          message: {
-            token: t.fcm_token,
-            data: { category: a.category, level: a.level, source_app: a.source_app, child_label: childLabel },
-            android: { priority: "HIGH" },
-          },
-        }),
-      });
-      if (res.ok) {
-        sent++;
-      } else {
-        const err = await res.text();
-        console.error("FCM hatası", res.status, err.slice(0, 300));
-        if (res.status === 404 || err.includes("UNREGISTERED")) {
-          await rest(`push_tokens?fcm_token=eq.${encodeURIComponent(t.fcm_token)}`, { method: "DELETE" });
-        }
+    switch (body.action) {
+      case "uyari": {
+        const alertId = Number(body.alert_id);
+        if (!Number.isInteger(alertId)) return json({ error: "alert_id gerekli" }, 400);
+        return await handleAlert(uid, alertId);
       }
+      case "kelime_ekle":
+        return await handleWord(uid, body, false);
+      case "kelime_sil":
+        return await handleWord(uid, body, true);
+      default:
+        return json({ error: "Bilinmeyen işlem" }, 400);
     }
-    return json({ sent });
   } catch (e) {
     console.error(e);
     return json({ error: String(e).slice(0, 300) }, 500);

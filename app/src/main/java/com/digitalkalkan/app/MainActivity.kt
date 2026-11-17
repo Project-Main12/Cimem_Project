@@ -21,11 +21,14 @@ import com.digitalkalkan.app.data.local.AppRole
 import com.digitalkalkan.app.data.remote.AlertRow
 import com.digitalkalkan.app.data.remote.Backend
 import com.digitalkalkan.app.data.remote.FamilyLink
+import com.digitalkalkan.app.data.remote.FunctionReply
+import com.digitalkalkan.app.domain.model.RiskCategory
+import kotlinx.serialization.json.Json
 import com.digitalkalkan.app.data.repository.UserEntry
 import com.digitalkalkan.app.data.repository.UserLexiconRepository
 import com.digitalkalkan.app.domain.analysis.AnalyzerProvider
 import com.digitalkalkan.app.monitoring.notification.CapturedNotificationLog
-import com.digitalkalkan.app.notifications.ParentMessagingService
+import com.digitalkalkan.app.notifications.DkMessagingService
 import com.digitalkalkan.app.notifications.TestNotificationHelper
 import com.digitalkalkan.app.permissions.NotificationAccess
 import com.digitalkalkan.app.ui.DijitalKalkanApp
@@ -43,7 +46,10 @@ class MainActivity : ComponentActivity() {
     private var sessionReady by mutableStateOf(false)
     private var listenerEnabled by mutableStateOf(false)
     private val userEntries = mutableStateListOf<UserEntry>()
+    private val parentEntries = mutableStateListOf<UserEntry>()
     private lateinit var userLexicon: UserLexiconRepository
+    private lateinit var parentLexicon: UserLexiconRepository
+    private val json = Json { ignoreUnknownKeys = true }
 
     private val notificationPermission =
         registerForActivityResult(ActivityResultContracts.RequestPermission()) { }
@@ -54,8 +60,9 @@ class MainActivity : ComponentActivity() {
         prefs = AppPrefs(this)
         role = prefs.role
         TestNotificationHelper.createChannel(this)
-        ParentMessagingService.createChannel(this)
+        DkMessagingService.createChannels(this)
         userLexicon = UserLexiconRepository(this)
+        parentLexicon = UserLexiconRepository(this, UserLexiconRepository.PARENT_FILE_NAME)
         userEntries.addAll(userLexicon.load())
 
         // Kayıtlı oturumu yükle (veli e-posta hesabı veya çocuğun anonim hesabı)
@@ -63,6 +70,7 @@ class MainActivity : ComponentActivity() {
             runCatching { Backend.awaitSession() }
             sessionReady = true
             if (role == AppRole.VELI && Backend.currentUserId() != null) onParentSignedIn()
+            if (role == AppRole.COCUK && prefs.childLinked) DkMessagingService.refreshToken()
         }
 
         setContent {
@@ -79,6 +87,7 @@ class MainActivity : ComponentActivity() {
                         onClearCaptured = { CapturedNotificationLog.clear() },
                         analyze = { AnalyzerProvider.get(this).analyze(it) },
                         userEntries = userEntries,
+                        parentEntries = parentEntries,
                         onAddEntry = { phrase, category, suffixes ->
                             userLexicon.add(phrase, category, suffixes).also { error ->
                                 if (error == null) refreshUserLexicon()
@@ -99,6 +108,9 @@ class MainActivity : ComponentActivity() {
     override fun onResume() {
         super.onResume()
         listenerEnabled = NotificationAccess.isGranted(this)
+        // Veli, uygulama kapalıyken kelime göndermiş olabilir
+        parentEntries.clear()
+        parentEntries.addAll(parentLexicon.load())
     }
 
     private fun selectRole(selected: AppRole) {
@@ -124,7 +136,7 @@ class MainActivity : ComponentActivity() {
             ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS)
             != PackageManager.PERMISSION_GRANTED
         ) notificationPermission.launch(Manifest.permission.POST_NOTIFICATIONS)
-        ParentMessagingService.refreshToken()
+        DkMessagingService.refreshToken()
     }
 
     private val parentActions = object : ParentActions {
@@ -142,18 +154,56 @@ class MainActivity : ComponentActivity() {
         override suspend fun alerts() = Backend.listAlerts()
         override suspend fun markRead(alert: AlertRow) = Backend.markAlertRead(alert.id)
         override suspend fun removeLink(link: FamilyLink) = Backend.removeLink(link.id)
+
+        override fun sentWords(childId: String) =
+            UserLexiconRepository(this@MainActivity, UserLexiconRepository.sentFileName(childId)).load()
+
+        override suspend fun sendWord(
+            childId: String, phrase: String, category: RiskCategory, includeSuffixes: Boolean
+        ): String {
+            val store = UserLexiconRepository(this@MainActivity, UserLexiconRepository.sentFileName(childId))
+            val clean = UserLexiconRepository.cleanPhrase(phrase)
+            UserLexiconRepository.validate(clean, store.load())?.let { return it }
+            val reply = Backend.sendWordToChild(childId, clean, category.name, includeSuffixes, remove = false)
+            return describe(reply) { store.upsert(UserEntry(clean, category, includeSuffixes)) }
+        }
+
+        override suspend fun removeWord(childId: String, entry: UserEntry): String {
+            val store = UserLexiconRepository(this@MainActivity, UserLexiconRepository.sentFileName(childId))
+            val reply = Backend.sendWordToChild(childId, entry.phrase, entry.category.name, entry.includeSuffixes, remove = true)
+            return describe(reply) { store.removePhrase(entry.phrase) }
+        }
+    }
+
+    /** Fonksiyon cevabını veliye anlaşılır bir cümleye çevirir; başarılıysa [onSuccess] çalışır. */
+    private fun describe(raw: String, onSuccess: () -> Unit): String {
+        val r = runCatching { json.decodeFromString<FunctionReply>(raw) }.getOrNull()
+            ?: return "Beklenmeyen cevap: ${raw.take(120)}"
+        return when {
+            r.sent > 0 -> { onSuccess(); "✅ Çocuğunuzun telefonuna iletildi." }
+            r.error != null -> "Gönderilemedi: ${r.error}"
+            r.reason?.contains("bildirim adresi") == true ->
+                "Çocuğun telefonu henüz hazır değil. Çocuğun telefonunda uygulamayı açıp \"Veli\" sekmesine girin, sonra tekrar deneyin."
+            r.reason?.contains("FIREBASE_SERVICE_ACCOUNT") == true ->
+                "Bildirim sistemi kurulmamış: Supabase'deki FIREBASE_SERVICE_ACCOUNT anahtarı eksik veya yanlış."
+            else -> "Gönderilemedi: ${r.reason ?: "bilinmeyen neden"}"
+        }
     }
 
     private val childLinkActions = object : ChildLinkActions {
         override suspend fun loadLink(): FamilyLink? {
             Backend.childEnsureSession()
-            return Backend.childLink().also { prefs.childLinked = it != null }
+            return Backend.childLink().also {
+                prefs.childLinked = it != null
+                if (it != null) DkMessagingService.refreshToken()
+            }
         }
         override suspend fun loadSentAlerts() = Backend.listAlerts()
         override suspend fun redeem(code: String, label: String) {
             Backend.childEnsureSession()
             Backend.redeemPairingCode(code, label)
             prefs.childLinked = true
+            DkMessagingService.refreshToken()   // velinin kelime gönderebilmesi için
         }
         override suspend fun unlink(link: FamilyLink) {
             Backend.removeLink(link.id)

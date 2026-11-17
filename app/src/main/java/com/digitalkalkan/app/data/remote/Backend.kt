@@ -4,6 +4,9 @@ import io.github.jan.supabase.auth.Auth
 import io.github.jan.supabase.auth.auth
 import io.github.jan.supabase.auth.providers.builtin.Email
 import io.github.jan.supabase.createSupabaseClient
+import io.github.jan.supabase.functions.Functions
+import io.github.jan.supabase.functions.functions
+import io.ktor.client.statement.bodyAsText
 import io.github.jan.supabase.postgrest.Postgrest
 import io.github.jan.supabase.postgrest.from
 import io.github.jan.supabase.postgrest.postgrest
@@ -28,6 +31,7 @@ object Backend {
         createSupabaseClient(SupabaseConfig.URL, SupabaseConfig.PUBLISHABLE_KEY) {
             install(Auth)
             install(Postgrest)
+            install(Functions)
         }
     }
 
@@ -111,10 +115,34 @@ object Backend {
             .decodeList<FamilyLink>().firstOrNull()
     }
 
-    suspend fun sendAlert(category: String, level: String, sourceApp: String): Unit = call {
+    /** Uyarıyı kaydeder ve veliye anlık bildirim gönderilmesini ister. */
+    suspend fun sendAlert(category: String, level: String, sourceApp: String): String = call {
         val uid = currentUserId() ?: throw BackendException("Oturum yok")
-        client.from("alerts").insert(NewAlert(uid, category, level, sourceApp.take(120)))
+        val row = client.from("alerts").insert(NewAlert(uid, category, level, sourceApp.take(120))) {
+            select(Columns.list("id"))
+        }.decodeSingle<IdRow>()
+        invokeFunction(buildJsonObject {
+            put("action", "uyari")
+            put("alert_id", row.id)
+        })
     }
+
+    /** Veli → çocuk: ifade ekle/kaldır. Kelime veritabanına YAZILMAZ, yalnızca çocuğun telefonuna iletilir. */
+    suspend fun sendWordToChild(
+        childId: String, phrase: String, category: String, includeSuffixes: Boolean, remove: Boolean
+    ): String = call {
+        invokeFunction(buildJsonObject {
+            put("action", if (remove) "kelime_sil" else "kelime_ekle")
+            put("child_id", childId)
+            put("phrase", phrase)
+            put("category", category)
+            put("suffixes", includeSuffixes)
+        })
+    }
+
+    /** Fonksiyonun cevabını (ör. {"sent":1} veya {"sent":0,"reason":"..."}) metin olarak döndürür. */
+    private suspend fun invokeFunction(body: kotlinx.serialization.json.JsonObject): String =
+        client.functions.invoke("uyari-bildirimi", body).bodyAsText()
 
     // ------------------------------------------------------------ yardımcı
     private suspend fun <T> call(block: suspend () -> T): T = try {

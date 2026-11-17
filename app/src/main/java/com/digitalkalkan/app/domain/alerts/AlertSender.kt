@@ -23,26 +23,28 @@ object AlertSender {
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
     private val lastSent = ConcurrentHashMap<String, Long>()
 
-    fun maybeSend(context: Context, sourcePackage: String, result: AnalysisResult) {
-        if (!result.isRisky) return
+    /** Veliye gönderim başlatıldıysa true döner. */
+    fun maybeSend(context: Context, sourcePackage: String, result: AnalysisResult): Boolean {
+        if (!result.isRisky) return false
         val prefs = AppPrefs(context)
-        if (prefs.role != AppRole.COCUK || !prefs.childLinked) return
+        if (prefs.role != AppRole.COCUK || !prefs.childLinked) return false
 
         val key = "$sourcePackage|${result.category.name}"
         val now = System.currentTimeMillis()
         val previous = lastSent[key]
-        if (previous != null && now - previous < DEDUPE_MS) return
+        if (previous != null && now - previous < DEDUPE_MS) return false
         lastSent[key] = now
 
         scope.launch {
             try {
                 Backend.awaitSession()
-                Backend.sendAlert(result.category.name, result.level.name, sourcePackage)
-                Log.i(TAG, "Veliye uyarı gönderildi: ${result.category} / $sourcePackage")
+                val reply = Backend.sendAlert(result.category.name, result.level.name, sourcePackage)
+                Log.i(TAG, "Veliye uyarı kaydedildi: ${result.category} / $sourcePackage | bildirim: $reply")
             } catch (e: Exception) {
                 lastSent.remove(key)
                 Log.w(TAG, "Uyarı gönderilemedi: ${e.message}")
             }
         }
+        return true
     }
 }

@@ -1,7 +1,7 @@
 package com.digitalkalkan.app.domain.model
 
-/** Kuralın geldiği yer: ana sözlük mü, kullanıcının eklediği liste mi? */
-enum class RuleSource { ANA_SOZLUK, KULLANICI }
+/** Kuralın geldiği yer: ana sözlük, çocuğun kendi listesi veya velinin eklediği liste. */
+enum class RuleSource { ANA_SOZLUK, KULLANICI, VELI }
 
 data class RuleMatch(
     val category: RiskCategory,

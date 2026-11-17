@@ -13,8 +13,8 @@ android {
         applicationId = "com.digitalkalkan.app"
         minSdk = 29          // Android 10
         targetSdk = 36
-        versionCode = 4
-        versionName = "0.3.0-veli-cocuk"
+        versionCode = 5
+        versionName = "1.0.0"
     }
 
     buildTypes {
@@ -57,6 +57,7 @@ dependencies {
     implementation(platform(libs.supabase.bom))
     implementation(libs.supabase.auth)
     implementation(libs.supabase.postgrest)
+    implementation(libs.supabase.functions)
     implementation(libs.ktor.client.okhttp)
     implementation(libs.kotlinx.serialization.json)
     implementation(platform(libs.firebase.bom))

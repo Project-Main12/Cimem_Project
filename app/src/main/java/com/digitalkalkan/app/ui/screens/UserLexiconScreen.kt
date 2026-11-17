@@ -41,6 +41,7 @@ import com.digitalkalkan.app.ui.components.RiskChip
 @Composable
 fun UserLexiconScreen(
     entries: List<UserEntry>,
+    parentEntries: List<UserEntry>,
     onAdd: (phrase: String, category: RiskCategory, includeSuffixes: Boolean) -> String?,
     onRemove: (UserEntry) -> Unit,
     onShare: () -> Unit,
@@ -58,8 +59,8 @@ fun UserLexiconScreen(
     ) {
         Card(colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.secondaryContainer)) {
             Text(
-                "Çocuğunuza takılan lakapları veya sınıfta/oyunda kullanılan özel ifadeleri ekleyin. " +
-                    "Bu liste yalnızca bu telefonda saklanır ve hemen analize dahil olur.",
+                "Size takılan lakapları veya sınıfta/oyunda kullanılan özel ifadeleri ekleyebilirsiniz. " +
+                    "Velinizin eklediği ifadeler de aşağıda görünür. Liste yalnızca bu telefonda saklanır.",
                 style = MaterialTheme.typography.bodyMedium,
                 modifier = Modifier.padding(12.dp)
             )
@@ -118,14 +119,36 @@ fun UserLexiconScreen(
 
         HorizontalDivider()
         Row(verticalAlignment = Alignment.CenterVertically) {
-            Text("Listem (${entries.size})", style = MaterialTheme.typography.titleMedium,
+            Text("Listem (${entries.size + parentEntries.size})", style = MaterialTheme.typography.titleMedium,
                 modifier = Modifier.weight(1f))
             OutlinedButton(onClick = onShare, enabled = entries.isNotEmpty()) { Text("Öğretmene gönder") }
         }
-        if (entries.isEmpty()) {
+        if (entries.isEmpty() && parentEntries.isEmpty()) {
             Text("Henüz kelime eklenmedi.", style = MaterialTheme.typography.bodyMedium)
         }
         LazyColumn(Modifier.fillMaxWidth().weight(1f)) {
+            if (parentEntries.isNotEmpty()) {
+                item {
+                    Text("Velinizin eklediği ifadeler (${parentEntries.size})",
+                        style = MaterialTheme.typography.titleSmall, modifier = Modifier.padding(top = 6.dp))
+                }
+                items(parentEntries) { e ->
+                    Row(Modifier.fillMaxWidth().padding(vertical = 6.dp), verticalAlignment = Alignment.CenterVertically) {
+                        Column(Modifier.weight(1f)) {
+                            Text(e.phrase, fontWeight = FontWeight.Bold, style = MaterialTheme.typography.bodyLarge)
+                            Text("veli tarafından eklendi" + if (e.includeSuffixes) " · ekli hâlleri de" else "",
+                                style = MaterialTheme.typography.bodySmall,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant)
+                        }
+                        RiskChip(e.category, showLevel = false)
+                    }
+                    HorizontalDivider()
+                }
+                item {
+                    Text("Kendi eklediklerim", style = MaterialTheme.typography.titleSmall,
+                        modifier = Modifier.padding(top = 10.dp))
+                }
+            }
             items(entries) { e ->
                 Row(Modifier.fillMaxWidth().padding(vertical = 6.dp), verticalAlignment = Alignment.CenterVertically) {
                     Column(Modifier.weight(1f)) {

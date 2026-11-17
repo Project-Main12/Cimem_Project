@@ -6,7 +6,7 @@ import com.digitalkalkan.app.domain.model.RuleSource
 
 /**
  * Uygulama genelinde tek bir analiz motoru tutar.
- * Ana sözlük (assets) + kullanıcının kendi listesi birlikte yüklenir.
+ * Ana sözlük (assets) + çocuğun kendi listesi + velinin gönderdiği liste birlikte yüklenir.
  * Kullanıcı listesi değişince [reload] çağrılır; bildirim servisi de yeni listeyi kullanır.
  */
 object AnalyzerProvider {
@@ -27,6 +27,13 @@ object AnalyzerProvider {
     private fun build(context: Context): KeywordAnalyzer {
         val main = context.assets.open(LEXICON_ASSET).bufferedReader(Charsets.UTF_8).use { it.readText() }
         val user = UserLexiconRepository(context).rawText()
-        return KeywordAnalyzer(listOf(main to RuleSource.ANA_SOZLUK, user to RuleSource.KULLANICI))
+        val parent = UserLexiconRepository(context, UserLexiconRepository.PARENT_FILE_NAME).rawText()
+        return KeywordAnalyzer(
+            listOf(
+                main to RuleSource.ANA_SOZLUK,
+                user to RuleSource.KULLANICI,
+                parent to RuleSource.VELI
+            )
+        )
     }
 }

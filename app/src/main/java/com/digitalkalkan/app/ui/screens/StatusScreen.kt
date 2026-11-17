@@ -29,6 +29,8 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
+import com.digitalkalkan.app.domain.model.AlertText
+import com.digitalkalkan.app.domain.model.AppNames
 import com.digitalkalkan.app.monitoring.notification.CapturedNotification
 import com.digitalkalkan.app.monitoring.notification.CapturedNotificationLog
 import com.digitalkalkan.app.notifications.TestNotificationHelper
@@ -52,8 +54,8 @@ fun StatusScreen(
         verticalArrangement = Arrangement.spacedBy(10.dp)
     ) {
         Text(
-            "İzin verdiğinizde gelen bildirimlerin görünür metni bu telefonda analiz edilir. " +
-                "Hiçbir veri cihaz dışına gönderilmez.",
+            "Bildirimler bu telefonda analiz edilir. Mesajların kendisi hiçbir yerde gösterilmez ve " +
+                "saklanmaz; burada yalnızca uygulama, saat ve sonuç görünür.",
             style = MaterialTheme.typography.bodyMedium
         )
         Card(modifier = Modifier.fillMaxWidth()) {
@@ -81,14 +83,14 @@ fun StatusScreen(
 
         Row(verticalAlignment = Alignment.CenterVertically) {
             Text(
-                "Yakalanan bildirimler (${captured.size})",
+                "Son tespitler (${captured.size})",
                 style = MaterialTheme.typography.titleMedium,
                 modifier = Modifier.weight(1f)
             )
             TextButton(onClick = onClear) { Text("Temizle") }
         }
         if (captured.isEmpty()) {
-            Text("Henüz bildirim yok. Başka bir telefondan bu telefona mesaj gönderin.",
+            Text("Henüz bildirim gelmedi.",
                 style = MaterialTheme.typography.bodyMedium)
         }
         LazyColumn(modifier = Modifier.fillMaxWidth().weight(1f)) {
@@ -104,12 +106,12 @@ fun StatusScreen(
 private fun CapturedRow(item: CapturedNotification) {
     Column(Modifier.padding(vertical = 8.dp), verticalArrangement = Arrangement.spacedBy(2.dp)) {
         Row(verticalAlignment = Alignment.CenterVertically) {
-            Text(
-                "${item.time}  •  ${item.packageName}",
-                style = MaterialTheme.typography.labelLarge,
-                fontWeight = FontWeight.Bold,
-                modifier = Modifier.weight(1f)
-            )
+            Column(Modifier.weight(1f)) {
+                Text(AppNames.label(item.packageName), style = MaterialTheme.typography.bodyLarge,
+                    fontWeight = FontWeight.Bold)
+                Text(item.time, style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant)
+            }
             item.result?.let {
                 Spacer(Modifier.width(6.dp))
                 RiskChip(it.category)
@@ -118,16 +120,13 @@ private fun CapturedRow(item: CapturedNotification) {
         if (item.skippedReason != null) {
             Text(item.skippedReason, style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.secondary)
-        } else {
-            if (item.title.isNotBlank()) Text("Başlık: ${item.title}", style = MaterialTheme.typography.bodyMedium)
-            Text("Metin: ${item.text.ifBlank { "(boş / gizli)" }}", style = MaterialTheme.typography.bodyMedium)
-            item.result?.takeIf { it.isRisky }?.let { r ->
-                Text(
-                    "Eşleşen: " + r.matches.joinToString { it.rule },
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                )
-            }
+        }
+        if (item.result?.isRisky == true) {
+            Text(
+                AlertText.sentence(item.result.category) +
+                    if (item.sentToParent) " Velinize bildirildi." else "",
+                style = MaterialTheme.typography.bodySmall
+            )
         }
     }
 }

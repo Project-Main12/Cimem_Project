@@ -9,6 +9,9 @@ import com.digitalkalkan.app.data.remote.AlertRow
 import com.digitalkalkan.app.data.remote.FamilyLink
 import com.digitalkalkan.app.data.repository.UserEntry
 import com.digitalkalkan.app.ui.child.ChildLinkActions
+import com.digitalkalkan.app.ui.parent.ParentActions
+import com.digitalkalkan.app.ui.parent.ParentApp
+import java.time.OffsetDateTime
 import com.digitalkalkan.app.domain.analysis.KeywordAnalyzer
 import com.digitalkalkan.app.domain.model.RiskCategory
 import com.digitalkalkan.app.domain.model.RuleSource
@@ -29,7 +32,7 @@ import java.io.File
  */
 @RunWith(RobolectricTestRunner::class)
 @GraphicsMode(GraphicsMode.Mode.NATIVE)
-@Config(sdk = [35], qualifiers = "w360dp-h740dp-xhdpi")
+@Config(sdk = [35], qualifiers = "w360dp-h1400dp-xhdpi")
 class MainScreenScreenshotTest {
 
     @get:Rule
@@ -58,8 +61,8 @@ class MainScreenScreenshotTest {
         override suspend fun unlink(link: FamilyLink) {}
     }
 
-    private fun note(time: String, pkg: String, title: String, text: String) =
-        CapturedNotification(time, pkg, title, text, result = analyzer.analyze(text))
+    private fun note(time: String, pkg: String, text: String, sent: Boolean = false) =
+        CapturedNotification(time, pkg, result = analyzer.analyze(text), sentToParent = sent)
 
     private fun capture(name: String, tab: Int, tryText: String = "") {
         composeRule.setContent {
@@ -68,14 +71,15 @@ class MainScreenScreenshotTest {
                     listenerEnabled = true,
                     onOpenSettings = {},
                     captured = listOf(
-                        note("14:06:02", "com.whatsapp", "Sınıf Grubu", "seni okul çıkışında bekleyeceğim"),
-                        note("14:05:40", "com.whatsapp", "Ayşe", "bakın koca kafa yine geldi 😂"),
-                        note("14:03:10", "com.google.android.apps.messaging", "555-1234", "yarın matematik ödevini getir"),
-                        CapturedNotification("14:01:00", "com.digitalkalkan.app", "", "", "Kendi bildirimimiz – analiz dışı")
+                        note("14:06:02", "com.whatsapp", "seni okul çıkışında bekleyeceğim", sent = true),
+                        note("14:05:40", "com.roblox.client", "bakın koca kafa yine geldi 😂", sent = true),
+                        note("14:03:10", "com.google.android.apps.messaging", "yarın matematik ödevini getir"),
+                        CapturedNotification("14:01:00", "com.digitalkalkan.app", "Kendi bildirimimiz – analiz dışı")
                     ),
                     onClearCaptured = {},
                     analyze = analyzer::analyze,
                     userEntries = entries,
+                    parentEntries = listOf(UserEntry("leylek bacak", RiskCategory.HAKARET, true)),
                     onAddEntry = { _, _, _ -> null },
                     onRemoveEntry = {},
                     onShareEntries = {},
@@ -95,4 +99,37 @@ class MainScreenScreenshotTest {
     @Test fun sekme2_metinDene() = capture("sekme2_metin_dene", 1, "s.a.l.a.k mısın sen, okul çıkışında bekle")
     @Test fun sekme3_kelimeListem() = capture("sekme3_kelime_listem", 2)
     @Test fun sekme4_veliBaglantisi() = capture("sekme4_veli_baglantisi", 3)
+
+    private val fakeParent = object : ParentActions {
+        private val now = OffsetDateTime.now()
+        override fun isSignedIn() = true
+        override fun email() = "veli@ornek.com"
+        override suspend fun signIn(email: String, password: String) {}
+        override suspend fun signUp(email: String, password: String) {}
+        override suspend fun signOut() {}
+        override suspend fun createCode() = "482913"
+        override suspend fun links() = listOf(linked)
+        override suspend fun alerts() = listOf(
+            AlertRow(3, "c1", "TEHDIT", "YUKSEK", "com.whatsapp", now.minusMinutes(4).toString()),
+            AlertRow(2, "c1", "HAKARET", "DUSUK", "com.roblox.client", now.minusHours(3).toString(), readAt = now.toString()),
+            AlertRow(1, "c1", "HAKARET", "DUSUK", "com.whatsapp", now.minusDays(2).toString(), readAt = now.toString())
+        )
+        override suspend fun markRead(alert: AlertRow) {}
+        override suspend fun removeLink(link: FamilyLink) {}
+        override fun sentWords(childId: String) = listOf(UserEntry("leylek bacak", RiskCategory.HAKARET, true))
+        override suspend fun sendWord(childId: String, phrase: String, category: RiskCategory, includeSuffixes: Boolean) = "✅"
+        override suspend fun removeWord(childId: String, entry: UserEntry) = "✅"
+    }
+
+    @Test
+    fun veli_anaEkran() {
+        composeRule.mainClock.autoAdvance = false
+        composeRule.setContent {
+            DijitalKalkanTheme(darkTheme = false) { ParentApp(fakeParent, onChangeRole = {}) }
+        }
+        composeRule.mainClock.advanceTimeBy(2_000)
+        val bitmap = composeRule.onRoot().captureToImage().asAndroidBitmap()
+        val out = File("build/screenshots/veli_ana_ekran.png").apply { parentFile?.mkdirs() }
+        out.outputStream().use { bitmap.compress(Bitmap.CompressFormat.PNG, 100, it) }
+    }
 }

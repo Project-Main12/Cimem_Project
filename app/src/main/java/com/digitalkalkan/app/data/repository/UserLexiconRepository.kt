@@ -19,9 +19,9 @@ data class UserEntry(
  * Kullanıcı kelime listesi. YALNIZCA bu telefonda saklanır (uygulamanın özel klasörü),
  * internete gönderilmez. Biçim, ana sözlükle aynıdır; böylece öğretmen kolayca birleştirebilir.
  */
-class UserLexiconRepository(context: Context) {
+class UserLexiconRepository(context: Context, fileName: String = FILE_NAME) {
 
-    private val file = File(context.filesDir, FILE_NAME)
+    private val file = File(context.filesDir, fileName)
 
     fun rawText(): String = if (file.exists()) file.readText(Charsets.UTF_8) else ""
 
@@ -38,12 +38,28 @@ class UserLexiconRepository(context: Context) {
 
     fun remove(entry: UserEntry) = save(load().filterNot { it == entry })
 
+    /** Veliden gelen ifadeyi doğrulamadan ekler (aynı ifade varsa günceller). */
+    fun upsert(entry: UserEntry) {
+        val tokens = TurkishTextNormalizer.tokens(entry.phrase)
+        save(load().filterNot { TurkishTextNormalizer.tokens(it.phrase) == tokens } + entry)
+    }
+
+    /** İfadeyi (kategori/ek seçeneğinden bağımsız) kaldırır. */
+    fun removePhrase(phrase: String) {
+        val tokens = TurkishTextNormalizer.tokens(phrase)
+        save(load().filterNot { TurkishTextNormalizer.tokens(it.phrase) == tokens })
+    }
+
     private fun save(entries: List<UserEntry>) {
         file.writeText(format(entries), Charsets.UTF_8)
     }
 
     companion object {
         const val FILE_NAME = "kullanici_sozluk.txt"
+        /** Çocuk telefonunda: velinin gönderdiği ifadeler. */
+        const val PARENT_FILE_NAME = "veli_sozluk.txt"
+        /** Veli telefonunda: belirli bir çocuğa gönderilen ifadelerin kaydı. */
+        fun sentFileName(childId: String) = "gonderilen_" + childId.filter { it.isLetterOrDigit() || it == '-' } + ".txt"
         private const val MIN_LETTERS = 3
         private const val MAX_LENGTH = 60
         private val FORBIDDEN = Regex("[\\[\\]#*!|]")

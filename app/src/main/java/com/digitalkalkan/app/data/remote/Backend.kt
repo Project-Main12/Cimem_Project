@@ -7,6 +7,7 @@ import io.github.jan.supabase.createSupabaseClient
 import io.github.jan.supabase.postgrest.Postgrest
 import io.github.jan.supabase.postgrest.from
 import io.github.jan.supabase.postgrest.postgrest
+import io.github.jan.supabase.postgrest.query.Columns
 import io.github.jan.supabase.postgrest.query.Order
 import kotlinx.serialization.json.buildJsonObject
 import kotlinx.serialization.json.put
@@ -20,6 +21,8 @@ class BackendException(message: String, cause: Throwable? = null) : Exception(me
  * Sunucuya giden tek "içerik" bilgisi: kategori, seviye, uygulama paket adı. Mesaj metni gitmez.
  */
 object Backend {
+
+    private val ALERT_COLUMNS = Columns.list("id", "child_id", "category", "level", "source_app", "detected_at", "read_at")
 
     val client by lazy {
         createSupabaseClient(SupabaseConfig.URL, SupabaseConfig.PUBLISHABLE_KEY) {
@@ -71,7 +74,7 @@ object Backend {
     }
 
     suspend fun listAlerts(limit: Long = 100): List<AlertRow> = call {
-        client.from("alerts").select {
+        client.from("alerts").select(ALERT_COLUMNS) {
             order("created_at", Order.DESCENDING)
             limit(limit)
         }.decodeList<AlertRow>()

@@ -1,7 +1,7 @@
 # DİJİTAL KALKAN
 
 **Türkçe Yapay Zekâ Destekli Çocuk Dijital Güvenlik Sistemi**
-TÜBİTAK 2204-A Lise Öğrencileri Araştırma Projesi · Prototip sürüm **1.0.0**
+TÜBİTAK 2204-A Lise Öğrencileri Araştırma Projesi · Prototip sürüm **2.0.0**
 
 <img src="docs/ekran-goruntuleri/sekme1_bildirimler.png" width="230" alt="Çocuk telefonu"> <img src="docs/ekran-goruntuleri/veli_ana_ekran.png" width="230" alt="Veli telefonu">
 
@@ -12,11 +12,23 @@ Tek uygulama, iki rol:
 |---|---|
 | Gelen bildirimler **telefonun içinde** Türkçe analiz edilir (7 sınıf) | E-posta ile hesap, **6 haneli kodla** çocuk cihazı bağlama |
 | **Mesajlar hiçbir yerde gösterilmez/saklanmaz**; yalnızca uygulama, saat, kategori | Bildirim: **"Tehdit kategorisinde uygunsuz mesaj tespit edildi"** |
-| "Metin dene": cümle yazıp analiz sonucunu görme | Uyarı listesi, okundu işaretleme, **son 7 gün özeti** |
+| "Metin dene": cümle yazıp 3 yöntemin sonucunu yan yana görme | Uyarı listesi, okundu işaretleme, **son 7 gün özeti** |
+| **Ekran (OCR)** ve **ses (konuşma tanıma)** analizi – görünür bildirimle | |
+| "Ayarlar": yöntem seçimi, ölçümler, CSV dışa aktarma | |
 | "Kelimelerim": kendi lakap/ifade listesi + velinin eklediği ifadeler | **Kelime listesi**: lakap/özel ifadeyi çocuğun telefonuna ekleme/kaldırma |
 | "Veli": açık onay, bağlanma, velisine giden uyarıları görme, bağlantıyı kaldırma | Bağlı cihazları görme / kaldırma |
 
 Sınıflar: Normal, Küfür, Hakaret, Siber zorbalık, Tehdit, Uygunsuz yaklaşım (grooming), Kendine zarar.
+
+## Araştırma sonuçları (test, 319 örnek)
+| Yöntem | Macro-F1 | Yanlış alarm | Kaçırılan riskli |
+|---|---|---|---|
+| 1 – Anahtar kelime | 0,759 | 0,000 | 0,290 |
+| 2 – TF-IDF + LR | 0,736 | 0,183 | 0,069 |
+| 3 – DistilBERTurk (LiteRT int8) | 0,642 | 0,400 | 0,073 |
+| **Birleşik: kelime + TF-IDF (uygulama varsayılanı)** | **0,852** | 0,100 | 0,069 |
+
+Rapor taslağı: **`docs/TUBITAK_rapor_taslagi.md`** · ayrıntılı tablo: `python/evaluation/sonuclar/karsilastirma.md`
 
 ## Gizlilik tasarımı
 - **Mesaj metni, gönderen kişi ve kelime listeleri hiçbir sunucuda tutulmaz.**
@@ -36,26 +48,44 @@ Sınıflar: Normal, Küfür, Hakaret, Siber zorbalık, Tehdit, Uygunsuz yaklaş�
 ```
 app/src/main/java/com/digitalkalkan/app/
   monitoring/notification/   bildirim dinleyici (NotificationListenerService)
-  domain/analysis/           Türkçe normalleştirme + anahtar kelime analizi (Yöntem 1)
+  domain/analysis/           normalleştirme, Yöntem 1 (kelime), 2 (TF-IDF), 3 (BERT/LiteRT), birleşik
+  monitoring/screen/         ekran (OCR) ve ses analizi servisi
+  monitoring/audio/          Vosk Türkçe model yöneticisi
+  data/local/db/             Room: metinsiz olay kaydı
   domain/alerts/             veliye uyarı gönderimi
   data/remote/               Supabase bağlantısı
   data/repository/           kullanıcı / veli kelime listeleri (cihazda)
   notifications/             Firebase bildirim servisi
   ui/                        çocuk ekranları, veli ekranları, rol seçimi
 app/src/main/assets/lexicon/ Türkçe risk sözlüğü
-python/                      veri seti (2115 örnek, 7 sınıf), değerlendirme betikleri
+app/src/main/assets/models/ Yöntem 2 (JSON) ve Yöntem 3 (LiteRT int8) modelleri
+python/                      veri seti, eğitim (training/), dışa aktarım (export/), değerlendirme
 supabase/                    veritabanı şeması, bildirim fonksiyonu, testler
 docs/                        rehberler, test kayıtları, ekran görüntüleri
 ```
 
 ## Teknik bilgiler
-Kotlin · Jetpack Compose · minSdk 29 (Android 10) · targetSdk 36 · AGP 9.5 · Gradle 9.8 ·
-Supabase (Auth, Postgres + RLS, Edge Function) · Firebase Cloud Messaging
+Kotlin · Jetpack Compose · minSdk 29 (Android 10) · targetSdk 36 · AGP 9.5 · Gradle 9.8 · Room ·
+ML Kit OCR · LiteRT · Vosk · Supabase (Auth, Postgres + RLS, Edge Function) · Firebase Cloud Messaging
 
 Testler: `./gradlew testDebugUnitTest` (analiz motoru Python ile 2143 cümlede birebir aynı;
 ekran görüntüleri `app/build/screenshots/`).
 
-## Henüz yapılmayanlar (plan)
-- 5–6. hafta: Ekran yakalama (MediaProjection) + ML Kit OCR
-- 7–8. hafta: Ses yakalama + konuşma tanıma (Vosk Türkçe)
-- Yöntem 2 (klasik ML) ve Yöntem 3 (BERTurk/DistilBERTurk) model eğitimi ve LiteRT ile cihaza aktarma
+## Modelleri yeniden üretme
+```bash
+cd python
+python dataset/build_dataset.py           # veri seti
+python evaluation/keyword_baseline.py     # Yöntem 1
+python training/yontem2_tfidf.py          # Yöntem 2 (+ telefon modeli)
+python training/yontem3_bert.py           # Yöntem 3 (pip install torch transformers)
+python export/yontem3_litert.py           # Yöntem 3 → LiteRT (pip install litert-torch)
+python evaluation/karsilastirma.py        # karşılaştırma tablosu
+```
+
+## APK
+`./gradlew assembleDebug` → `app/build/outputs/apk/debug/app-arm64-v8a-debug.apk` (telefon) ve
+`app-x86_64-debug.apk` (emülatör).
+
+## Bilinen eksikler
+- Telefonda performans (süre, bellek, pil) ölçümleri ve ekran/ses testleri öğrencilerce yapılacak.
+- Veliye anlık bildirim için Supabase'de `FIREBASE_SERVICE_ACCOUNT` hizmet hesabı anahtarı gereklidir.

@@ -1,0 +1,8 @@
+# Yöntem 1 ve veri seti: ek paket gerekmez (Python 3.10+)
+scikit-learn>=1.5      # Yöntem 2
+numpy
+scipy
+torch                  # Yöntem 3 (CPU yeterli: --index-url https://download.pytorch.org/whl/cpu)
+transformers>=5
+ai-edge-litert         # LiteRT modelini bilgisayarda doğrulama
+# Dönüştürme ayrı ortamda önerilir: pip install litert-torch transformers

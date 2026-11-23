@@ -23,7 +23,9 @@ object AppNames {
         "com.tencent.ig" to "PUBG Mobile",
         "com.dts.freefireth" to "Free Fire",
         "com.google.android.deskclock" to "Saat",
-        "com.digitalkalkan.app" to "Dijital Kalkan"
+        "com.digitalkalkan.app" to "Dijital Kalkan",
+        "dijitalkalkan.ekran" to "Ekran (OCR)",
+        "dijitalkalkan.ses" to "Ses (video/oyun)"
     )
 
     fun label(packageName: String): String = known[packageName] ?: packageName

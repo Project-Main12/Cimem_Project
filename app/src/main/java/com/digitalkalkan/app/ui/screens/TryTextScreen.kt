@@ -30,13 +30,13 @@ import java.util.Locale
 /** Bildirim beklemeden bir cümle yazıp analiz sonucunu görme ekranı. */
 @Composable
 fun TryTextScreen(
-    analyze: (String) -> AnalysisResult,
+    analyzeAll: (String) -> List<AnalysisResult>,
     modifier: Modifier = Modifier,
     initialText: String = "",
-    initialResult: AnalysisResult? = null
+    initialResults: List<AnalysisResult> = emptyList()
 ) {
     var text by rememberSaveable { mutableStateOf(initialText) }
-    var result by remember { mutableStateOf(initialResult) }
+    var results by remember { mutableStateOf(initialResults) }
 
     Column(
         modifier = modifier.fillMaxSize().padding(16.dp).verticalScroll(rememberScrollState()),
@@ -52,24 +52,33 @@ fun TryTextScreen(
             minLines = 2
         )
         Button(
-            onClick = { result = analyze(text) },
+            onClick = { results = analyzeAll(text) },
             enabled = text.isNotBlank(),
             modifier = Modifier.fillMaxWidth()
         ) { Text("Analiz et") }
 
-        result?.let { r ->
+        if (results.size > 1) Text("İlk kart seçili yöntemdir; diğerleri karşılaştırma içindir.",
+            style = MaterialTheme.typography.bodySmall)
+        results.forEach { r ->
             Card(Modifier.fillMaxWidth()) {
                 Column(Modifier.padding(14.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Text("Sonuç:  ", style = MaterialTheme.typography.titleMedium)
                         RiskChip(r.category)
                     }
+                    r.confidence?.let {
+                        Text("Model güveni: %${(it * 100).toInt()}", style = MaterialTheme.typography.bodyMedium)
+                    }
                     if (r.matches.isEmpty()) {
-                        Text("Hiçbir kurala uymadı.", style = MaterialTheme.typography.bodyMedium)
+                        if (r.scores.isEmpty()) Text("Hiçbir kurala uymadı.", style = MaterialTheme.typography.bodyMedium)
                     } else {
                         Text("Eşleşen kurallar:", style = MaterialTheme.typography.bodyMedium)
                         r.matches.forEach { m ->
-                            val kaynak = if (m.source == RuleSource.KULLANICI) "  (sizin listeniz)" else ""
+                            val kaynak = when (m.source) {
+                                RuleSource.KULLANICI -> "  (sizin listeniz)"
+                                RuleSource.VELI -> "  (velinizin listesi)"
+                                else -> ""
+                            }
                             Text("• ${m.category.label}: ${m.rule}$kaynak", style = MaterialTheme.typography.bodyMedium)
                         }
                     }

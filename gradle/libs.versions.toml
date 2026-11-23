@@ -11,6 +11,11 @@ ktor = "3.6.1"
 serializationJson = "1.13.0"
 firebaseBom = "35.2.0"
 googleServices = "4.6.0"
+ksp = "2.3.14"
+room = "2.8.5"
+mlkitText = "16.0.1"
+litert = "2.4.0"
+vosk = "0.3.75"
 robolectric = "4.17"
 
 [libraries]
@@ -35,9 +40,16 @@ ktor-client-okhttp = { group = "io.ktor", name = "ktor-client-okhttp", version.r
 kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "serializationJson" }
 firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebaseBom" }
 firebase-messaging = { group = "com.google.firebase", name = "firebase-messaging" }
+room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
+room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
+room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
+mlkit-text-recognition = { group = "com.google.mlkit", name = "text-recognition", version.ref = "mlkitText" }
+litert = { group = "com.google.ai.edge.litert", name = "litert", version.ref = "litert" }
+vosk-android = { group = "com.alphacephei", name = "vosk-android", version.ref = "vosk" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 google-services = { id = "com.google.gms.google-services", version.ref = "googleServices" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }

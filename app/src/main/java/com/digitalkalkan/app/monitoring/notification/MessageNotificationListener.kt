@@ -4,6 +4,7 @@ import android.app.Notification
 import android.service.notification.NotificationListenerService
 import android.service.notification.StatusBarNotification
 import android.util.Log
+import com.digitalkalkan.app.data.local.db.EventRecorder
 import com.digitalkalkan.app.domain.alerts.AlertSender
 import com.digitalkalkan.app.domain.analysis.AnalyzerProvider
 
@@ -61,7 +62,7 @@ class MessageNotificationListener : NotificationListenerService() {
         val visibleText = bigText.ifBlank { text }
 
         // 4) Türkçe analiz (cihaz üzerinde). Başlık genelde gönderen adı olduğu için yalnızca metin analiz edilir.
-        val result = if (visibleText.isBlank()) null else AnalyzerProvider.get(this).analyze(visibleText)
+        val result = if (visibleText.isBlank()) null else AnalyzerProvider.engine(this).analyze(visibleText)
 
         if (LOG_CONTENT) {
             Log.i(TAG, "BİLDİRİM | paket=$sourcePackage | başlık=\"$title\" | metin=\"$visibleText\" | sonuç=${result?.category}")
@@ -75,6 +76,7 @@ class MessageNotificationListener : NotificationListenerService() {
 
         // 5) Cihaz bir veliye bağlıysa: yalnızca kategori/seviye/uygulama gönderilir
         val sent = result != null && AlertSender.maybeSend(this, sourcePackage, result)
+        if (result != null) EventRecorder.record(this, "BILDIRIM", sourcePackage, result, sent)
 
         // Ekrandaki tespit listesine ekle: metin YOK, yalnızca uygulama/saat/sonuç (yalnızca bellekte)
         CapturedNotificationLog.add(

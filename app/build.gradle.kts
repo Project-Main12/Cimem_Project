@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.google.services)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -13,8 +14,8 @@ android {
         applicationId = "com.digitalkalkan.app"
         minSdk = 29          // Android 10
         targetSdk = 36
-        versionCode = 5
-        versionName = "1.0.0"
+        versionCode = 6
+        versionName = "2.0.0"
     }
 
     buildTypes {
@@ -32,6 +33,18 @@ android {
     }
     buildFeatures {
         compose = true
+    }
+    // Telefon (arm64-v8a) ve emülatör (x86_64) için ayrı, küçük APK'lar
+    splits {
+        abi {
+            isEnable = true
+            reset()
+            include("arm64-v8a", "x86_64")
+            isUniversalApk = false
+        }
+    }
+    androidResources {
+        noCompress += "tflite"   // LiteRT modeli bellek eşlemeli okunabilsin
     }
     testOptions {
         unitTests.isIncludeAndroidResources = true
@@ -62,6 +75,14 @@ dependencies {
     implementation(libs.kotlinx.serialization.json)
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.messaging)
+
+    // Yerel olay kaydı (metin YOK), ekran OCR, BERT (LiteRT), ses tanıma (Vosk)
+    implementation(libs.room.runtime)
+    implementation(libs.room.ktx)
+    ksp(libs.room.compiler)
+    implementation(libs.mlkit.text.recognition)
+    implementation(libs.litert)
+    implementation(libs.vosk.android)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
 
     // Ekran görüntüsü testi (telefon olmadan ana ekranı PNG olarak üretir)

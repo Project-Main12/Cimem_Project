@@ -50,6 +50,27 @@ class MainScreenScreenshotTest {
         UserEntry("parkta bekleriz", RiskCategory.TEHDIT, false)
     )
 
+    private val tfidf = com.digitalkalkan.app.domain.analysis.TfidfLrAnalyzer(File("src/main/assets/models/yontem2_tfidf_lr.json").readText())
+    private val fakeSettings = object : com.digitalkalkan.app.ui.screens.SettingsActions {
+        override fun method() = com.digitalkalkan.app.domain.analysis.AnalysisMethod.BIRLESIK
+        override fun setMethod(m: com.digitalkalkan.app.domain.analysis.AnalysisMethod) {}
+        override fun bertAvailable() = true
+        override fun monitorRunning() = true
+        override fun monitorStatus() = "Ekran + Ses analizi açık"
+        override fun startMonitor(ocr: Boolean, audio: Boolean) {}
+        override fun stopMonitor() {}
+        override fun voskReady() = true
+        override suspend fun downloadVosk(progress: (Int) -> Unit) {}
+        override suspend fun stats() = Triple(
+            listOf(com.digitalkalkan.app.data.local.db.MethodStat("Birleşik (kelime + TF-IDF + Lojistik Regresyon)", 128, 950.0, 4_100),
+                com.digitalkalkan.app.data.local.db.MethodStat("Anahtar kelime", 37, 210.0, 900)),
+            listOf(com.digitalkalkan.app.data.local.db.CategoryCount("TEHDIT", 2), com.digitalkalkan.app.data.local.db.CategoryCount("HAKARET", 5)),
+            listOf(com.digitalkalkan.app.data.local.db.SourceCount("BILDIRIM", 140), com.digitalkalkan.app.data.local.db.SourceCount("EKRAN", 22))
+        )
+        override fun exportCsv() {}
+        override suspend fun clearEvents() {}
+    }
+
     private val linked = FamilyLink("l1", "p1", "c1", "Ali", "2026-11-16T09:30:00+00:00")
     private val fakeLink = object : ChildLinkActions {
         override suspend fun loadLink() = linked
@@ -77,16 +98,17 @@ class MainScreenScreenshotTest {
                         CapturedNotification("14:01:00", "com.digitalkalkan.app", "Kendi bildirimimiz – analiz dışı")
                     ),
                     onClearCaptured = {},
-                    analyze = analyzer::analyze,
+                    analyzeAll = { listOf(analyzer.analyze(it)) },
                     userEntries = entries,
                     parentEntries = listOf(UserEntry("leylek bacak", RiskCategory.HAKARET, true)),
                     onAddEntry = { _, _, _ -> null },
                     onRemoveEntry = {},
                     onShareEntries = {},
                     childLinkActions = fakeLink,
+                    settingsActions = fakeSettings,
                     initialTab = tab,
                     tryTextInitial = tryText,
-                    tryTextInitialResult = if (tryText.isBlank()) null else analyzer.analyze(tryText)
+                    tryTextInitialResults = if (tryText.isBlank()) emptyList() else listOf(analyzer.analyze(tryText), tfidf.analyze(tryText))
                 )
             }
         }
@@ -99,6 +121,7 @@ class MainScreenScreenshotTest {
     @Test fun sekme2_metinDene() = capture("sekme2_metin_dene", 1, "s.a.l.a.k mısın sen, okul çıkışında bekle")
     @Test fun sekme3_kelimeListem() = capture("sekme3_kelime_listem", 2)
     @Test fun sekme4_veliBaglantisi() = capture("sekme4_veli_baglantisi", 3)
+    @Test fun sekme5_ayarlar() = capture("sekme5_ayarlar", 4)
 
     private val fakeParent = object : ParentActions {
         private val now = OffsetDateTime.now()

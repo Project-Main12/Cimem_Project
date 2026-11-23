@@ -22,29 +22,32 @@ import com.digitalkalkan.app.domain.model.RiskCategory
 import com.digitalkalkan.app.monitoring.notification.CapturedNotification
 import com.digitalkalkan.app.ui.child.ChildLinkActions
 import com.digitalkalkan.app.ui.child.ChildLinkScreen
+import com.digitalkalkan.app.ui.screens.SettingsActions
+import com.digitalkalkan.app.ui.screens.SettingsScreen
 import com.digitalkalkan.app.ui.screens.StatusScreen
 import com.digitalkalkan.app.ui.screens.TryTextScreen
 import com.digitalkalkan.app.ui.screens.UserLexiconScreen
 
-private val TABS = listOf("Tespitler", "Metin dene", "Kelimelerim", "Veli")
+private val TABS = listOf("Tespitler", "Metin dene", "Kelimelerim", "Veli", "Ayarlar")
 
-/** Çocuk telefonunun ana iskeleti: başlık + 4 sekme. */
+/** Çocuk telefonunun ana iskeleti: başlık + 5 sekme. */
 @Composable
 fun DijitalKalkanApp(
     listenerEnabled: Boolean,
     onOpenSettings: () -> Unit,
     captured: List<CapturedNotification>,
     onClearCaptured: () -> Unit,
-    analyze: (String) -> AnalysisResult,
+    analyzeAll: (String) -> List<AnalysisResult>,
     userEntries: List<UserEntry>,
     parentEntries: List<UserEntry>,
     onAddEntry: (String, RiskCategory, Boolean) -> String?,
     onRemoveEntry: (UserEntry) -> Unit,
     onShareEntries: () -> Unit,
     childLinkActions: ChildLinkActions,
+    settingsActions: SettingsActions,
     initialTab: Int = 0,
     tryTextInitial: String = "",
-    tryTextInitialResult: AnalysisResult? = null
+    tryTextInitialResults: List<AnalysisResult> = emptyList()
 ) {
     var tab by rememberSaveable { mutableIntStateOf(initialTab) }
     Scaffold(
@@ -67,9 +70,10 @@ fun DijitalKalkanApp(
         val m = Modifier.padding(inner)
         when (tab) {
             0 -> StatusScreen(listenerEnabled, onOpenSettings, captured, onClearCaptured, m)
-            1 -> TryTextScreen(analyze, m, tryTextInitial, tryTextInitialResult)
+            1 -> TryTextScreen(analyzeAll, m, tryTextInitial, tryTextInitialResults)
             2 -> UserLexiconScreen(userEntries, parentEntries, onAddEntry, onRemoveEntry, onShareEntries, m)
-            else -> ChildLinkScreen(childLinkActions, m)
+            3 -> ChildLinkScreen(childLinkActions, m)
+            else -> SettingsScreen(settingsActions, m)
         }
     }
 }

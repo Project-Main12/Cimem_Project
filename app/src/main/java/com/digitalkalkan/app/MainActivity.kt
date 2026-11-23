@@ -6,6 +6,15 @@ import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
+import android.media.projection.MediaProjectionManager
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
+import com.digitalkalkan.app.data.local.db.EventDatabase
+import com.digitalkalkan.app.data.local.db.EventRecorder
+import com.digitalkalkan.app.domain.analysis.AnalysisMethod
+import com.digitalkalkan.app.monitoring.audio.VoskModelManager
+import com.digitalkalkan.app.monitoring.screen.ScreenAudioMonitorService
+import com.digitalkalkan.app.ui.screens.SettingsActions
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -54,6 +63,27 @@ class MainActivity : ComponentActivity() {
     private val notificationPermission =
         registerForActivityResult(ActivityResultContracts.RequestPermission()) { }
 
+    // Ekran/ses analizi: önce (gerekirse) ses izni, sonra sistemin ekran paylaşım onayı
+    private var pendingOcr = true
+    private var pendingAudio = false
+    private val audioPermission =
+        registerForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
+            if (!granted) pendingAudio = false
+            requestProjection()
+        }
+    private val projectionConsent =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { r ->
+            val data = r.data
+            if (r.resultCode == RESULT_OK && data != null) {
+                ScreenAudioMonitorService.start(this, r.resultCode, data, pendingOcr, pendingAudio)
+            }
+        }
+
+    private fun requestProjection() {
+        val mpm = getSystemService(MediaProjectionManager::class.java)
+        projectionConsent.launch(mpm.createScreenCaptureIntent())
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -85,7 +115,13 @@ class MainActivity : ComponentActivity() {
                         },
                         captured = CapturedNotificationLog.items,
                         onClearCaptured = { CapturedNotificationLog.clear() },
-                        analyze = { AnalyzerProvider.get(this).analyze(it) },
+                        analyzeAll = { text ->
+                            val selected = prefs.analysisMethod
+                            (listOf(selected) + AnalysisMethod.entries.filter { it != selected })
+                                .distinctBy { m -> AnalyzerProvider.analyzer(this, m).methodName }
+                                .map { m -> AnalyzerProvider.analyzer(this, m).analyze(text) }
+                                .also { rs -> EventRecorder.record(this, "METIN_DENE", "-", rs.first(), false) }
+                        },
                         userEntries = userEntries,
                         parentEntries = parentEntries,
                         onAddEntry = { phrase, category, suffixes ->
@@ -98,7 +134,8 @@ class MainActivity : ComponentActivity() {
                             refreshUserLexicon()
                         },
                         onShareEntries = { shareUserLexicon() },
-                        childLinkActions = childLinkActions
+                        childLinkActions = childLinkActions,
+                        settingsActions = settingsActions
                     )
                 }
             }
@@ -209,6 +246,41 @@ class MainActivity : ComponentActivity() {
             Backend.removeLink(link.id)
             prefs.childLinked = false
         }
+    }
+
+    private val settingsActions = object : SettingsActions {
+        override fun method() = prefs.analysisMethod
+        override fun setMethod(m: AnalysisMethod) { prefs.analysisMethod = m }
+        override fun bertAvailable() = AnalyzerProvider.bert(this@MainActivity) != null
+        override fun monitorRunning() = ScreenAudioMonitorService.running.value
+        override fun monitorStatus() = ScreenAudioMonitorService.status.value
+        override fun startMonitor(ocr: Boolean, audio: Boolean) {
+            pendingOcr = ocr; pendingAudio = audio
+            if (audio && ContextCompat.checkSelfPermission(this@MainActivity, Manifest.permission.RECORD_AUDIO)
+                != PackageManager.PERMISSION_GRANTED
+            ) audioPermission.launch(Manifest.permission.RECORD_AUDIO) else requestProjection()
+        }
+        override fun stopMonitor() = ScreenAudioMonitorService.stop(this@MainActivity)
+        override fun voskReady() = VoskModelManager.isReady(this@MainActivity)
+        override suspend fun downloadVosk(progress: (Int) -> Unit) = withContext(Dispatchers.IO) {
+            VoskModelManager.download(this@MainActivity) { p -> lifecycleScope.launch { progress(p) } }
+        }
+        override suspend fun stats() = withContext(Dispatchers.IO) {
+            val dao = EventDatabase.get(this@MainActivity).events()
+            val week = System.currentTimeMillis() - 7L * 24 * 3600 * 1000
+            Triple(dao.methodStats(), dao.riskCountsSince(week), dao.sourceCountsSince(week))
+        }
+        override fun exportCsv() {
+            lifecycleScope.launch {
+                val csv = withContext(Dispatchers.IO) { EventRecorder.exportCsv(this@MainActivity) }
+                startActivity(Intent.createChooser(Intent(Intent.ACTION_SEND).apply {
+                    type = "text/plain"
+                    putExtra(Intent.EXTRA_SUBJECT, "Dijital Kalkan ölçümleri (metin içermez)")
+                    putExtra(Intent.EXTRA_TEXT, csv)
+                }, "Ölçümleri gönder"))
+            }
+        }
+        override suspend fun clearEvents() = withContext(Dispatchers.IO) { EventDatabase.get(this@MainActivity).events().clear() }
     }
 
     private fun refreshUserLexicon() {

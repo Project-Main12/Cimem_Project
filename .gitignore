@@ -18,3 +18,4 @@ python/dataset/raw/
 *.apk
 cikti/
 python/dataset/dis_veri/
+python/training/cikti/

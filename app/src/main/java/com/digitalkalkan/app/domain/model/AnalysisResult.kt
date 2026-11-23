@@ -13,8 +13,13 @@ data class AnalysisResult(
     val category: RiskCategory,
     val matches: List<RuleMatch>,
     val durationMicros: Long,
-    val method: String
+    val method: String,
+    /** Makine öğrenmesi yöntemlerinde sınıf olasılıkları (kelime listesinde boş). */
+    val scores: Map<RiskCategory, Float> = emptyMap()
 ) {
+    /** Seçilen sınıfın olasılığı (yalnızca ML yöntemleri). */
+    val confidence: Float? get() = scores[category]
+
     val level: RiskLevel get() = category.level
     val isRisky: Boolean get() = category != RiskCategory.NORMAL
 }

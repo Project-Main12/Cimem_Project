@@ -28,7 +28,7 @@ Sınıflar: Normal, Küfür, Hakaret, Siber zorbalık, Tehdit, Uygunsuz yaklaş�
 | 3 – DistilBERTurk (LiteRT int8) | 0,642 | 0,400 | 0,073 |
 | **Birleşik: kelime + TF-IDF (uygulama varsayılanı)** | **0,852** | 0,100 | 0,069 |
 
-Rapor taslağı: **`docs/TUBITAK_rapor_taslagi.md`** · ayrıntılı tablo: `python/evaluation/sonuclar/karsilastirma.md`
+Ayrıntılı tablo: `python/evaluation/sonuclar/karsilastirma.md`
 
 ## Gizlilik tasarımı
 - **Mesaj metni, gönderen kişi ve kelime listeleri hiçbir sunucuda tutulmaz.**
@@ -81,6 +81,10 @@ python training/yontem3_bert.py           # Yöntem 3 (pip install torch transfo
 python export/yontem3_litert.py           # Yöntem 3 → LiteRT (pip install litert-torch)
 python evaluation/karsilastirma.py        # karşılaştırma tablosu
 ```
+
+## Uygulama turu (telefon olmadan)
+`./gradlew testDebugUnitTest --tests '*UygulamaTuruTest*'` → `app/build/tur/` klasöründe 13 adımlık ekran görüntüleri
+(gerçek arayüz ve gerçek analiz motoru; sunucu işlemleri örnek verilerle).
 
 ## APK
 `./gradlew assembleDebug` → `app/build/outputs/apk/debug/app-arm64-v8a-debug.apk` (telefon) ve
